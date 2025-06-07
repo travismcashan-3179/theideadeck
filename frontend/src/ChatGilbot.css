@@ -124,6 +124,7 @@ body {
 
 @media (max-width: 700px) {
   html, body {
+    background: #7fff00 !important; /* puke green for sanity check */
     height: 100vh;
     overflow-x: hidden;
     margin: 0;
