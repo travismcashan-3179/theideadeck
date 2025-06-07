@@ -141,18 +141,6 @@ body {
     display: flex;
     flex-direction: column;
   }
-  .gilbot-capsule-toggle,
-  .gilbot-chat-list,
-  .gilbot-input-bar,
-  .gilbot-masonry-grid,
-  .gilbot-grid {
-    width: 100%;
-    box-sizing: border-box;
-    border: 2px solid red !important;
-    margin: 0;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
   .gilbot-capsule-toggle {
     position: fixed;
     top: 0;
@@ -160,10 +148,13 @@ body {
     right: 0;
     z-index: 100;
     background: #f3eeff;
-    padding-top: 0;
-    padding-bottom: 4px;
+    padding: 0 20px 4px 20px;
+    margin: 0;
     height: 48px;
     box-shadow: 0 2px 8px #e7e7fa;
+    width: 100vw;
+    box-sizing: border-box;
+    border: 2px solid red !important;
   }
   .gilbot-chat-list {
     flex: 1;
@@ -171,6 +162,9 @@ body {
     padding-top: 56px;
     padding-bottom: 64px;
     min-height: 0;
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid red !important;
   }
   .gilbot-input-bar {
     position: fixed;
@@ -179,9 +173,11 @@ body {
     right: 0;
     z-index: 100;
     background: #f3eeff;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding: 8px 20px 8px 20px;
     box-shadow: 0 -2px 8px #e7e7fa;
+    width: 100vw;
+    box-sizing: border-box;
+    border: 2px solid red !important;
   }
   .gilbot-input {
     font-size: 1em;
@@ -220,6 +216,22 @@ body {
   .ca-card-inner, .ca-card-front, .ca-card-back {
     font-size: 0.98em;
     box-sizing: border-box;
+  }
+  .gilbot-masonry-grid, .gilbot-grid {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    border: 2px solid red !important;
+  }
+  .gilbot-capsule-toggle {
+    margin-bottom: 12px;
+  }
+  .gilbot-input-bar {
+    padding: 8px 0 12px 0;
   }
 }
 
