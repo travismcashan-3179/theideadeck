@@ -388,7 +388,6 @@ export default function App() {
 
   return (
     <div id="gilbot-chat-root">
-      {/* Move header outside of gilbot-inner for bulletproof fixed positioning */}
       <div className="gilbot-capsule-toggle">
         <div className={`gilbot-capsule-bg ${tab === 'ideas' ? 'right' : 'left'}`}></div>
         <button
@@ -406,37 +405,34 @@ export default function App() {
           Ideas
         </button>
       </div>
-      <div className="gilbot-inner">
+      <div className="gilbot-body">
         {error && (
           <div style={{ color: '#d9534f', background: '#fff0f0', padding: '12px 24px', borderRadius: 12, marginBottom: 18, textAlign: 'center', fontWeight: 600 }}>
             {error}
           </div>
         )}
         {tab === 'chat' ? (
-          <>
-            <div className="gilbot-chat-list" ref={chatRef} style={{ position: 'relative' }}>
-              {/* Fade overlay at the top */}
-              <div className="gilbot-chat-fade-top" />
-              {messages.map((m, i) => (
-                <div
-                  key={i}
-                  className={`gilbot-bubble ${m.sender === 'user' ? 'gilbot-user' : 'gilbot-bot'}`}
-                  style={{ alignSelf: m.sender === 'user' ? 'flex-end' : 'flex-start' }}
-                >
-                  {m.type === 'loadingGif' && m.gif ? (
-                    <img src={m.gif} alt="Loading..." style={{ width: 160, height: 160, borderRadius: 18, boxShadow: '0 2px 8px #e7e7fa' }} />
-                  ) : (
-                    m.text.split('\n').map((line, idx) => (
-                      <React.Fragment key={idx}>
-                        {line}
-                        <br />
-                      </React.Fragment>
-                    ))
-                  )}
-                </div>
-              ))}
-            </div>
-          </>
+          <div className="gilbot-chat-list" ref={chatRef} style={{ position: 'relative' }}>
+            <div className="gilbot-chat-fade-top" />
+            {messages.map((m, i) => (
+              <div
+                key={i}
+                className={`gilbot-bubble ${m.sender === 'user' ? 'gilbot-user' : 'gilbot-bot'}`}
+                style={{ alignSelf: m.sender === 'user' ? 'flex-end' : 'flex-start' }}
+              >
+                {m.type === 'loadingGif' && m.gif ? (
+                  <img src={m.gif} alt="Loading..." style={{ width: 160, height: 160, borderRadius: 18, boxShadow: '0 2px 8px #e7e7fa' }} />
+                ) : (
+                  m.text.split('\n').map((line, idx) => (
+                    <React.Fragment key={idx}>
+                      {line}
+                      <br />
+                    </React.Fragment>
+                  ))
+                )}
+              </div>
+            ))}
+          </div>
         ) : (
           <div style={{ flex: 1, width: '100%', padding: '32px 0 0 0', overflow: 'auto' }}>
             {/* Filter dropdowns, view toggle, and group by */}
@@ -961,7 +957,6 @@ export default function App() {
           </div>
         )}
       </div>
-      {/* Footer remains outside gilbot-inner for bulletproof alignment */}
       {tab === 'chat' && (
         <form className="gilbot-input-bar" onSubmit={handleSubmit}>
           <div className="gilbot-input-bar-inner">
@@ -982,7 +977,6 @@ export default function App() {
               disabled={loading}
               aria-label={recording ? 'Stop recording' : 'Record voice'}
             >
-              {/* Simple mic SVG icon */}
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 1v14a4 4 0 0 0 4-4V5a4 4 0 0 0-8 0v6a4 4 0 0 0 4 4z"></path><line x1="19" y1="10" x2="19" y2="10"></line><line x1="5" y1="10" x2="5" y2="10"></line><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
               {recording ? 'Stop' : ''}
             </button>
