@@ -21,10 +21,10 @@ app.use(cors({
       'https://theideadeck.vercel.app',
       'https://theideadeck.onrender.com'
     ];
-    // Allow all Vercel preview deployments for this project
+    // Updated regex to allow all Vercel preview/branch deploys
     if (
       allowedOrigins.includes(origin) ||
-      /^https:\/\/theideadeck-[a-z0-9]+-travis-mcashans-projects\.vercel\.app$/.test(origin)
+      /^https:\/\/theideadeck(-[a-z0-9-]+)?-travis-mcashans-projects\.vercel\.app$/.test(origin)
     ) {
       callback(null, true);
     } else {
