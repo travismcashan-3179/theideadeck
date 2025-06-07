@@ -15,11 +15,21 @@ const DATA_FILE = path.resolve('./data/ideas.json');
 const CHAT_FILE = path.resolve('./data/chat.json');
 
 app.use(cors({
-  origin: [
-    'https://theideadeck-lu7t0taqx-travis-mcashans-projects.vercel.app',
-    'https://theideadeck-4vvxz5t50-travis-mcashans-projects.vercel.app',
-    'https://theideadeck.vercel.app'
-  ],
+  origin: function (origin, callback) {
+    const allowedOrigins = [
+      'https://theideadeck.vercel.app',
+      'https://theideadeck-backend.onrender.com'
+    ];
+    // Allow all Vercel preview deployments for this project
+    if (
+      allowedOrigins.includes(origin) ||
+      /^https:\/\/theideadeck-[a-z0-9]+-travis-mcashans-projects\.vercel\.app$/.test(origin)
+    ) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
 app.use(bodyParser.json());
