@@ -59,33 +59,45 @@ export default function App() {
   const [groupBy, setGroupBy] = useState('none');
   const [editingTitleId, setEditingTitleId] = useState(null);
   const [dragOverId, setDragOverId] = useState(null);
+  const [error, setError] = useState("");
 
   // Load chat history on mount
   useEffect(() => {
-    fetch(getApiUrl('/chat'))
-      .then(r => r.json())
-      .then(history => {
+    async function loadChat() {
+      try {
+        const res = await fetch(getApiUrl('/chat'));
+        if (!res.ok) throw new Error('Failed to load chat history');
+        const history = await res.json();
         if (history && history.length > 0) {
-          // Sort by createdAt ascending
           history.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
           setMessages(history);
         }
-      })
-      .catch(() => {});
+      } catch (err) {
+        setError('Failed to load chat history.');
+      }
+    }
+    loadChat();
   }, []);
 
   useEffect(() => {
     if (tab === 'ideas') {
-      fetch(getApiUrl('/ideas')).then(r => r.json()).then(fetchedIdeas => {
-        // If any idea is missing type/topic/intent, set it to editing mode
-        const ideasWithEdit = fetchedIdeas.map((idea, idx, arr) => {
-          if (!idea.type && !idea.topic && !idea.intent) {
-            return { ...idea, _editingMeta: true };
-          }
-          return idea;
-        });
-        setIdeas(ideasWithEdit);
-      });
+      async function loadIdeas() {
+        try {
+          const res = await fetch(getApiUrl('/ideas'));
+          if (!res.ok) throw new Error('Failed to load ideas');
+          const fetchedIdeas = await res.json();
+          const ideasWithEdit = fetchedIdeas.map((idea, idx, arr) => {
+            if (!idea.type && !idea.topic && !idea.intent) {
+              return { ...idea, _editingMeta: true };
+            }
+            return idea;
+          });
+          setIdeas(ideasWithEdit);
+        } catch (err) {
+          setError('Failed to load ideas.');
+        }
+      }
+      loadIdeas();
     }
   }, [tab]);
 
@@ -127,71 +139,83 @@ export default function App() {
     e.preventDefault();
     if (!input.trim()) return;
     setLoading(true);
+    setError("");
     const now = Date.now();
     const userMsg = { sender: 'user', text: input, createdAt: new Date(now).toISOString() };
     setInput('');
-
-    // 1. POST user message and wait for it to finish
-    await fetch(getApiUrl('/chat'), {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(userMsg)
-    });
-
-    // 2. Fetch GIPHY and POST loader, wait for it to finish
-    const gifUrl = await fetchRandomLoadingGif();
-    const waitingMsg = { sender: 'agent', type: 'loadingGif', gif: gifUrl, text: '[GIPHY_WAITING]', createdAt: new Date(now + 1).toISOString() };
-    await fetch(getApiUrl('/chat'), {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(waitingMsg)
-    });
-
-    // 3. Reload chat history to ensure correct order
-    fetch(getApiUrl('/chat'))
-      .then(r => r.json())
-      .then(history => {
-        if (history && history.length > 0) {
-          history.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
-          setMessages(history);
-        }
+    try {
+      // 1. POST user message
+      let res = await fetch(getApiUrl('/chat'), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(userMsg)
       });
+      if (!res.ok) throw new Error('Failed to send message');
 
-    // 4. Get AI reply
-    fetch(getApiUrl('/agent'), {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: userMsg.text })
-    })
-      .then(res => res.json())
-      .then(() => {
-        setLoading(false);
-        // 5. Reload chat history again to show the new AI message and correct order
-        fetch(getApiUrl('/chat'))
-          .then(r => r.json())
-          .then(history => {
-            if (history && history.length > 0) {
-              history.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
-              setMessages(history);
-            }
-          });
-      })
-      .catch(() => {
-        setLoading(false);
-        setMessages(msgs => [
-          ...msgs,
-          { sender: 'agent', text: 'Sorry, something went wrong.' }
-        ]);
+      // 2. Fetch GIPHY and POST loader
+      const gifUrl = await fetchRandomLoadingGif();
+      const waitingMsg = { sender: 'agent', type: 'loadingGif', gif: gifUrl, text: '[GIPHY_WAITING]', createdAt: new Date(now + 1).toISOString() };
+      res = await fetch(getApiUrl('/chat'), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(waitingMsg)
       });
+      if (!res.ok) throw new Error('Failed to send loading message');
+
+      // 3. Reload chat history
+      res = await fetch(getApiUrl('/chat'));
+      if (!res.ok) throw new Error('Failed to reload chat history');
+      let history = await res.json();
+      if (history && history.length > 0) {
+        history.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+        setMessages(history);
+      }
+
+      // 4. Get AI reply
+      res = await fetch(getApiUrl('/agent'), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userMsg.text })
+      });
+      if (!res.ok) throw new Error('Failed to get AI reply');
+      await res.json();
+
+      // 5. Reload chat history again
+      res = await fetch(getApiUrl('/chat'));
+      if (!res.ok) throw new Error('Failed to reload chat history');
+      history = await res.json();
+      if (history && history.length > 0) {
+        history.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+        setMessages(history);
+      }
+      setLoading(false);
+    } catch (err) {
+      setLoading(false);
+      setError(err.message || 'Sorry, something went wrong.');
+      setMessages(msgs => [
+        ...msgs,
+        { sender: 'agent', text: 'Sorry, something went wrong.' }
+      ]);
+    }
   };
 
   const markUsed = async (id) => {
-    await fetch(getApiUrl(`/ideas/${id}/used`), { method: 'PUT' });
-    setIdeas(ideas => ideas.map(idea => idea.id === id ? { ...idea, used: true } : idea));
+    try {
+      const res = await fetch(getApiUrl(`/ideas/${id}/used`), { method: 'PUT' });
+      if (!res.ok) throw new Error('Failed to mark as used');
+      setIdeas(ideas => ideas.map(idea => idea.id === id ? { ...idea, used: true } : idea));
+    } catch (err) {
+      setError('Failed to mark idea as used.');
+    }
   };
   const deleteIdea = async (id) => {
-    await fetch(getApiUrl(`/ideas/${id}`), { method: 'DELETE' });
-    setIdeas(ideas => ideas.filter(idea => idea.id !== id));
+    try {
+      const res = await fetch(getApiUrl(`/ideas/${id}`), { method: 'DELETE' });
+      if (!res.ok) throw new Error('Failed to delete idea');
+      setIdeas(ideas => ideas.filter(idea => idea.id !== id));
+    } catch (err) {
+      setError('Failed to delete idea.');
+    }
   };
 
   const handleMicClick = async () => {
@@ -346,21 +370,29 @@ export default function App() {
     if (!file || !file.type.startsWith('image/')) return;
     const formData = new FormData();
     formData.append('image', file);
-    // POST to backend
-    const res = await fetch(getApiUrl(`/ideas/${idea.id}/image`), {
-      method: 'POST',
-      body: formData
-    });
-    if (res.ok) {
-      const data = await res.json();
-      setIdeas(prev => prev.map(idObj => idObj.id === idea.id ? { ...idObj, imageUrl: data.imageUrl } : idObj));
-    } else {
-      alert('Image upload failed.');
+    try {
+      const res = await fetch(getApiUrl(`/ideas/${idea.id}/image`), {
+        method: 'POST',
+        body: formData
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setIdeas(prev => prev.map(idObj => idObj.id === idea.id ? { ...idObj, imageUrl: data.imageUrl } : idObj));
+      } else {
+        setError('Image upload failed.');
+      }
+    } catch (err) {
+      setError('Image upload failed.');
     }
   }
 
   return (
     <div id="gilbot-chat-root">
+      {error && (
+        <div style={{ color: '#d9534f', background: '#fff0f0', padding: '12px 24px', borderRadius: 12, marginBottom: 18, textAlign: 'center', fontWeight: 600 }}>
+          {error}
+        </div>
+      )}
       {/* Capsule Toggle Switch */}
       <div className="gilbot-capsule-toggle">
         <div className={`gilbot-capsule-bg ${tab === 'ideas' ? 'right' : 'left'}`}></div>
