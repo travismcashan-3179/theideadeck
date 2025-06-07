@@ -388,602 +388,604 @@ export default function App() {
 
   return (
     <div id="gilbot-chat-root">
-      {error && (
-        <div style={{ color: '#d9534f', background: '#fff0f0', padding: '12px 24px', borderRadius: 12, marginBottom: 18, textAlign: 'center', fontWeight: 600 }}>
-          {error}
+      <div className="gilbot-inner">
+        {error && (
+          <div style={{ color: '#d9534f', background: '#fff0f0', padding: '12px 24px', borderRadius: 12, marginBottom: 18, textAlign: 'center', fontWeight: 600 }}>
+            {error}
+          </div>
+        )}
+        {/* Capsule Toggle Switch */}
+        <div className="gilbot-capsule-toggle">
+          <div className={`gilbot-capsule-bg ${tab === 'ideas' ? 'right' : 'left'}`}></div>
+          <button
+            className={`gilbot-capsule-btn${tab === 'chat' ? ' selected' : ''}`}
+            onClick={() => setTab('chat')}
+            type="button"
+          >
+            Chat
+          </button>
+          <button
+            className={`gilbot-capsule-btn${tab === 'ideas' ? ' selected' : ''}`}
+            onClick={() => setTab('ideas')}
+            type="button"
+          >
+            Ideas
+          </button>
         </div>
-      )}
-      {/* Capsule Toggle Switch */}
-      <div className="gilbot-capsule-toggle">
-        <div className={`gilbot-capsule-bg ${tab === 'ideas' ? 'right' : 'left'}`}></div>
-        <button
-          className={`gilbot-capsule-btn${tab === 'chat' ? ' selected' : ''}`}
-          onClick={() => setTab('chat')}
-          type="button"
-        >
-          Chat
-        </button>
-        <button
-          className={`gilbot-capsule-btn${tab === 'ideas' ? ' selected' : ''}`}
-          onClick={() => setTab('ideas')}
-          type="button"
-        >
-          Ideas
-        </button>
-      </div>
-      {/* End Capsule Toggle Switch */}
-      {tab === 'chat' ? (
-        <>
-          <div className="gilbot-chat-list" ref={chatRef} style={{ position: 'relative' }}>
-            {/* Fade overlay at the top */}
-            <div className="gilbot-chat-fade-top" />
-            {messages.map((m, i) => (
-              <div
-                key={i}
-                className={`gilbot-bubble ${m.sender === 'user' ? 'gilbot-user' : 'gilbot-bot'}`}
-                style={{ alignSelf: m.sender === 'user' ? 'flex-end' : 'flex-start' }}
+        {/* End Capsule Toggle Switch */}
+        {tab === 'chat' ? (
+          <>
+            <div className="gilbot-chat-list" ref={chatRef} style={{ position: 'relative' }}>
+              {/* Fade overlay at the top */}
+              <div className="gilbot-chat-fade-top" />
+              {messages.map((m, i) => (
+                <div
+                  key={i}
+                  className={`gilbot-bubble ${m.sender === 'user' ? 'gilbot-user' : 'gilbot-bot'}`}
+                  style={{ alignSelf: m.sender === 'user' ? 'flex-end' : 'flex-start' }}
+                >
+                  {m.type === 'loadingGif' && m.gif ? (
+                    <img src={m.gif} alt="Loading..." style={{ width: 160, height: 160, borderRadius: 18, boxShadow: '0 2px 8px #e7e7fa' }} />
+                  ) : (
+                    m.text.split('\n').map((line, idx) => (
+                      <React.Fragment key={idx}>
+                        {line}
+                        <br />
+                      </React.Fragment>
+                    ))
+                  )}
+                </div>
+              ))}
+            </div>
+            <form className="gilbot-input-bar" onSubmit={handleSubmit}>
+              <textarea
+                className="gilbot-input"
+                value={input}
+                onChange={handleInputChange}
+                onKeyDown={handleKeyDown}
+                placeholder="Type your message..."
+                rows={inputRows}
+                style={{ resize: 'none', minHeight: 44, maxHeight: 44 * maxRows, overflowY: inputRows === maxRows ? 'auto' : 'hidden' }}
+              />
+              <button
+                type="button"
+                className="gilbot-mic-btn"
+                onClick={handleMicClick}
+                style={{ background: recording ? '#d9534f' : '#9194E0', color: '#fff', border: 'none', borderRadius: 32, padding: '14px 18px', marginRight: 8, fontSize: '1.1em', fontWeight: 700, cursor: 'pointer', transition: 'background 0.2s' }}
+                disabled={loading}
+                aria-label={recording ? 'Stop recording' : 'Record voice'}
               >
-                {m.type === 'loadingGif' && m.gif ? (
-                  <img src={m.gif} alt="Loading..." style={{ width: 160, height: 160, borderRadius: 18, boxShadow: '0 2px 8px #e7e7fa' }} />
-                ) : (
-                  m.text.split('\n').map((line, idx) => (
-                    <React.Fragment key={idx}>
-                      {line}
-                      <br />
-                    </React.Fragment>
-                  ))
-                )}
+                {/* Simple mic SVG icon */}
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 1v14a4 4 0 0 0 4-4V5a4 4 0 0 0-8 0v6a4 4 0 0 0 4 4z"></path><line x1="19" y1="10" x2="19" y2="10"></line><line x1="5" y1="10" x2="5" y2="10"></line><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                {recording ? 'Stop' : ''}
+              </button>
+              <button className="gilbot-send-btn" type="submit" disabled={loading}>Send</button>
+            </form>
+          </>
+        ) : (
+          <div style={{ flex: 1, width: '100%', padding: '32px 0 0 0', overflow: 'auto' }}>
+            {/* Filter dropdowns, view toggle, and group by */}
+            <div style={{ display: 'flex', gap: 16, marginBottom: 24, flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
+              <div className="gilbot-filter-group">
+                <div className="gilbot-filter-label">Type</div>
+                <select className="gilbot-filter-select" value={filterPostType} onChange={e => setFilterPostType(e.target.value)}>
+                  {getSortedOptions(POST_TYPES, 'type', true, ideasForType).map(type => {
+                    if (!type) return <option key="" value="">All</option>;
+                    const count = getMetaCounts('type', ideasForType)[type] || 0;
+                    return <option key={type} value={type} disabled={count === 0} style={count === 0 ? { color: '#bbb' } : {}}>{type} ({count})</option>;
+                  })}
+                </select>
               </div>
-            ))}
-          </div>
-          <form className="gilbot-input-bar" onSubmit={handleSubmit}>
-            <textarea
-              className="gilbot-input"
-              value={input}
-              onChange={handleInputChange}
-              onKeyDown={handleKeyDown}
-              placeholder="Type your message..."
-              rows={inputRows}
-              style={{ resize: 'none', minHeight: 44, maxHeight: 44 * maxRows, overflowY: inputRows === maxRows ? 'auto' : 'hidden' }}
-            />
-            <button
-              type="button"
-              className="gilbot-mic-btn"
-              onClick={handleMicClick}
-              style={{ background: recording ? '#d9534f' : '#9194E0', color: '#fff', border: 'none', borderRadius: 32, padding: '14px 18px', marginRight: 8, fontSize: '1.1em', fontWeight: 700, cursor: 'pointer', transition: 'background 0.2s' }}
-              disabled={loading}
-              aria-label={recording ? 'Stop recording' : 'Record voice'}
-            >
-              {/* Simple mic SVG icon */}
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 1v14a4 4 0 0 0 4-4V5a4 4 0 0 0-8 0v6a4 4 0 0 0 4 4z"></path><line x1="19" y1="10" x2="19" y2="10"></line><line x1="5" y1="10" x2="5" y2="10"></line><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
-              {recording ? 'Stop' : ''}
-            </button>
-            <button className="gilbot-send-btn" type="submit" disabled={loading}>Send</button>
-          </form>
-        </>
-      ) : (
-        <div style={{ flex: 1, width: '100%', padding: '32px 0 0 0', overflow: 'auto' }}>
-          {/* Filter dropdowns, view toggle, and group by */}
-          <div style={{ display: 'flex', gap: 16, marginBottom: 24, flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
-            <div className="gilbot-filter-group">
-              <div className="gilbot-filter-label">Type</div>
-              <select className="gilbot-filter-select" value={filterPostType} onChange={e => setFilterPostType(e.target.value)}>
-                {getSortedOptions(POST_TYPES, 'type', true, ideasForType).map(type => {
-                  if (!type) return <option key="" value="">All</option>;
-                  const count = getMetaCounts('type', ideasForType)[type] || 0;
-                  return <option key={type} value={type} disabled={count === 0} style={count === 0 ? { color: '#bbb' } : {}}>{type} ({count})</option>;
-                })}
-              </select>
+              <div className="gilbot-filter-group">
+                <div className="gilbot-filter-label">Topic</div>
+                <select className="gilbot-filter-select" value={filterContentTopic} onChange={e => setFilterContentTopic(e.target.value)}>
+                  {getSortedOptions(CONTENT_TOPICS, 'topic', true, ideasForTopic).map(type => {
+                    if (!type) return <option key="" value="">All</option>;
+                    const count = getMetaCounts('topic', ideasForTopic)[type] || 0;
+                    return <option key={type} value={type} disabled={count === 0} style={count === 0 ? { color: '#bbb' } : {}}>{type} ({count})</option>;
+                  })}
+                </select>
+              </div>
+              <div className="gilbot-filter-group">
+                <div className="gilbot-filter-label">Intent</div>
+                <select className="gilbot-filter-select" value={filterIntent} onChange={e => setFilterIntent(e.target.value)}>
+                  {getSortedOptions(INTENTS, 'intent', true, ideasForIntent).map(type => {
+                    if (!type) return <option key="" value="">All</option>;
+                    const count = getMetaCounts('intent', ideasForIntent)[type] || 0;
+                    return <option key={type} value={type} disabled={count === 0} style={count === 0 ? { color: '#bbb' } : {}}>{type} ({count})</option>;
+                  })}
+                </select>
+              </div>
+              {/* View toggle icons */}
+              <div style={{ display: 'flex', gap: 8, marginLeft: 18 }}>
+                <button
+                  type="button"
+                  className={ideasView === 'grid' ? 'gilbot-view-toggle selected' : 'gilbot-view-toggle'}
+                  onClick={() => setIdeasView('grid')}
+                  aria-label="Grid view"
+                  style={{ background: 'none', border: 'none', padding: 6, borderRadius: 8, cursor: 'pointer', color: ideasView === 'grid' ? '#343794' : '#bbb', outline: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                >
+                  {/* Grid icon */}
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </button>
+                <button
+                  type="button"
+                  className={ideasView === 'list' ? 'gilbot-view-toggle selected' : 'gilbot-view-toggle'}
+                  onClick={() => setIdeasView('list')}
+                  aria-label="List view"
+                  style={{ background: 'none', border: 'none', padding: 6, borderRadius: 8, cursor: 'pointer', color: ideasView === 'list' ? '#343794' : '#bbb', outline: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                >
+                  {/* List icon */}
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="4" cy="6" r="2"/><circle cx="4" cy="12" r="2"/><circle cx="4" cy="18" r="2"/></svg>
+                </button>
+              </div>
+              {/* Group By dropdown */}
+              <div style={{ marginLeft: 18, minWidth: 120 }}>
+                <div className="gilbot-filter-label" style={{ textAlign: 'center' }}>Group By</div>
+                <select
+                  className="gilbot-filter-select"
+                  value={groupBy}
+                  onChange={e => setGroupBy(e.target.value)}
+                  style={{ width: '100%' }}
+                >
+                  <option value="none">None</option>
+                  <option value="type">Type</option>
+                  <option value="topic">Topic</option>
+                  <option value="intent">Intent</option>
+                </select>
+              </div>
             </div>
-            <div className="gilbot-filter-group">
-              <div className="gilbot-filter-label">Topic</div>
-              <select className="gilbot-filter-select" value={filterContentTopic} onChange={e => setFilterContentTopic(e.target.value)}>
-                {getSortedOptions(CONTENT_TOPICS, 'topic', true, ideasForTopic).map(type => {
-                  if (!type) return <option key="" value="">All</option>;
-                  const count = getMetaCounts('topic', ideasForTopic)[type] || 0;
-                  return <option key={type} value={type} disabled={count === 0} style={count === 0 ? { color: '#bbb' } : {}}>{type} ({count})</option>;
-                })}
-              </select>
-            </div>
-            <div className="gilbot-filter-group">
-              <div className="gilbot-filter-label">Intent</div>
-              <select className="gilbot-filter-select" value={filterIntent} onChange={e => setFilterIntent(e.target.value)}>
-                {getSortedOptions(INTENTS, 'intent', true, ideasForIntent).map(type => {
-                  if (!type) return <option key="" value="">All</option>;
-                  const count = getMetaCounts('intent', ideasForIntent)[type] || 0;
-                  return <option key={type} value={type} disabled={count === 0} style={count === 0 ? { color: '#bbb' } : {}}>{type} ({count})</option>;
-                })}
-              </select>
-            </div>
-            {/* View toggle icons */}
-            <div style={{ display: 'flex', gap: 8, marginLeft: 18 }}>
-              <button
-                type="button"
-                className={ideasView === 'grid' ? 'gilbot-view-toggle selected' : 'gilbot-view-toggle'}
-                onClick={() => setIdeasView('grid')}
-                aria-label="Grid view"
-                style={{ background: 'none', border: 'none', padding: 6, borderRadius: 8, cursor: 'pointer', color: ideasView === 'grid' ? '#343794' : '#bbb', outline: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-              >
-                {/* Grid icon */}
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-              </button>
-              <button
-                type="button"
-                className={ideasView === 'list' ? 'gilbot-view-toggle selected' : 'gilbot-view-toggle'}
-                onClick={() => setIdeasView('list')}
-                aria-label="List view"
-                style={{ background: 'none', border: 'none', padding: 6, borderRadius: 8, cursor: 'pointer', color: ideasView === 'list' ? '#343794' : '#bbb', outline: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-              >
-                {/* List icon */}
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="4" cy="6" r="2"/><circle cx="4" cy="12" r="2"/><circle cx="4" cy="18" r="2"/></svg>
-              </button>
-            </div>
-            {/* Group By dropdown */}
-            <div style={{ marginLeft: 18, minWidth: 120 }}>
-              <div className="gilbot-filter-label" style={{ textAlign: 'center' }}>Group By</div>
-              <select
-                className="gilbot-filter-select"
-                value={groupBy}
-                onChange={e => setGroupBy(e.target.value)}
-                style={{ width: '100%' }}
-              >
-                <option value="none">None</option>
-                <option value="type">Type</option>
-                <option value="topic">Topic</option>
-                <option value="intent">Intent</option>
-              </select>
-            </div>
-          </div>
-          {/* Render ideas as grid or list */}
-          <div className={ideasView === 'grid' ? 'gilbot-grid' : 'gilbot-list'}>
-            {filteredIdeas.length === 0 ? (
-              <div style={{ color: '#888', textAlign: 'center', marginTop: 40, gridColumn: '1/-1' }}>No ideas yet. Add some in the chat!</div>
-            ) : groupedIdeas.map(({ group, items }) => (
-              <React.Fragment key={group || 'none'}>
-                {ideasView === 'list' && groupBy !== 'none' && (
-                  <div style={{ textAlign: 'center', fontSize: '2.2em', fontWeight: 800, color: '#343794', margin: '32px 0 12px 0', width: '100%' }}>{group}</div>
-                )}
-                {items.map((idea, i) => {
-                  if (ideasView === 'grid') {
-                    return (
-                      <div
-                        key={idea.id}
-                        className="ca-card ca-card-fade"
-                        tabIndex={0}
-                        style={{
-                          position: 'relative',
-                          outline: draggedCard === idea.id ? '2px solid #9147ff' : dragOverId === idea.id ? '2px solid #4caf50' : undefined,
-                          background: draggedCard === idea.id ? '#f3eeff' : dragOverId === idea.id ? '#eaffea' : undefined
-                        }}
-                        onDoubleClick={e => {
-                          if (editingTitleId !== idea.id) setDetailIdea(idea);
-                        }}
-                        onMouseEnter={e => {
-                          const btn = e.currentTarget.querySelector('.ca-card-edit-btn');
-                          if (btn) { btn.style.opacity = 1; btn.style.pointerEvents = 'auto'; }
-                        }}
-                        onMouseLeave={e => {
-                          const btn = e.currentTarget.querySelector('.ca-card-edit-btn');
-                          if (btn) { btn.style.opacity = 0; btn.style.pointerEvents = 'none'; }
-                        }}
-                        onFocus={e => {
-                          const btn = e.currentTarget.querySelector('.ca-card-edit-btn');
-                          if (btn) { btn.style.opacity = 1; btn.style.pointerEvents = 'auto'; }
-                        }}
-                        onBlur={e => {
-                          const btn = e.currentTarget.querySelector('.ca-card-edit-btn');
-                          if (btn) { btn.style.opacity = 0; btn.style.pointerEvents = 'none'; }
-                        }}
-                        onDragOver={e => {
-                          e.preventDefault();
-                          setDragOverId(idea.id);
-                        }}
-                        onDragLeave={e => {
-                          e.preventDefault();
-                          setDragOverId(null);
-                        }}
-                        onDrop={e => handleImageDrop(e, idea)}
-                      >
-                        {idea._editingMeta ? (
-                          <div className="ca-card-meta ca-card-meta-active" style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                            <form
-                              style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 8, alignItems: 'flex-start', padding: '0 18px', marginTop: 32 }}
-                              onClick={e => e.stopPropagation()}
-                              onFocus={e => e.stopPropagation()}
-                            >
-                              {[
-                                { label: 'Type', field: 'type', options: POST_TYPES },
-                                { label: 'Topic', field: 'topic', options: CONTENT_TOPICS },
-                                { label: 'Intent', field: 'intent', options: INTENTS },
-                              ].map(meta => (
-                                <div key={meta.field} style={{ width: '100%', marginBottom: 4 }}>
-                                  <div className="gilbot-filter-label">{meta.label}</div>
-                                  <select
-                                    className="gilbot-filter-select"
-                                    style={{ width: '100%' }}
-                                    value={idea[meta.field] || ''}
-                                    onChange={async e => {
-                                      const newValue = e.target.value;
-                                      setIdeas(prev => prev.map(idObj => idObj.id === idea.id ? { ...idObj, [meta.field]: newValue } : idObj));
-                                      await fetch(getApiUrl(`/ideas/${idea.id}`), {
-                                        method: 'PATCH',
-                                        headers: { 'Content-Type': 'application/json' },
-                                        body: JSON.stringify({ [meta.field]: newValue })
-                                      });
-                                    }}
-                                  >
-                                    {meta.options.map(opt => {
-                                      if (!opt) return <option key="" value="">Select {meta.label}</option>;
-                                      return <option key={opt} value={opt}>{opt}</option>;
-                                    })}
-                                  </select>
-                                </div>
-                              ))}
-                              <div className="ca-card-date" style={{ marginTop: 18, alignSelf: 'flex-start' }}>{formatDate(idea.createdAt)}{idea.used ? ' • Used' : ''}</div>
-                              <button
-                                type="button"
-                                className="ca-card-btn"
-                                style={{ marginTop: 18, alignSelf: 'flex-end', background: '#343794', color: '#fff', fontWeight: 700, borderRadius: 16, padding: '8px 22px' }}
-                                onClick={e => {
-                                  e.preventDefault();
-                                  setIdeas(prev => prev.map(idObj => idObj.id === idea.id ? { ...idObj, _editingMeta: false } : idObj));
-                                }}
+            {/* Render ideas as grid or list */}
+            <div className={ideasView === 'grid' ? 'gilbot-grid' : 'gilbot-list'}>
+              {filteredIdeas.length === 0 ? (
+                <div style={{ color: '#888', textAlign: 'center', marginTop: 40, gridColumn: '1/-1' }}>No ideas yet. Add some in the chat!</div>
+              ) : groupedIdeas.map(({ group, items }) => (
+                <React.Fragment key={group || 'none'}>
+                  {ideasView === 'list' && groupBy !== 'none' && (
+                    <div style={{ textAlign: 'center', fontSize: '2.2em', fontWeight: 800, color: '#343794', margin: '32px 0 12px 0', width: '100%' }}>{group}</div>
+                  )}
+                  {items.map((idea, i) => {
+                    if (ideasView === 'grid') {
+                      return (
+                        <div
+                          key={idea.id}
+                          className="ca-card ca-card-fade"
+                          tabIndex={0}
+                          style={{
+                            position: 'relative',
+                            outline: draggedCard === idea.id ? '2px solid #9147ff' : dragOverId === idea.id ? '2px solid #4caf50' : undefined,
+                            background: draggedCard === idea.id ? '#f3eeff' : dragOverId === idea.id ? '#eaffea' : undefined
+                          }}
+                          onDoubleClick={e => {
+                            if (editingTitleId !== idea.id) setDetailIdea(idea);
+                          }}
+                          onMouseEnter={e => {
+                            const btn = e.currentTarget.querySelector('.ca-card-edit-btn');
+                            if (btn) { btn.style.opacity = 1; btn.style.pointerEvents = 'auto'; }
+                          }}
+                          onMouseLeave={e => {
+                            const btn = e.currentTarget.querySelector('.ca-card-edit-btn');
+                            if (btn) { btn.style.opacity = 0; btn.style.pointerEvents = 'none'; }
+                          }}
+                          onFocus={e => {
+                            const btn = e.currentTarget.querySelector('.ca-card-edit-btn');
+                            if (btn) { btn.style.opacity = 1; btn.style.pointerEvents = 'auto'; }
+                          }}
+                          onBlur={e => {
+                            const btn = e.currentTarget.querySelector('.ca-card-edit-btn');
+                            if (btn) { btn.style.opacity = 0; btn.style.pointerEvents = 'none'; }
+                          }}
+                          onDragOver={e => {
+                            e.preventDefault();
+                            setDragOverId(idea.id);
+                          }}
+                          onDragLeave={e => {
+                            e.preventDefault();
+                            setDragOverId(null);
+                          }}
+                          onDrop={e => handleImageDrop(e, idea)}
+                        >
+                          {idea._editingMeta ? (
+                            <div className="ca-card-meta ca-card-meta-active" style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                              <form
+                                style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 8, alignItems: 'flex-start', padding: '0 18px', marginTop: 32 }}
+                                onClick={e => e.stopPropagation()}
+                                onFocus={e => e.stopPropagation()}
                               >
-                                Done
-                              </button>
-                            </form>
-                          </div>
-                        ) : (
-                          <>
-                            <div className="ca-card-text-overlay">
-                              {editingTitleId === idea.id ? (
-                                <textarea
-                                  value={idea.hook || ''}
-                                  autoFocus
-                                  rows={1}
-                                  style={{
-                                    fontWeight: 700,
-                                    fontSize: '1.18em',
-                                    color: '#343794',
-                                    flex: 1,
-                                    minWidth: 0,
-                                    textOverflow: 'ellipsis',
-                                    overflow: 'hidden',
-                                    whiteSpace: 'pre-wrap',
-                                    border: 'none',
-                                    outline: 'none',
-                                    background: 'transparent',
-                                    borderRadius: 0,
-                                    padding: 0,
-                                    resize: 'none',
-                                    width: '100%',
-                                    boxSizing: 'border-box',
-                                    lineHeight: 1.3,
-                                    margin: 0,
-                                    display: 'block',
-                                    transition: 'none',
+                                {[
+                                  { label: 'Type', field: 'type', options: POST_TYPES },
+                                  { label: 'Topic', field: 'topic', options: CONTENT_TOPICS },
+                                  { label: 'Intent', field: 'intent', options: INTENTS },
+                                ].map(meta => (
+                                  <div key={meta.field} style={{ width: '100%', marginBottom: 4 }}>
+                                    <div className="gilbot-filter-label">{meta.label}</div>
+                                    <select
+                                      className="gilbot-filter-select"
+                                      style={{ width: '100%' }}
+                                      value={idea[meta.field] || ''}
+                                      onChange={async e => {
+                                        const newValue = e.target.value;
+                                        setIdeas(prev => prev.map(idObj => idObj.id === idea.id ? { ...idObj, [meta.field]: newValue } : idObj));
+                                        await fetch(getApiUrl(`/ideas/${idea.id}`), {
+                                          method: 'PATCH',
+                                          headers: { 'Content-Type': 'application/json' },
+                                          body: JSON.stringify({ [meta.field]: newValue })
+                                        });
+                                      }}
+                                    >
+                                      {meta.options.map(opt => {
+                                        if (!opt) return <option key="" value="">Select {meta.label}</option>;
+                                        return <option key={opt} value={opt}>{opt}</option>;
+                                      })}
+                                    </select>
+                                  </div>
+                                ))}
+                                <div className="ca-card-date" style={{ marginTop: 18, alignSelf: 'flex-start' }}>{formatDate(idea.createdAt)}{idea.used ? ' • Used' : ''}</div>
+                                <button
+                                  type="button"
+                                  className="ca-card-btn"
+                                  style={{ marginTop: 18, alignSelf: 'flex-end', background: '#343794', color: '#fff', fontWeight: 700, borderRadius: 16, padding: '8px 22px' }}
+                                  onClick={e => {
+                                    e.preventDefault();
+                                    setIdeas(prev => prev.map(idObj => idObj.id === idea.id ? { ...idObj, _editingMeta: false } : idObj));
                                   }}
-                                  onChange={e => {
-                                    const val = e.target.value;
-                                    setIdeas(prev => prev.map(idObj => idObj.id === idea.id ? { ...idObj, hook: val } : idObj));
-                                    // Auto-resize
-                                    e.target.style.height = 'auto';
-                                    e.target.style.height = e.target.scrollHeight + 'px';
-                                  }}
-                                  onBlur={async e => {
-                                    setEditingTitleId(null);
-                                    await fetch(getApiUrl(`/ideas/${idea.id}`), {
-                                      method: 'PATCH',
-                                      headers: { 'Content-Type': 'application/json' },
-                                      body: JSON.stringify({ hook: e.target.value })
-                                    });
-                                  }}
-                                  onKeyDown={async e => {
-                                    if (e.key === 'Enter' && !e.shiftKey) {
-                                      e.preventDefault();
+                                >
+                                  Done
+                                </button>
+                              </form>
+                            </div>
+                          ) : (
+                            <>
+                              <div className="ca-card-text-overlay">
+                                {editingTitleId === idea.id ? (
+                                  <textarea
+                                    value={idea.hook || ''}
+                                    autoFocus
+                                    rows={1}
+                                    style={{
+                                      fontWeight: 700,
+                                      fontSize: '1.18em',
+                                      color: '#343794',
+                                      flex: 1,
+                                      minWidth: 0,
+                                      textOverflow: 'ellipsis',
+                                      overflow: 'hidden',
+                                      whiteSpace: 'pre-wrap',
+                                      border: 'none',
+                                      outline: 'none',
+                                      background: 'transparent',
+                                      borderRadius: 0,
+                                      padding: 0,
+                                      resize: 'none',
+                                      width: '100%',
+                                      boxSizing: 'border-box',
+                                      lineHeight: 1.3,
+                                      margin: 0,
+                                      display: 'block',
+                                      transition: 'none',
+                                    }}
+                                    onChange={e => {
+                                      const val = e.target.value;
+                                      setIdeas(prev => prev.map(idObj => idObj.id === idea.id ? { ...idObj, hook: val } : idObj));
+                                      // Auto-resize
+                                      e.target.style.height = 'auto';
+                                      e.target.style.height = e.target.scrollHeight + 'px';
+                                    }}
+                                    onBlur={async e => {
                                       setEditingTitleId(null);
                                       await fetch(getApiUrl(`/ideas/${idea.id}`), {
                                         method: 'PATCH',
                                         headers: { 'Content-Type': 'application/json' },
                                         body: JSON.stringify({ hook: e.target.value })
                                       });
-                                    }
-                                  }}
-                                />
-                              ) : (
-                                <span
-                                  className="ca-card-hook editable-title"
-                                  style={{ cursor: 'pointer', textDecoration: 'underline dotted #343794 1.5px', textUnderlineOffset: 4 }}
-                                  onDoubleClick={e => {
-                                    e.stopPropagation();
-                                    setEditingTitleId(idea.id);
-                                  }}
-                                  title="Double-click to edit title"
-                                >
-                                  {idea.hook || idea.text}
-                                </span>
-                              )}
-                              {idea.imageUrl && (
-                                <img src={getImageUrl(idea.imageUrl)} alt="Idea" style={{ width: 96, height: 96, borderRadius: 16, objectFit: 'cover', display: 'block', margin: '18px 0 0 0' }} />
-                              )}
-                            </div>
-                            {/* Capsule tags for type, topic, intent */}
-                            <div className="ca-card-tags">
-                              {idea.type && (
-                                <button
-                                  className="ca-card-tag"
-                                  type="button"
-                                  onClick={() => setFilterPostType(idea.type)}
-                                >
-                                  {idea.type}
-                                </button>
-                              )}
-                              {idea.topic && (
-                                <button
-                                  className="ca-card-tag"
-                                  type="button"
-                                  onClick={() => setFilterContentTopic(idea.topic)}
-                                >
-                                  {idea.topic}
-                                </button>
-                              )}
-                              {idea.intent && (
-                                <button
-                                  className="ca-card-tag"
-                                  type="button"
-                                  onClick={() => setFilterIntent(idea.intent)}
-                                >
-                                  {idea.intent}
-                                </button>
-                              )}
-                            </div>
-                            <div className="ca-card-actions">
-                              {!idea.used && <button className="ca-card-btn" onClick={() => markUsed(idea.id)}>Mark as Used</button>}
-                              <button className="ca-card-btn delete" onClick={() => deleteIdea(idea.id)}>Delete</button>
-                            </div>
-                            <button
-                              className="ca-card-edit-btn"
-                              type="button"
-                              onClick={e => {
-                                e.stopPropagation();
-                                setIdeas(prev => prev.map(idObj => idObj.id === idea.id ? { ...idObj, _editingMeta: true } : idObj));
-                              }}
-                              style={{ position: 'absolute', bottom: 16, right: 16, zIndex: 20, opacity: 0, pointerEvents: 'none', transition: 'opacity 0.18s', width: 40, height: 40, minWidth: 40, minHeight: 40, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-                              aria-label="Edit meta"
-                              tabIndex={-1}
-                            >
-                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
-                            </button>
-                          </>
-                        )}
-                      </div>
-                    );
-                  } else {
-                    return (
-                      <div
-                        key={idea.id}
-                        className="gilbot-list-row"
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: 18,
-                          background: '#fff',
-                          borderRadius: 18,
-                          boxShadow: '0 2px 8px #e7e7fa',
-                          padding: '18px 24px',
-                          marginBottom: 12,
-                          minHeight: 72,
-                          position: 'relative',
-                          cursor: 'pointer'
-                        }}
-                        onDoubleClick={e => {
-                          if (editingTitleId !== idea.id) setDetailIdea(idea);
-                        }}
-                        onDragOver={e => {
-                          e.preventDefault();
-                          setDragOverId(idea.id);
-                        }}
-                        onDragLeave={e => {
-                          e.preventDefault();
-                          setDragOverId(null);
-                        }}
-                        onDrop={e => handleImageDrop(e, idea)}
-                      >
-                        {/* Image */}
-                        {idea.imageUrl && (
-                          <img src={getImageUrl(idea.imageUrl)} alt="Idea" style={{ width: 56, height: 56, borderRadius: 12, objectFit: 'cover', flexShrink: 0 }} />
-                        )}
-                        {/* Title */}
-                        <div style={{ fontWeight: 700, fontSize: '1.08em', color: '#343794', flex: 1, minWidth: 0, textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>
-                          {editingTitleId === idea.id ? (
-                            <textarea
-                              value={idea.hook || ''}
-                              autoFocus
-                              rows={1}
-                              style={{
-                                fontWeight: 700,
-                                fontSize: '1.18em',
-                                color: '#343794',
-                                flex: 1,
-                                minWidth: 0,
-                                textOverflow: 'ellipsis',
-                                overflow: 'hidden',
-                                whiteSpace: 'pre-wrap',
-                                border: 'none',
-                                outline: 'none',
-                                background: 'transparent',
-                                borderRadius: 0,
-                                padding: 0,
-                                resize: 'none',
-                                width: '100%',
-                                boxSizing: 'border-box',
-                                lineHeight: 1.3,
-                                margin: 0,
-                                display: 'block',
-                                transition: 'none',
-                              }}
-                              onChange={e => {
-                                const val = e.target.value;
-                                setIdeas(prev => prev.map(idObj => idObj.id === idea.id ? { ...idObj, hook: val } : idObj));
-                                // Auto-resize
-                                e.target.style.height = 'auto';
-                                e.target.style.height = e.target.scrollHeight + 'px';
-                              }}
-                              onBlur={async e => {
-                                setEditingTitleId(null);
-                                await fetch(getApiUrl(`/ideas/${idea.id}`), {
-                                  method: 'PATCH',
-                                  headers: { 'Content-Type': 'application/json' },
-                                  body: JSON.stringify({ hook: e.target.value })
-                                });
-                              }}
-                              onKeyDown={async e => {
-                                if (e.key === 'Enter' && !e.shiftKey) {
-                                  e.preventDefault();
+                                    }}
+                                    onKeyDown={async e => {
+                                      if (e.key === 'Enter' && !e.shiftKey) {
+                                        e.preventDefault();
+                                        setEditingTitleId(null);
+                                        await fetch(getApiUrl(`/ideas/${idea.id}`), {
+                                          method: 'PATCH',
+                                          headers: { 'Content-Type': 'application/json' },
+                                          body: JSON.stringify({ hook: e.target.value })
+                                        });
+                                      }
+                                    }}
+                                  />
+                                ) : (
+                                  <span
+                                    className="ca-card-hook editable-title"
+                                    style={{ cursor: 'pointer', textDecoration: 'underline dotted #343794 1.5px', textUnderlineOffset: 4 }}
+                                    onDoubleClick={e => {
+                                      e.stopPropagation();
+                                      setEditingTitleId(idea.id);
+                                    }}
+                                    title="Double-click to edit title"
+                                  >
+                                    {idea.hook || idea.text}
+                                  </span>
+                                )}
+                                {idea.imageUrl && (
+                                  <img src={getImageUrl(idea.imageUrl)} alt="Idea" style={{ width: 96, height: 96, borderRadius: 16, objectFit: 'cover', display: 'block', margin: '18px 0 0 0' }} />
+                                )}
+                              </div>
+                              {/* Capsule tags for type, topic, intent */}
+                              <div className="ca-card-tags">
+                                {idea.type && (
+                                  <button
+                                    className="ca-card-tag"
+                                    type="button"
+                                    onClick={() => setFilterPostType(idea.type)}
+                                  >
+                                    {idea.type}
+                                  </button>
+                                )}
+                                {idea.topic && (
+                                  <button
+                                    className="ca-card-tag"
+                                    type="button"
+                                    onClick={() => setFilterContentTopic(idea.topic)}
+                                  >
+                                    {idea.topic}
+                                  </button>
+                                )}
+                                {idea.intent && (
+                                  <button
+                                    className="ca-card-tag"
+                                    type="button"
+                                    onClick={() => setFilterIntent(idea.intent)}
+                                  >
+                                    {idea.intent}
+                                  </button>
+                                )}
+                              </div>
+                              <div className="ca-card-actions">
+                                {!idea.used && <button className="ca-card-btn" onClick={() => markUsed(idea.id)}>Mark as Used</button>}
+                                <button className="ca-card-btn delete" onClick={() => deleteIdea(idea.id)}>Delete</button>
+                              </div>
+                              <button
+                                className="ca-card-edit-btn"
+                                type="button"
+                                onClick={e => {
+                                  e.stopPropagation();
+                                  setIdeas(prev => prev.map(idObj => idObj.id === idea.id ? { ...idObj, _editingMeta: true } : idObj));
+                                }}
+                                style={{ position: 'absolute', bottom: 16, right: 16, zIndex: 20, opacity: 0, pointerEvents: 'none', transition: 'opacity 0.18s', width: 40, height: 40, minWidth: 40, minHeight: 40, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                                aria-label="Edit meta"
+                                tabIndex={-1}
+                              >
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+                              </button>
+                            </>
+                          )}
+                        </div>
+                      );
+                    } else {
+                      return (
+                        <div
+                          key={idea.id}
+                          className="gilbot-list-row"
+                          style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: 18,
+                            background: '#fff',
+                            borderRadius: 18,
+                            boxShadow: '0 2px 8px #e7e7fa',
+                            padding: '18px 24px',
+                            marginBottom: 12,
+                            minHeight: 72,
+                            position: 'relative',
+                            cursor: 'pointer'
+                          }}
+                          onDoubleClick={e => {
+                            if (editingTitleId !== idea.id) setDetailIdea(idea);
+                          }}
+                          onDragOver={e => {
+                            e.preventDefault();
+                            setDragOverId(idea.id);
+                          }}
+                          onDragLeave={e => {
+                            e.preventDefault();
+                            setDragOverId(null);
+                          }}
+                          onDrop={e => handleImageDrop(e, idea)}
+                        >
+                          {/* Image */}
+                          {idea.imageUrl && (
+                            <img src={getImageUrl(idea.imageUrl)} alt="Idea" style={{ width: 56, height: 56, borderRadius: 12, objectFit: 'cover', flexShrink: 0 }} />
+                          )}
+                          {/* Title */}
+                          <div style={{ fontWeight: 700, fontSize: '1.08em', color: '#343794', flex: 1, minWidth: 0, textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>
+                            {editingTitleId === idea.id ? (
+                              <textarea
+                                value={idea.hook || ''}
+                                autoFocus
+                                rows={1}
+                                style={{
+                                  fontWeight: 700,
+                                  fontSize: '1.18em',
+                                  color: '#343794',
+                                  flex: 1,
+                                  minWidth: 0,
+                                  textOverflow: 'ellipsis',
+                                  overflow: 'hidden',
+                                  whiteSpace: 'pre-wrap',
+                                  border: 'none',
+                                  outline: 'none',
+                                  background: 'transparent',
+                                  borderRadius: 0,
+                                  padding: 0,
+                                  resize: 'none',
+                                  width: '100%',
+                                  boxSizing: 'border-box',
+                                  lineHeight: 1.3,
+                                  margin: 0,
+                                  display: 'block',
+                                  transition: 'none',
+                                }}
+                                onChange={e => {
+                                  const val = e.target.value;
+                                  setIdeas(prev => prev.map(idObj => idObj.id === idea.id ? { ...idObj, hook: val } : idObj));
+                                  // Auto-resize
+                                  e.target.style.height = 'auto';
+                                  e.target.style.height = e.target.scrollHeight + 'px';
+                                }}
+                                onBlur={async e => {
                                   setEditingTitleId(null);
                                   await fetch(getApiUrl(`/ideas/${idea.id}`), {
                                     method: 'PATCH',
                                     headers: { 'Content-Type': 'application/json' },
                                     body: JSON.stringify({ hook: e.target.value })
                                   });
-                                }
-                              }}
-                            />
-                          ) : (
-                            <span
-                              className="ca-card-hook editable-title"
-                              style={{ cursor: 'pointer', textDecoration: 'underline dotted #343794 1.5px', textUnderlineOffset: 4 }}
-                              onDoubleClick={e => {
-                                e.stopPropagation();
-                                setEditingTitleId(idea.id);
-                              }}
-                              title="Double-click to edit title"
-                            >
-                              {idea.hook || idea.text}
-                            </span>
-                          )}
+                                }}
+                                onKeyDown={async e => {
+                                  if (e.key === 'Enter' && !e.shiftKey) {
+                                    e.preventDefault();
+                                    setEditingTitleId(null);
+                                    await fetch(getApiUrl(`/ideas/${idea.id}`), {
+                                      method: 'PATCH',
+                                      headers: { 'Content-Type': 'application/json' },
+                                      body: JSON.stringify({ hook: e.target.value })
+                                    });
+                                  }
+                                }}
+                              />
+                            ) : (
+                              <span
+                                className="ca-card-hook editable-title"
+                                style={{ cursor: 'pointer', textDecoration: 'underline dotted #343794 1.5px', textUnderlineOffset: 4 }}
+                                onDoubleClick={e => {
+                                  e.stopPropagation();
+                                  setEditingTitleId(idea.id);
+                                }}
+                                title="Double-click to edit title"
+                              >
+                                {idea.hook || idea.text}
+                              </span>
+                            )}
+                          </div>
+                          {/* Tags */}
+                          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginLeft: 8, marginRight: 16 }}>
+                            {idea.type && <span className="ca-card-tag" style={{ padding: '4px 12px', fontSize: '0.98em' }}>{idea.type}</span>}
+                            {idea.topic && <span className="ca-card-tag" style={{ padding: '4px 12px', fontSize: '0.98em' }}>{idea.topic}</span>}
+                            {idea.intent && <span className="ca-card-tag" style={{ padding: '4px 12px', fontSize: '0.98em' }}>{idea.intent}</span>}
+                          </div>
+                          {/* Edit button (always visible in list view) */}
+                          <button
+                            className="ca-card-edit-btn"
+                            type="button"
+                            onClick={e => {
+                              e.stopPropagation();
+                              setIdeas(prev => prev.map(idObj => idObj.id === idea.id ? { ...idObj, _editingMeta: true } : idObj));
+                            }}
+                            aria-label="Edit meta"
+                          >
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+                          </button>
                         </div>
-                        {/* Tags */}
-                        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginLeft: 8, marginRight: 16 }}>
-                          {idea.type && <span className="ca-card-tag" style={{ padding: '4px 12px', fontSize: '0.98em' }}>{idea.type}</span>}
-                          {idea.topic && <span className="ca-card-tag" style={{ padding: '4px 12px', fontSize: '0.98em' }}>{idea.topic}</span>}
-                          {idea.intent && <span className="ca-card-tag" style={{ padding: '4px 12px', fontSize: '0.98em' }}>{idea.intent}</span>}
-                        </div>
-                        {/* Edit button (always visible in list view) */}
-                        <button
-                          className="ca-card-edit-btn"
-                          type="button"
-                          onClick={e => {
-                            e.stopPropagation();
-                            setIdeas(prev => prev.map(idObj => idObj.id === idea.id ? { ...idObj, _editingMeta: true } : idObj));
-                          }}
-                          aria-label="Edit meta"
-                        >
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
-                        </button>
-                      </div>
-                    );
-                  }
-                })}
-              </React.Fragment>
-            ))}
-          </div>
-          {/* Delete All Ideas Button */}
-          {ideas.length > 0 && (
-            <button
-              style={{
-                margin: '36px auto 0 auto',
-                display: 'block',
-                background: '#d9534f',
-                color: '#fff',
-                border: 'none',
-                borderRadius: 18,
-                padding: '18px 36px',
-                fontSize: '1.2em',
-                fontWeight: 700,
-                cursor: 'pointer',
-                boxShadow: '0 2px 8px #e7e7fa',
-                letterSpacing: '0.02em',
-                transition: 'background 0.2s',
-              }}
-              onClick={async () => {
-                if (window.confirm('Are you sure you want to delete ALL your ideas? This cannot be undone.')) {
-                  await fetch(getApiUrl('/ideas'), { method: 'DELETE' });
-                  setIdeas([]);
-                }
-              }}
-            >
-              Delete All Ideas
-            </button>
-          )}
-          {/* Detail Modal */}
-          {detailIdea && (
-            <div style={{
-              position: 'fixed',
-              top: 0, left: 0, right: 0, bottom: 0,
-              background: 'rgba(0,0,0,0.32)',
-              zIndex: 1000,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-              onClick={() => setDetailIdea(null)}
-            >
-              <div
-                style={{
-                  background: '#fff',
-                  borderRadius: 18,
-                  boxShadow: '0 8px 32px #0002',
-                  padding: 36,
-                  minWidth: 320,
-                  maxWidth: 480,
-                  width: '90vw',
-                  maxHeight: '80vh',
-                  overflowY: 'auto',
-                  position: 'relative',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: 18,
-                }}
-                onClick={e => e.stopPropagation()}
-              >
-                <button
-                  style={{
-                    position: 'absolute',
-                    top: 18,
-                    right: 18,
-                    background: '#343794',
-                    color: '#fff',
-                    border: 'none',
-                    borderRadius: 16,
-                    padding: '6px 18px',
-                    fontWeight: 700,
-                    fontSize: '1em',
-                    cursor: 'pointer',
-                  }}
-                  onClick={() => setDetailIdea(null)}
-                  autoFocus
-                >
-                  Close
-                </button>
-                <div style={{ fontSize: '1.4em', fontWeight: 700, marginBottom: 8 }}>{detailIdea.hook}</div>
-                <div style={{ color: '#343794', fontWeight: 600, marginBottom: 8 }}>Full Original:</div>
-                <div style={{ whiteSpace: 'pre-wrap', fontSize: '1.1em', color: '#222', marginBottom: 18 }}>{detailIdea.original}</div>
-                <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 12 }}>
-                  {detailIdea.type && <span style={{ background: '#f3eeff', color: '#343794', borderRadius: 18, padding: '6px 16px', fontWeight: 600 }}>{detailIdea.type}</span>}
-                  {detailIdea.topic && <span style={{ background: '#f3eeff', color: '#343794', borderRadius: 18, padding: '6px 16px', fontWeight: 600 }}>{detailIdea.topic}</span>}
-                  {detailIdea.intent && <span style={{ background: '#f3eeff', color: '#343794', borderRadius: 18, padding: '6px 16px', fontWeight: 600 }}>{detailIdea.intent}</span>}
-                  <span style={{ color: '#aaa', fontWeight: 400, marginLeft: 8 }}>{formatDate(detailIdea.createdAt)}</span>
-                </div>
-                {/* In detail modal, show image below title, above meta fields */}
-                {detailIdea && detailIdea.imageUrl && (
-                  <img src={getImageUrl(detailIdea.imageUrl)} alt="Idea" style={{ width: 192, height: 192, borderRadius: 18, objectFit: 'cover', display: 'block', margin: '18px auto 0 auto' }} />
-                )}
-              </div>
+                      );
+                    }
+                  })}
+                </React.Fragment>
+              ))}
             </div>
-          )}
-        </div>
-      )}
+            {/* Delete All Ideas Button */}
+            {ideas.length > 0 && (
+              <button
+                style={{
+                  margin: '36px auto 0 auto',
+                  display: 'block',
+                  background: '#d9534f',
+                  color: '#fff',
+                  border: 'none',
+                  borderRadius: 18,
+                  padding: '18px 36px',
+                  fontSize: '1.2em',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  boxShadow: '0 2px 8px #e7e7fa',
+                  letterSpacing: '0.02em',
+                  transition: 'background 0.2s',
+                }}
+                onClick={async () => {
+                  if (window.confirm('Are you sure you want to delete ALL your ideas? This cannot be undone.')) {
+                    await fetch(getApiUrl('/ideas'), { method: 'DELETE' });
+                    setIdeas([]);
+                  }
+                }}
+              >
+                Delete All Ideas
+              </button>
+            )}
+            {/* Detail Modal */}
+            {detailIdea && (
+              <div style={{
+                position: 'fixed',
+                top: 0, left: 0, right: 0, bottom: 0,
+                background: 'rgba(0,0,0,0.32)',
+                zIndex: 1000,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+                onClick={() => setDetailIdea(null)}
+              >
+                <div
+                  style={{
+                    background: '#fff',
+                    borderRadius: 18,
+                    boxShadow: '0 8px 32px #0002',
+                    padding: 36,
+                    minWidth: 320,
+                    maxWidth: 480,
+                    width: '90vw',
+                    maxHeight: '80vh',
+                    overflowY: 'auto',
+                    position: 'relative',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 18,
+                  }}
+                  onClick={e => e.stopPropagation()}
+                >
+                  <button
+                    style={{
+                      position: 'absolute',
+                      top: 18,
+                      right: 18,
+                      background: '#343794',
+                      color: '#fff',
+                      border: 'none',
+                      borderRadius: 16,
+                      padding: '6px 18px',
+                      fontWeight: 700,
+                      fontSize: '1em',
+                      cursor: 'pointer',
+                    }}
+                    onClick={() => setDetailIdea(null)}
+                    autoFocus
+                  >
+                    Close
+                  </button>
+                  <div style={{ fontSize: '1.4em', fontWeight: 700, marginBottom: 8 }}>{detailIdea.hook}</div>
+                  <div style={{ color: '#343794', fontWeight: 600, marginBottom: 8 }}>Full Original:</div>
+                  <div style={{ whiteSpace: 'pre-wrap', fontSize: '1.1em', color: '#222', marginBottom: 18 }}>{detailIdea.original}</div>
+                  <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 12 }}>
+                    {detailIdea.type && <span style={{ background: '#f3eeff', color: '#343794', borderRadius: 18, padding: '6px 16px', fontWeight: 600 }}>{detailIdea.type}</span>}
+                    {detailIdea.topic && <span style={{ background: '#f3eeff', color: '#343794', borderRadius: 18, padding: '6px 16px', fontWeight: 600 }}>{detailIdea.topic}</span>}
+                    {detailIdea.intent && <span style={{ background: '#f3eeff', color: '#343794', borderRadius: 18, padding: '6px 16px', fontWeight: 600 }}>{detailIdea.intent}</span>}
+                    <span style={{ color: '#aaa', fontWeight: 400, marginLeft: 8 }}>{formatDate(detailIdea.createdAt)}</span>
+                  </div>
+                  {/* In detail modal, show image below title, above meta fields */}
+                  {detailIdea && detailIdea.imageUrl && (
+                    <img src={getImageUrl(detailIdea.imageUrl)} alt="Idea" style={{ width: 192, height: 192, borderRadius: 18, objectFit: 'cover', display: 'block', margin: '18px auto 0 auto' }} />
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 } 
