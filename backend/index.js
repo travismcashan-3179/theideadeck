@@ -16,6 +16,7 @@ const CHAT_FILE = path.resolve('./data/chat.json');
 
 app.use(cors({
   origin: function (origin, callback) {
+    console.log('CORS request from:', origin); // Debug log
     const allowedOrigins = [
       'https://theideadeck.vercel.app',
       'https://theideadeck.onrender.com'
