@@ -1,0 +1,1712 @@
+[
+  {
+    "sender": "user",
+    "text": "OK, will this save to history?",
+    "createdAt": "2025-06-06T19:34:19.578Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Hey there! Yes, our conversation is saved so we can refer back to it for context and continuity. How can I assist you today?",
+    "createdAt": "2025-06-06T19:34:19.579Z"
+  },
+  {
+    "sender": "user",
+    "text": "Test",
+    "createdAt": "2025-06-06T19:34:29.469Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Hey there! How can I assist you with your LinkedIn post ideas today? Let's brainstorm some engaging content!",
+    "createdAt": "2025-06-06T19:34:29.470Z"
+  },
+  {
+    "sender": "user",
+    "text": "Test",
+    "createdAt": "2025-06-06T19:34:29.483Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Hey there! How can I assist you today with your LinkedIn post ideas or any other content you're working on?",
+    "createdAt": "2025-06-06T19:34:29.483Z"
+  },
+  {
+    "sender": "user",
+    "text": "Test",
+    "createdAt": "2025-06-06T19:35:43.829Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Hey there! Ready to dive into some LinkedIn post ideas or any other content you're working on? Let's brainstorm together!",
+    "createdAt": "2025-06-06T19:35:43.830Z"
+  },
+  {
+    "sender": "user",
+    "text": "Test",
+    "createdAt": "2025-06-06T19:35:43.940Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Hey there! Ready to dive into some LinkedIn post ideas? Let's brainstorm together! What's on your mind today?",
+    "createdAt": "2025-06-06T19:35:43.940Z"
+  },
+  {
+    "sender": "user",
+    "text": "This is a test",
+    "createdAt": "2025-06-06T19:37:15.602Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Great to see you back! Testing is always important. If you're ready, we can continue brainstorming some engaging LinkedIn post ideas. What topics are you interested in exploring today?",
+    "createdAt": "2025-06-06T19:37:15.603Z"
+  },
+  {
+    "sender": "user",
+    "text": "This is a test",
+    "createdAt": "2025-06-06T19:37:15.690Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Great! Testing is an important part of ensuring everything works smoothly. If you're ready to brainstorm some LinkedIn post ideas or need assistance with anything else, feel free to let me know!",
+    "createdAt": "2025-06-06T19:37:15.690Z"
+  },
+  {
+    "sender": "user",
+    "text": "This is a test",
+    "createdAt": "2025-06-06T19:37:22.848Z"
+  },
+  {
+    "sender": "agent",
+    "text": "It seems like we've been running a lot of tests! If you're ready to move on to brainstorming some actual LinkedIn post ideas, just let me know what topics or themes you're interested in exploring. I'm here to help!",
+    "createdAt": "2025-06-06T19:37:22.849Z"
+  },
+  {
+    "sender": "user",
+    "text": "The reason I'm testing is because I'm actually coding the app right now trying to get it to work where it saves the history of our chat so I'm gonna refresh here in a second and see if it loads again",
+    "createdAt": "2025-06-06T19:40:00.331Z"
+  },
+  {
+    "sender": "user",
+    "text": "The reason I'm testing is because I'm actually coding the app right now trying to get it to work where it saves the history of our chat so I'm gonna refresh here in a second and see if it loads again",
+    "createdAt": "2025-06-06T19:40:00.365Z"
+  },
+  {
+    "sender": "user",
+    "text": "test",
+    "createdAt": "2025-06-06T19:40:29.120Z"
+  },
+  {
+    "sender": "user",
+    "text": "test",
+    "createdAt": "2025-06-06T19:40:29.159Z"
+  },
+  {
+    "sender": "user",
+    "text": "test",
+    "createdAt": "2025-06-06T19:42:42.367Z"
+  },
+  {
+    "sender": "user",
+    "text": "test",
+    "createdAt": "2025-06-06T19:42:42.369Z"
+  },
+  {
+    "sender": "user",
+    "text": "test",
+    "createdAt": "2025-06-06T19:43:08.290Z"
+  },
+  {
+    "sender": "user",
+    "text": "test",
+    "createdAt": "2025-06-06T19:43:08.329Z"
+  },
+  {
+    "sender": "user",
+    "text": "test",
+    "createdAt": "2025-06-06T19:43:35.631Z"
+  },
+  {
+    "sender": "user",
+    "text": "test",
+    "createdAt": "2025-06-06T19:43:35.673Z"
+  },
+  {
+    "sender": "user",
+    "text": "test",
+    "createdAt": "2025-06-06T19:43:52.137Z"
+  },
+  {
+    "sender": "user",
+    "text": "test",
+    "createdAt": "2025-06-06T19:43:52.178Z"
+  },
+  {
+    "sender": "user",
+    "text": "Test",
+    "createdAt": "2025-06-06T19:45:06.876Z"
+  },
+  {
+    "sender": "user",
+    "text": "Test",
+    "createdAt": "2025-06-06T19:45:06.879Z"
+  },
+  {
+    "sender": "user",
+    "text": "test",
+    "createdAt": "2025-06-06T19:45:21.458Z"
+  },
+  {
+    "sender": "user",
+    "text": "test",
+    "createdAt": "2025-06-06T19:45:21.466Z"
+  },
+  {
+    "sender": "user",
+    "text": "test",
+    "createdAt": "2025-06-06T19:45:22.241Z"
+  },
+  {
+    "sender": "agent",
+    "text": "It seems like you're running a test repeatedly. Is there anything specific you'd like assistance with in generating LinkedIn post ideas or content strategy? Feel free to share your thoughts or any specific topics you're interested in!",
+    "createdAt": "2025-06-06T19:45:22.241Z"
+  },
+  {
+    "sender": "agent",
+    "text": "It seems like you're running a test repeatedly. Is there anything specific you'd like assistance with in generating LinkedIn post ideas or content strategy? Feel free to share your thoughts or any specific topics you're interested in!",
+    "createdAt": "2025-06-06T19:45:22.252Z"
+  },
+  {
+    "sender": "user",
+    "text": "test",
+    "createdAt": "2025-06-06T19:45:22.317Z"
+  },
+  {
+    "sender": "agent",
+    "text": "It looks like you've been testing a lot! Need some fresh ideas or inspiration for your LinkedIn posts? I'm here to help! Let me know what you're thinking or if you'd like to explore some new post ideas.",
+    "createdAt": "2025-06-06T19:45:22.317Z"
+  },
+  {
+    "sender": "agent",
+    "text": "It looks like you've been testing a lot! Need some fresh ideas or inspiration for your LinkedIn posts? I'm here to help! Let me know what you're thinking or if you'd like to explore some new post ideas.",
+    "createdAt": "2025-06-06T19:45:22.326Z"
+  },
+  {
+    "sender": "user",
+    "text": "what is the meaning of the number 42",
+    "createdAt": "2025-06-06T19:45:37.925Z"
+  },
+  {
+    "sender": "user",
+    "text": "what is the meaning of the number 42",
+    "createdAt": "2025-06-06T19:45:37.933Z"
+  },
+  {
+    "sender": "user",
+    "text": "what is the meaning of the number 42",
+    "createdAt": "2025-06-06T19:45:39.447Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Ah, the number 42! That's a fun reference to \"The Hitchhiker's Guide to the Galaxy\" by Douglas Adams. In the book, the number 42 is said to be the \"Answer to the Ultimate Question of Life, the Universe, and Everything.\" It's a humorous take on the concept of seeking meaning in the universe. If you're a fan of science fiction or enjoy quirky references, you could tie this into a LinkedIn post about finding meaning in unexpected places or the importance of asking the right questions. Do you think this could inspire a post idea for you?",
+    "createdAt": "2025-06-06T19:45:39.448Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Ah, the number 42! That's a fun reference to \"The Hitchhiker's Guide to the Galaxy\" by Douglas Adams. In the book, the number 42 is said to be the \"Answer to the Ultimate Question of Life, the Universe, and Everything.\" It's a humorous take on the concept of seeking meaning in the universe. If you're a fan of science fiction or enjoy quirky references, you could tie this into a LinkedIn post about finding meaning in unexpected places or the importance of asking the right questions. Do you think this could inspire a post idea for you?",
+    "createdAt": "2025-06-06T19:45:39.459Z"
+  },
+  {
+    "sender": "user",
+    "text": "what is the meaning of the number 42",
+    "createdAt": "2025-06-06T19:45:39.771Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Ah, the number 42! That's an interesting question. In various contexts, especially in popular culture like \"The Hitchhiker's Guide to the Galaxy,\" the number 42 is often humorously portrayed as the \"Answer to the Ultimate Question of Life, the Universe, and Everything.\" It's a fun reference that has sparked creativity and curiosity. Have you thought about incorporating such intriguing references in your LinkedIn posts to engage your audience in a playful way? Let me know if you'd like to brainstorm some post ideas around this theme!",
+    "createdAt": "2025-06-06T19:45:39.771Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Ah, the number 42! That's an interesting question. In various contexts, especially in popular culture like \"The Hitchhiker's Guide to the Galaxy,\" the number 42 is often humorously portrayed as the \"Answer to the Ultimate Question of Life, the Universe, and Everything.\" It's a fun reference that has sparked creativity and curiosity. Have you thought about incorporating such intriguing references in your LinkedIn posts to engage your audience in a playful way? Let me know if you'd like to brainstorm some post ideas around this theme!",
+    "createdAt": "2025-06-06T19:45:39.784Z"
+  },
+  {
+    "sender": "user",
+    "text": "Travis do you have a fundamental objection to making money?   https://cln.sh/dfqbS7SD  I’m convinced we are all making LinkedIn too hard   Shoutouts to people that have helped me  What gest me excited about posting on linkedin being myself posting about what makes me come alive NOT comparing NOT posting what other people say i sohuld be posting about  Watching star wars and star wars rebels  I’ve listened to step into your greatness 50+ times  It’s safer to post bland content that be our authentic self  What do I know more about than most people  Hubspot is a perfect example of a pre-AI company uselessly bolting on AI and getting left behind  MINE MY COMMENTS  I’ll die on this hill…  Read 100 posts on X and summarize",
+    "createdAt": "2025-06-06T19:50:05.313Z"
+  },
+  {
+    "sender": "user",
+    "text": "Travis do you have a fundamental objection to making money?   https://cln.sh/dfqbS7SD  I’m convinced we are all making LinkedIn too hard   Shoutouts to people that have helped me  What gest me excited about posting on linkedin being myself posting about what makes me come alive NOT comparing NOT posting what other people say i sohuld be posting about  Watching star wars and star wars rebels  I’ve listened to step into your greatness 50+ times  It’s safer to post bland content that be our authentic self  What do I know more about than most people  Hubspot is a perfect example of a pre-AI company uselessly bolting on AI and getting left behind  MINE MY COMMENTS  I’ll die on this hill…  Read 100 posts on X and summarize",
+    "createdAt": "2025-06-06T19:50:05.315Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Sorry, I could not extract ideas from that text.",
+    "createdAt": "2025-06-06T19:50:07.011Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Sorry, I could not extract ideas from that text.",
+    "createdAt": "2025-06-06T19:50:07.985Z"
+  },
+  {
+    "sender": "user",
+    "text": "here's a random list of ideas",
+    "createdAt": "2025-06-06T19:51:24.006Z"
+  },
+  {
+    "sender": "user",
+    "text": "here's a random list of ideas",
+    "createdAt": "2025-06-06T19:51:24.046Z"
+  },
+  {
+    "sender": "user",
+    "text": "here's a random list of ideas",
+    "createdAt": "2025-06-06T19:51:24.913Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Great to see you back! I see you have a list of ideas. Would you like me to organize and categorize them for you? Let's dive into those random ideas and see how we can turn them into engaging LinkedIn posts!",
+    "createdAt": "2025-06-06T19:51:24.913Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Great to see you back! I see you have a list of ideas. Would you like me to organize and categorize them for you? Let's dive into those random ideas and see how we can turn them into engaging LinkedIn posts!",
+    "createdAt": "2025-06-06T19:51:24.923Z"
+  },
+  {
+    "sender": "user",
+    "text": "here's a random list of ideas",
+    "createdAt": "2025-06-06T19:51:25.251Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Thanks for sharing the list of ideas! I'd be happy to help you brainstorm and organize them. Let's take a look at each idea and see how we can develop them further for engaging LinkedIn posts. Feel free to provide more context or details about each idea when you're ready!",
+    "createdAt": "2025-06-06T19:51:25.251Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Thanks for sharing the list of ideas! I'd be happy to help you brainstorm and organize them. Let's take a look at each idea and see how we can develop them further for engaging LinkedIn posts. Feel free to provide more context or details about each idea when you're ready!",
+    "createdAt": "2025-06-06T19:51:25.263Z"
+  },
+  {
+    "sender": "user",
+    "text": "Travis do you have a fundamental objection to making money?   https://cln.sh/dfqbS7SD  I’m convinced we are all making LinkedIn too hard   Shoutouts to people that have helped me  What gest me excited about posting on linkedin being myself posting about what makes me come alive NOT comparing NOT posting what other people say i sohuld be posting about  Watching star wars and star wars rebels  I’ve listened to step into your greatness 50+ times  It’s safer to post bland content that be our authentic self  What do I know more about than most people  Hubspot is a perfect example of a pre-AI company uselessly bolting on AI and getting left behind  MINE MY COMMENTS  I’ll die on this hill…  Read 100 posts on X and summarize",
+    "createdAt": "2025-06-06T19:51:31.659Z"
+  },
+  {
+    "sender": "user",
+    "text": "Travis do you have a fundamental objection to making money?   https://cln.sh/dfqbS7SD  I’m convinced we are all making LinkedIn too hard   Shoutouts to people that have helped me  What gest me excited about posting on linkedin being myself posting about what makes me come alive NOT comparing NOT posting what other people say i sohuld be posting about  Watching star wars and star wars rebels  I’ve listened to step into your greatness 50+ times  It’s safer to post bland content that be our authentic self  What do I know more about than most people  Hubspot is a perfect example of a pre-AI company uselessly bolting on AI and getting left behind  MINE MY COMMENTS  I’ll die on this hill…  Read 100 posts on X and summarize",
+    "createdAt": "2025-06-06T19:51:31.665Z"
+  },
+  {
+    "sender": "user",
+    "text": "Travis do you have a fundamental objection to making money?   https://cln.sh/dfqbS7SD  I’m convinced we are all making LinkedIn too hard   Shoutouts to people that have helped me  What gest me excited about posting on linkedin being myself posting about what makes me come alive NOT comparing NOT posting what other people say i sohuld be posting about  Watching star wars and star wars rebels  I’ve listened to step into your greatness 50+ times  It’s safer to post bland content that be our authentic self  What do I know more about than most people  Hubspot is a perfect example of a pre-AI company uselessly bolting on AI and getting left behind  MINE MY COMMENTS  I’ll die on this hill…  Read 100 posts on X and summarize",
+    "createdAt": "2025-06-06T19:51:33.722Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 12 new ideas!",
+    "createdAt": "2025-06-06T19:51:33.722Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 12 new ideas!",
+    "createdAt": "2025-06-06T19:51:33.738Z"
+  },
+  {
+    "sender": "user",
+    "text": "Travis do you have a fundamental objection to making money?   https://cln.sh/dfqbS7SD  I’m convinced we are all making LinkedIn too hard   Shoutouts to people that have helped me  What gest me excited about posting on linkedin being myself posting about what makes me come alive NOT comparing NOT posting what other people say i sohuld be posting about  Watching star wars and star wars rebels  I’ve listened to step into your greatness 50+ times  It’s safer to post bland content that be our authentic self  What do I know more about than most people  Hubspot is a perfect example of a pre-AI company uselessly bolting on AI and getting left behind  MINE MY COMMENTS  I’ll die on this hill…  Read 100 posts on X and summarize",
+    "createdAt": "2025-06-06T19:51:34.037Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 12 new ideas!",
+    "createdAt": "2025-06-06T19:51:34.037Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 12 new ideas!",
+    "createdAt": "2025-06-06T19:51:34.048Z"
+  },
+  {
+    "sender": "user",
+    "text": "ABC of culture\n\n—————\n\nPSA to marketing leaders\n\n—————\n\nLooking at 1000 agencies\n\n—————\n\nMarketing should be boring.",
+    "createdAt": "2025-06-06T20:10:40.056Z"
+  },
+  {
+    "sender": "user",
+    "text": "ABC of culture\n\n—————\n\nPSA to marketing leaders\n\n—————\n\nLooking at 1000 agencies\n\n—————\n\nMarketing should be boring.",
+    "createdAt": "2025-06-06T20:10:40.095Z"
+  },
+  {
+    "sender": "user",
+    "text": "ABC of culture\n\n—————\n\nPSA to marketing leaders\n\n—————\n\nLooking at 1000 agencies\n\n—————\n\nMarketing should be boring.",
+    "createdAt": "2025-06-06T20:10:41.295Z"
+  },
+  {
+    "sender": "agent",
+    "text": "It looks like you have some interesting LinkedIn post ideas lined up! The topics range from culture to marketing leadership and agencies. Are you planning to dive deeper into these topics or do you have any specific angle in mind for your posts?",
+    "createdAt": "2025-06-06T20:10:41.295Z"
+  },
+  {
+    "sender": "agent",
+    "text": "It looks like you have some interesting LinkedIn post ideas lined up! The topics range from culture to marketing leadership and agencies. Are you planning to dive deeper into these topics or do you have any specific angle in mind for your posts?",
+    "createdAt": "2025-06-06T20:10:41.306Z"
+  },
+  {
+    "sender": "user",
+    "text": "ABC of culture\n\n—————\n\nPSA to marketing leaders\n\n—————\n\nLooking at 1000 agencies\n\n—————\n\nMarketing should be boring.",
+    "createdAt": "2025-06-06T20:10:41.338Z"
+  },
+  {
+    "sender": "agent",
+    "text": "It looks like you have some interesting ideas here! Let's see how we can develop them further for engaging LinkedIn posts. Would you like to delve deeper into any specific idea or explore a particular angle for your posts? Feel free to provide more context or share additional thoughts!",
+    "createdAt": "2025-06-06T20:10:41.338Z"
+  },
+  {
+    "sender": "agent",
+    "text": "It looks like you have some interesting ideas here! Let's see how we can develop them further for engaging LinkedIn posts. Would you like to delve deeper into any specific idea or explore a particular angle for your posts? Feel free to provide more context or share additional thoughts!",
+    "createdAt": "2025-06-06T20:10:41.344Z"
+  },
+  {
+    "sender": "user",
+    "text": "create these ideas\n\nABC of culture\n\n—————\n\nPSA to marketing leaders\n\n—————\n\nLooking at 1000 agencies\n\n—————\n\nMarketing should be boring.",
+    "createdAt": "2025-06-06T20:11:04.012Z"
+  },
+  {
+    "sender": "user",
+    "text": "create these ideas\n\nABC of culture\n\n—————\n\nPSA to marketing leaders\n\n—————\n\nLooking at 1000 agencies\n\n—————\n\nMarketing should be boring.",
+    "createdAt": "2025-06-06T20:11:04.016Z"
+  },
+  {
+    "sender": "user",
+    "text": "create these ideas\n\nABC of culture\n\n—————\n\nPSA to marketing leaders\n\n—————\n\nLooking at 1000 agencies\n\n—————\n\nMarketing should be boring.",
+    "createdAt": "2025-06-06T20:11:05.551Z"
+  },
+  {
+    "sender": "agent",
+    "text": "It seems like you are focusing on these four main LinkedIn post ideas: \"ABC of culture,\" \"PSA to marketing leaders,\" \"Looking at 1000 agencies,\" and \"Marketing should be boring.\" \n\nDo you want to explore specific angles or details within these ideas to make your posts stand out and engage your audience more effectively? Let me know if you need any help in developing these ideas further!",
+    "createdAt": "2025-06-06T20:11:05.551Z"
+  },
+  {
+    "sender": "agent",
+    "text": "It seems like you are focusing on these four main LinkedIn post ideas: \"ABC of culture,\" \"PSA to marketing leaders,\" \"Looking at 1000 agencies,\" and \"Marketing should be boring.\" \n\nDo you want to explore specific angles or details within these ideas to make your posts stand out and engage your audience more effectively? Let me know if you need any help in developing these ideas further!",
+    "createdAt": "2025-06-06T20:11:05.564Z"
+  },
+  {
+    "sender": "user",
+    "text": "create these ideas\n\nABC of culture\n\n—————\n\nPSA to marketing leaders\n\n—————\n\nLooking at 1000 agencies\n\n—————\n\nMarketing should be boring.",
+    "createdAt": "2025-06-06T20:11:05.745Z"
+  },
+  {
+    "sender": "agent",
+    "text": "It seems like you have a solid foundation with your LinkedIn post ideas around culture, marketing leadership, agencies, and the concept of marketing being boring. These topics can definitely spark interesting discussions and insights. \n\nIf you're looking to create engaging content from these ideas, you might want to consider adding your unique perspective or a storytelling element to make your posts more compelling and relatable to your audience. \n\nDo you have specific points or stories in mind that you'd like to highlight in each of these posts, or are there any particular goals you want to achieve with these LinkedIn posts? Let's brainstorm some ways to make these ideas stand out!",
+    "createdAt": "2025-06-06T20:11:05.745Z"
+  },
+  {
+    "sender": "agent",
+    "text": "It seems like you have a solid foundation with your LinkedIn post ideas around culture, marketing leadership, agencies, and the concept of marketing being boring. These topics can definitely spark interesting discussions and insights. \n\nIf you're looking to create engaging content from these ideas, you might want to consider adding your unique perspective or a storytelling element to make your posts more compelling and relatable to your audience. \n\nDo you have specific points or stories in mind that you'd like to highlight in each of these posts, or are there any particular goals you want to achieve with these LinkedIn posts? Let's brainstorm some ways to make these ideas stand out!",
+    "createdAt": "2025-06-06T20:11:05.758Z"
+  },
+  {
+    "sender": "user",
+    "text": "ABC of culture\n\n—————\n\nPSA to marketing leaders\n\n—————\n\nLooking at 1000 agencies\n\n—————\n\nMarketing should be boring.",
+    "createdAt": "2025-06-06T20:13:11.987Z"
+  },
+  {
+    "sender": "user",
+    "text": "ABC of culture\n\n—————\n\nPSA to marketing leaders\n\n—————\n\nLooking at 1000 agencies\n\n—————\n\nMarketing should be boring.",
+    "createdAt": "2025-06-06T20:13:12.027Z"
+  },
+  {
+    "sender": "user",
+    "text": "ABC of culture\n\n—————\n\nPSA to marketing leaders\n\n—————\n\nLooking at 1000 agencies\n\n—————\n\nMarketing should be boring.",
+    "createdAt": "2025-06-06T20:13:13.386Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 4 new ideas!",
+    "createdAt": "2025-06-06T20:13:13.386Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 4 new ideas!",
+    "createdAt": "2025-06-06T20:13:16.395Z"
+  },
+  {
+    "sender": "user",
+    "text": "ABC of culture\n\n—————\n\nPSA to marketing leaders\n\n—————\n\nLooking at 1000 agencies\n\n—————\n\nMarketing should be boring.",
+    "createdAt": "2025-06-06T20:13:12.765Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 4 new ideas!",
+    "createdAt": "2025-06-06T20:13:12.765Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 4 new ideas!",
+    "createdAt": "2025-06-06T20:13:16.429Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:26:42.047Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:26:42.088Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:26:44.101Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a talented sales professional\n• I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals.\n• Our foe is mediocrity.\n• The power of \"yet\" - unlocking potential through a simple word\n• Share a post reflecting on the long days, often pondering the moments captured in a photo of me with my three kids.\n• Number of Failures Before Achieving Success\n• The YETI coolers saga\n• Unleashing Your Real-Life Superpowers\n• The power of pivoting... Megan\n• Original: There's no such thing as culture\n\nEdited: Culture is a myth\n• Top workplace destination",
+    "createdAt": "2025-06-06T20:26:44.101Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a talented sales professional\n• I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals.\n• Our foe is mediocrity.\n• The power of \"yet\" - unlocking potential through a simple word\n• Share a post reflecting on the long days, often pondering the moments captured in a photo of me with my three kids.\n• Number of Failures Before Achieving Success\n• The YETI coolers saga\n• Unleashing Your Real-Life Superpowers\n• The power of pivoting... Megan\n• Original: There's no such thing as culture\n\nEdited: Culture is a myth\n• Top workplace destination",
+    "createdAt": "2025-06-06T20:26:49.938Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:26:44.365Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a talented sales professional\n• I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals.\n• Our competition is simply not good enough.\n• The power of \"yet\" - unlocking potential through a simple mindset shift.\n• Share a post reflecting on the long days, often captured in that picture of me with my three kids. 📸 #ParentingJourney #FamilyMoments\n• Number of failures before achieving success.\n• The YETI coolers saga\n• Unleashing your real-life superpowers 🚀\n• The power of pivoting... Megan\n• Original: There's no such thing as culture\n\nEdited: Culture is a myth\n• Top workplace destination",
+    "createdAt": "2025-06-06T20:26:44.365Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a talented sales professional\n• I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals.\n• Our competition is simply not good enough.\n• The power of \"yet\" - unlocking potential through a simple mindset shift.\n• Share a post reflecting on the long days, often captured in that picture of me with my three kids. 📸 #ParentingJourney #FamilyMoments\n• Number of failures before achieving success.\n• The YETI coolers saga\n• Unleashing your real-life superpowers 🚀\n• The power of pivoting... Megan\n• Original: There's no such thing as culture\n\nEdited: Culture is a myth\n• Top workplace destination",
+    "createdAt": "2025-06-06T20:26:51.731Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:30:14.461Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:30:14.463Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:30:15.923Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a talented sales professional\n• I'm seeking a storyteller, a community builder, a value-adder, and someone who can close deals.\n• Our competition is just \"good enough.\"\n• The power of \"yet\" - unlocking potential through a simple word\n• Share a post reflecting on the long days, often captured in that picture of me with my three kids.\n• Number of Failures Before Achieving Success\n• The YETI coolers saga\n• Unleashing Your Real-Life Superpowers\n• The power of pivoting... Megan\n• Original: There's no such thing as culture\n\nEdited: Culture is a myth\n• Top workplace destination",
+    "createdAt": "2025-06-06T20:30:15.923Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a talented sales professional\n• I'm seeking a storyteller, a community builder, a value-adder, and someone who can close deals.\n• Our competition is just \"good enough.\"\n• The power of \"yet\" - unlocking potential through a simple word\n• Share a post reflecting on the long days, often captured in that picture of me with my three kids.\n• Number of Failures Before Achieving Success\n• The YETI coolers saga\n• Unleashing Your Real-Life Superpowers\n• The power of pivoting... Megan\n• Original: There's no such thing as culture\n\nEdited: Culture is a myth\n• Top workplace destination",
+    "createdAt": "2025-06-06T20:30:20.852Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:30:15.996Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a top-notch sales professional\n• I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals.\n• Our competition is just \"good enough.\"\n• The power of \"yet\" - unlocking potential through a simple mindset shift.\n• Share a post reflecting on the long days, often captured in a picture of me with my three kids.\n• Number of Failures Before Achieving Success\n• The YETI coolers saga\n• Unleashing Your Real-Life Superpowers\n• The power of pivoting... Megan\n• Culture is everything.\n• Top Workplace to Thrive",
+    "createdAt": "2025-06-06T20:30:15.996Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a top-notch sales professional\n• I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals.\n• Our competition is just \"good enough.\"\n• The power of \"yet\" - unlocking potential through a simple mindset shift.\n• Share a post reflecting on the long days, often captured in a picture of me with my three kids.\n• Number of Failures Before Achieving Success\n• The YETI coolers saga\n• Unleashing Your Real-Life Superpowers\n• The power of pivoting... Megan\n• Culture is everything.\n• Top Workplace to Thrive",
+    "createdAt": "2025-06-06T20:30:20.960Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:31:56.203Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:31:56.207Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:31:57.569Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a talented sales professional\n• I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals.\n• Our competition is just \"good enough.\"\n• The power of \"yet\" - unlocking potential through a simple word\n• Share a post reflecting on the long days, often captured in that picture of me with my three kids.\n• Number of failures before achieving success.\n• The YETI coolers saga\n• Real-life superpowers - what's yours?\n• The power of pivoting... Megan\n• Original: There’s no such thing as culture\n\nEdited: Culture is a myth\n• Top Workplace Destination",
+    "createdAt": "2025-06-06T20:31:57.569Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a talented sales professional\n• I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals.\n• Our competition is just \"good enough.\"\n• The power of \"yet\" - unlocking potential through a simple word\n• Share a post reflecting on the long days, often captured in that picture of me with my three kids.\n• Number of failures before achieving success.\n• The YETI coolers saga\n• Real-life superpowers - what's yours?\n• The power of pivoting... Megan\n• Original: There’s no such thing as culture\n\nEdited: Culture is a myth\n• Top Workplace Destination",
+    "createdAt": "2025-06-06T20:32:02.455Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:32:07.465Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:32:07.467Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:31:58.209Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a top-notch sales professional\n• I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals.\n• Our competition is just \"good enough.\"\n• The power of \"yet\" - unlocking potential and growth\n• Write a post about how the days feel long, reflecting on the picture of me holding my three kids.\n• Number of failures before achieving success.\n• YETI Coolers: A Success Story\n• Unleashing your real-life superpowers!\n• The power of pivoting... Megan\n• Original: There's no such thing as culture\n\nEdited: Culture is a myth\n• Top workplace destination",
+    "createdAt": "2025-06-06T20:31:58.209Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:32:08.895Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a talented sales professional\n• I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals.\n• Our foe is mediocrity.\n• The power of \"yet\" - unlocking your potential\n• Share a post reflecting on the long days, often captured in that picture of me holding my three kids.\n• Number of Failures Before Achieving Success\n• The YETI coolers saga\n• Unleashing Your Real-Life Superpowers\n• The power of pivoting... Megan\n• Original: There's no such thing as culture\n\nEdited: Culture is a myth\n• Top Workplace to Thrive",
+    "createdAt": "2025-06-06T20:32:08.895Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a talented sales professional\n• I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals.\n• Our foe is mediocrity.\n• The power of \"yet\" - unlocking your potential\n• Share a post reflecting on the long days, often captured in that picture of me holding my three kids.\n• Number of Failures Before Achieving Success\n• The YETI coolers saga\n• Unleashing Your Real-Life Superpowers\n• The power of pivoting... Megan\n• Original: There's no such thing as culture\n\nEdited: Culture is a myth\n• Top Workplace to Thrive",
+    "createdAt": "2025-06-06T20:32:14.935Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:32:25.805Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a talented sales professional\n• I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals.\n• Our foe is mediocrity.\n• The power of \"yet\" - unlocking potential through a simple word\n• Share a post reflecting on the long days, often captured in that picture of me with my three kids.\n• Number of Failures Before Achieving Success\n• The YETI coolers saga\n• Unleashing Your Real-Life Superpowers\n• The power of pivoting... Megan\n• Original: There's no such thing as culture\n\nEdited: Culture is a myth\n• Top Workplace Destination",
+    "createdAt": "2025-06-06T20:32:25.805Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a talented sales professional\n• I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals.\n• Our foe is mediocrity.\n• The power of \"yet\" - unlocking potential through a simple word\n• Share a post reflecting on the long days, often captured in that picture of me with my three kids.\n• Number of Failures Before Achieving Success\n• The YETI coolers saga\n• Unleashing Your Real-Life Superpowers\n• The power of pivoting... Megan\n• Original: There's no such thing as culture\n\nEdited: Culture is a myth\n• Top Workplace Destination",
+    "createdAt": "2025-06-06T20:32:31.439Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:36:01.116Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:36:01.119Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:36:02.403Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a talented sales professional\n• I'm seeking a storyteller, community builder, value-adder, and someone who can also close deals.\n• Our foe is mediocrity.\n• The power of \"yet\" - unlocking potential and growth\n• Share a post reflecting on the long days and the moments captured in that picture of me with my three kids. 📸 #parentingjourney #cherishedmoments\n• Number of Failures Before Achieving Success\n• YETI coolers: A story worth chilling for.\n• Real-life superpowers - what's yours?\n• The power of pivoting... Megan\n• Original: There’s no such thing as culture\n\nEdited: Culture is a myth\n• Top workplace destination",
+    "createdAt": "2025-06-06T20:36:02.403Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a talented sales professional\n• I'm seeking a storyteller, community builder, value-adder, and someone who can also close deals.\n• Our foe is mediocrity.\n• The power of \"yet\" - unlocking potential and growth\n• Share a post reflecting on the long days and the moments captured in that picture of me with my three kids. 📸 #parentingjourney #cherishedmoments\n• Number of Failures Before Achieving Success\n• YETI coolers: A story worth chilling for.\n• Real-life superpowers - what's yours?\n• The power of pivoting... Megan\n• Original: There’s no such thing as culture\n\nEdited: Culture is a myth\n• Top workplace destination",
+    "createdAt": "2025-06-06T20:36:07.295Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:36:02.621Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a top-notch sales professional\n• I'm seeking a storyteller, community builder, value-adder, and, of course, a deal closer.\n• Our competition is just \"good enough.\"\n• The power of \"yet\" - unlocking potential through a simple word\n• Share a post reflecting on the long days and the moments captured in a picture of me with my three kids. 📸👨‍👧‍👦 #ParenthoodJourney #CherishedMemories\n• Number of Failures Before Achieving Success\n• YETI Coolers: A Success Story\n• Unleashing your real-life superpowers!\n• The power of pivoting... Megan\n• There's no such thing as culture.\n• Top workplace destination",
+    "createdAt": "2025-06-06T20:36:02.621Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a top-notch sales professional\n• I'm seeking a storyteller, community builder, value-adder, and, of course, a deal closer.\n• Our competition is just \"good enough.\"\n• The power of \"yet\" - unlocking potential through a simple word\n• Share a post reflecting on the long days and the moments captured in a picture of me with my three kids. 📸👨‍👧‍👦 #ParenthoodJourney #CherishedMemories\n• Number of Failures Before Achieving Success\n• YETI Coolers: A Success Story\n• Unleashing your real-life superpowers!\n• The power of pivoting... Megan\n• There's no such thing as culture.\n• Top workplace destination",
+    "createdAt": "2025-06-06T20:36:09.685Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:36:47.119Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:36:47.122Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:36:48.418Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a talented sales professional\n• I'm seeking a storyteller, community builder, value-adder, and someone who can also close deals.\n• Our foe is mediocrity.\n• The power of \"yet\" - unlocking potential through a simple word\n• Write a post about how the days feel long, reflecting on this photo of me holding my three kids.\n• Number of failures before achieving success.\n• The YETI coolers saga\n• Unlock Your Real-Life Superpowers\n• The power of pivoting... Megan\n• Original: There’s no such thing as culture\n\nEdited: Culture is a myth\n• Top workplace destination",
+    "createdAt": "2025-06-06T20:36:48.418Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a talented sales professional\n• I'm seeking a storyteller, community builder, value-adder, and someone who can also close deals.\n• Our foe is mediocrity.\n• The power of \"yet\" - unlocking potential through a simple word\n• Write a post about how the days feel long, reflecting on this photo of me holding my three kids.\n• Number of failures before achieving success.\n• The YETI coolers saga\n• Unlock Your Real-Life Superpowers\n• The power of pivoting... Megan\n• Original: There’s no such thing as culture\n\nEdited: Culture is a myth\n• Top workplace destination",
+    "createdAt": "2025-06-06T20:36:53.804Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:36:48.426Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a talented sales professional\n• I'm in search of a storyteller, a community builder, a value-adder, and someone who can also close deals.\n• Our competition is just \"good enough.\"\n• The power of \"yet\" - unlocking potential through a simple word\n• Share a post reflecting on the long days, often captured in that picture of me with my three kids. 📸 #ParentingJourney #Reflections\n• Number of failures before achieving success.\n• The YETI coolers saga\n• Unlock Your Real-Life Superpowers\n• The power of pivoting... Megan\n• There's no such thing as culture.\n• Top workplace destination",
+    "createdAt": "2025-06-06T20:36:48.426Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a talented sales professional\n• I'm in search of a storyteller, a community builder, a value-adder, and someone who can also close deals.\n• Our competition is just \"good enough.\"\n• The power of \"yet\" - unlocking potential through a simple word\n• Share a post reflecting on the long days, often captured in that picture of me with my three kids. 📸 #ParentingJourney #Reflections\n• Number of failures before achieving success.\n• The YETI coolers saga\n• Unlock Your Real-Life Superpowers\n• The power of pivoting... Megan\n• There's no such thing as culture.\n• Top workplace destination",
+    "createdAt": "2025-06-06T20:36:54.590Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:37:55.595Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:37:55.597Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:37:56.864Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a talented sales professional\n• I'm in search of a storyteller, a community builder, a value-adder, and someone who can also close deals.\n• Our competition is just \"good enough.\"\n• The power of \"yet\" - unlocking potential through a simple mindset shift.\n• Share a post reflecting on the long days, often pondering the moments captured in a photo of me with my three kids. 📸👨‍👧‍👦 #parentingjourney #familymoments\n• Number of Failures Before Achieving Success\n• The YETI Coolers Story\n• Unleashing your real-life superpowers!\n• The power of pivoting... Megan\n• Original: There's no such thing as culture\n\nEdited: Culture is a myth\n• Top workplace destination",
+    "createdAt": "2025-06-06T20:37:56.864Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a talented sales professional\n• I'm in search of a storyteller, a community builder, a value-adder, and someone who can also close deals.\n• Our competition is just \"good enough.\"\n• The power of \"yet\" - unlocking potential through a simple mindset shift.\n• Share a post reflecting on the long days, often pondering the moments captured in a photo of me with my three kids. 📸👨‍👧‍👦 #parentingjourney #familymoments\n• Number of Failures Before Achieving Success\n• The YETI Coolers Story\n• Unleashing your real-life superpowers!\n• The power of pivoting... Megan\n• Original: There's no such thing as culture\n\nEdited: Culture is a myth\n• Top workplace destination",
+    "createdAt": "2025-06-06T20:38:03.539Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:37:57.522Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a talented sales professional\n• I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals.\n• Our foe is mediocrity.\n• The power of \"yet\" - unlocking potential through a simple word\n• Share a post reflecting on the long days, often captured in that picture of me with my three kids.\n• Number of Failures Before Achieving Success\n• YETI Coolers: The Untold Story\n• Unleashing your real-life superpowers\n• The power of pivoting... Megan\n• There's no such thing as culture.\n• Top workplace destination",
+    "createdAt": "2025-06-06T20:37:57.522Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a talented sales professional\n• I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals.\n• Our foe is mediocrity.\n• The power of \"yet\" - unlocking potential through a simple word\n• Share a post reflecting on the long days, often captured in that picture of me with my three kids.\n• Number of Failures Before Achieving Success\n• YETI Coolers: The Untold Story\n• Unleashing your real-life superpowers\n• The power of pivoting... Megan\n• There's no such thing as culture.\n• Top workplace destination",
+    "createdAt": "2025-06-06T20:38:03.678Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:38:27.371Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:38:27.374Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:38:28.664Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a talented sales professional\n• I'm seeking a storyteller, community builder, value-adder, and someone who can also close deals.\n• Our foe is mediocrity.\n• The power of \"yet\" - unlocking potential through a simple mindset shift.\n• Share a post reflecting on the long days, often pondering the moments captured in a photo of me with my three kids.\n• Number of Failures Before Achieving Success\n• The YETI coolers saga\n• Real-life superpowers - what's yours?\n• The power of pivoting... Megan\n• Original: There's no such thing as culture\n\nEdited: Culture is a myth\n• Top Workplace Destination",
+    "createdAt": "2025-06-06T20:38:28.664Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a talented sales professional\n• I'm seeking a storyteller, community builder, value-adder, and someone who can also close deals.\n• Our foe is mediocrity.\n• The power of \"yet\" - unlocking potential through a simple mindset shift.\n• Share a post reflecting on the long days, often pondering the moments captured in a photo of me with my three kids.\n• Number of Failures Before Achieving Success\n• The YETI coolers saga\n• Real-life superpowers - what's yours?\n• The power of pivoting... Megan\n• Original: There's no such thing as culture\n\nEdited: Culture is a myth\n• Top Workplace Destination",
+    "createdAt": "2025-06-06T20:38:34.057Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:38:28.918Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a talented sales professional\n• I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals.\n• Our foe is mediocrity.\n• The power of \"yet\" - unlocking potential and possibilities.\n• Share a post reflecting on the long days, often captured in that photo of me with my three kids.\n• Number of Failures Before Achieving Success\n• The YETI coolers saga\n• Unleashing your real-life superpowers!\n• The power of pivoting... Megan\n• Original: There’s no such thing as culture\n\nEdited: Culture is a myth\n• Top workplace destination",
+    "createdAt": "2025-06-06T20:38:28.918Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a talented sales professional\n• I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals.\n• Our foe is mediocrity.\n• The power of \"yet\" - unlocking potential and possibilities.\n• Share a post reflecting on the long days, often captured in that photo of me with my three kids.\n• Number of Failures Before Achieving Success\n• The YETI coolers saga\n• Unleashing your real-life superpowers!\n• The power of pivoting... Megan\n• Original: There’s no such thing as culture\n\nEdited: Culture is a myth\n• Top workplace destination",
+    "createdAt": "2025-06-06T20:38:34.616Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:39:14.718Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:39:14.722Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:39:16.249Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a top-notch sales professional\n• I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals.\n• Our competition is just \"good enough.\"\n• The power of \"yet\" - unlocking potential through a simple word\n• Share a post reflecting on the long days, often captured in that picture of me with my three kids.\n• Number of Failures Before Achieving Success\n• The YETI coolers saga\n• Unleashing your real-life superpowers!\n• The power of pivoting... Megan\n• Original: There's no such thing as culture\n\nEdited: Culture is a myth\n• Top workplace destination",
+    "createdAt": "2025-06-06T20:39:16.249Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a top-notch sales professional\n• I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals.\n• Our competition is just \"good enough.\"\n• The power of \"yet\" - unlocking potential through a simple word\n• Share a post reflecting on the long days, often captured in that picture of me with my three kids.\n• Number of Failures Before Achieving Success\n• The YETI coolers saga\n• Unleashing your real-life superpowers!\n• The power of pivoting... Megan\n• Original: There's no such thing as culture\n\nEdited: Culture is a myth\n• Top workplace destination",
+    "createdAt": "2025-06-06T20:39:21.768Z"
+  },
+  {
+    "sender": "user",
+    "text": "Since XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work",
+    "createdAt": "2025-06-06T20:39:16.433Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a top-notch sales professional\n• I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals.\n• Our competition is just \"good enough.\"\n• The power of \"yet\" - unlocking potential through a simple word\n• Share a post reflecting on the long days, often pondered while looking at a picture of me with my three kids. 📸👨‍👧‍👦 #ParentingJourney #Reflections\n• Number of failures before achieving success.\n• The YETI coolers saga\n• Unleashing Your Real-Life Superpowers\n• The power of pivoting... Megan\n• Original: There's no such thing as culture\n\nEdited: Culture is a myth\n• Top workplace destination",
+    "createdAt": "2025-06-06T20:39:16.433Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Seeking a top-notch sales professional\n• I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals.\n• Our competition is just \"good enough.\"\n• The power of \"yet\" - unlocking potential through a simple word\n• Share a post reflecting on the long days, often pondered while looking at a picture of me with my three kids. 📸👨‍👧‍👦 #ParentingJourney #Reflections\n• Number of failures before achieving success.\n• The YETI coolers saga\n• Unleashing Your Real-Life Superpowers\n• The power of pivoting... Megan\n• Original: There's no such thing as culture\n\nEdited: Culture is a myth\n• Top workplace destination",
+    "createdAt": "2025-06-06T20:39:22.019Z"
+  },
+  {
+    "sender": "user",
+    "text": "Imported 11 new ideas! • Seeking a top-notch sales professional • I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals. • Our competition is just \"good enough.\" • The power of \"yet\" - unlocking potential through a simple word • Share a post reflecting on the long days, often pondered while looking at a picture of me with my three kids. 📸👨‍👧‍👦 #ParentingJourney #Reflections • Number of failures before achieving success. • The YETI coolers saga • Unleashing Your Real-Life Superpowers • The power of pivoting... Megan • Original: There's no such thing as culture Edited: Culture is a myth • Top workplace destination",
+    "createdAt": "2025-06-06T20:40:50.503Z"
+  },
+  {
+    "sender": "user",
+    "text": "Imported 11 new ideas! • Seeking a top-notch sales professional • I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals. • Our competition is just \"good enough.\" • The power of \"yet\" - unlocking potential through a simple word • Share a post reflecting on the long days, often pondered while looking at a picture of me with my three kids. 📸👨‍👧‍👦 #ParentingJourney #Reflections • Number of failures before achieving success. • The YETI coolers saga • Unleashing Your Real-Life Superpowers • The power of pivoting... Megan • Original: There's no such thing as culture Edited: Culture is a myth • Top workplace destination",
+    "createdAt": "2025-06-06T20:40:50.505Z"
+  },
+  {
+    "sender": "user",
+    "text": "Imported 11 new ideas! • Seeking a top-notch sales professional • I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals. • Our competition is just \"good enough.\" • The power of \"yet\" - unlocking potential through a simple word • Share a post reflecting on the long days, often pondered while looking at a picture of me with my three kids. 📸👨‍👧‍👦 #ParentingJourney #Reflections • Number of failures before achieving success. • The YETI coolers saga • Unleashing Your Real-Life Superpowers • The power of pivoting... Megan • Original: There's no such thing as culture Edited: Culture is a myth • Top workplace destination",
+    "createdAt": "2025-06-06T20:40:52.461Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Looking for an exceptional sales pro\n• Seeking a storyteller, community builder, value-adder, and deal closer.\n• Our competition is merely 'good enough.'\n• The power of 'yet' - unlocking potential with one word\n• Reflect on the long days with a glance at a photo of me and my three kids. 📸👨‍👧‍👦 #ParentingJourney #Reflections\n• Number of failures before reaching success.\n• The YETI coolers story\n• Unlocking Your True Superpowers\n• The power of pivoting with Megan!\n• Culture is a myth.\n• Top workplace destinations",
+    "createdAt": "2025-06-06T20:40:52.461Z"
+  },
+  {
+    "sender": "user",
+    "text": "Imported 11 new ideas! • Seeking a top-notch sales professional • I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals. • Our competition is just \"good enough.\" • The power of \"yet\" - unlocking potential through a simple word • Share a post reflecting on the long days, often pondered while looking at a picture of me with my three kids. 📸👨‍👧‍👦 #ParentingJourney #Reflections • Number of failures before achieving success. • The YETI coolers saga • Unleashing Your Real-Life Superpowers • The power of pivoting... Megan • Original: There's no such thing as culture Edited: Culture is a myth • Top workplace destination",
+    "createdAt": "2025-06-06T20:40:52.018Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Looking for an exceptional sales pro\n• Seeking a storyteller, community builder, value-adder, and deal closer.\n• Our competition settles for 'good enough.'\n• The power of 'yet' - unlocking potential with one word\n• Reflect on the long days with a glance at a photo of me and my three kids. 📸👨‍👧‍👦 #ParentingJourney #Reflections\n• Number of failures on the road to success.\n• The YETI coolers story\n• Unlocking Your True Superpowers\n• The power of pivoting: Megan\n• Culture is a myth.\n• Top workplace destinations",
+    "createdAt": "2025-06-06T20:40:52.018Z"
+  },
+  {
+    "sender": "user",
+    "text": "Imported 11 new ideas! • Seeking a top-notch sales professional • I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals. • Our competition is just \"good enough.\" • The power of \"yet\" - unlocking potential through a simple word • Share a post reflecting on the long days, often pondered while looking at a picture of me with my three kids. 📸👨‍👧‍👦 #ParentingJourney #Reflections • Number of failures before achieving success. • The YETI coolers saga • Unleashing Your Real-Life Superpowers • The power of pivoting... Megan • Original: There's no such thing as culture Edited: Culture is a myth • Top workplace destination",
+    "createdAt": "2025-06-06T20:41:49.886Z"
+  },
+  {
+    "sender": "user",
+    "text": "Imported 11 new ideas! • Seeking a top-notch sales professional • I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals. • Our competition is just \"good enough.\" • The power of \"yet\" - unlocking potential through a simple word • Share a post reflecting on the long days, often pondered while looking at a picture of me with my three kids. 📸👨‍👧‍👦 #ParentingJourney #Reflections • Number of failures before achieving success. • The YETI coolers saga • Unleashing Your Real-Life Superpowers • The power of pivoting... Megan • Original: There's no such thing as culture Edited: Culture is a myth • Top workplace destination",
+    "createdAt": "2025-06-06T20:41:49.888Z"
+  },
+  {
+    "sender": "user",
+    "text": "Imported 11 new ideas! • Seeking a top-notch sales professional • I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals. • Our competition is just \"good enough.\" • The power of \"yet\" - unlocking potential through a simple word • Share a post reflecting on the long days, often pondered while looking at a picture of me with my three kids. 📸👨‍👧‍👦 #ParentingJourney #Reflections • Number of failures before achieving success. • The YETI coolers saga • Unleashing Your Real-Life Superpowers • The power of pivoting... Megan • Original: There's no such thing as culture Edited: Culture is a myth • Top workplace destination",
+    "createdAt": "2025-06-06T20:41:51.391Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Looking for an exceptional sales pro\n• Seeking a storyteller, community builder, value-adder, and deal closer.\n• Our competition is merely 'good enough.'\n• The power of 'yet' - unlocking potential with one word\n• Reflect on the long days with a glance at a photo of me and my three kids. 📸👨‍👧‍👦 #ParentingJourney #Reflections\n• Number of failures before reaching success.\n• The YETI coolers story\n• Unleash Your Real-Life Superpowers!\n• The power of pivoting with Megan!\n• Culture is a myth.\n• Top workplace destinations",
+    "createdAt": "2025-06-06T20:41:51.391Z"
+  },
+  {
+    "sender": "user",
+    "text": "Imported 11 new ideas! • Seeking a top-notch sales professional • I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals. • Our competition is just \"good enough.\" • The power of \"yet\" - unlocking potential through a simple word • Share a post reflecting on the long days, often pondered while looking at a picture of me with my three kids. 📸👨‍👧‍👦 #ParentingJourney #Reflections • Number of failures before achieving success. • The YETI coolers saga • Unleashing Your Real-Life Superpowers • The power of pivoting... Megan • Original: There's no such thing as culture Edited: Culture is a myth • Top workplace destination",
+    "createdAt": "2025-06-06T20:41:52.466Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• Looking for an exceptional sales pro\n• Seeking a storyteller, community builder, value-adder, and deal closer.\n• Our competition is merely 'good enough.'\n• The power of 'yet' - unlocking potential with one word\n• Reflect on the long days with a glance at a photo of me and my three kids. 📸👨‍👧‍👦 #ParentingJourney #Reflections\n• Number of failures before reaching success.\n• The YETI coolers story\n• Unlocking Your True Superpowers\n• The power of pivoting: Megan\n• Culture is a myth.\n• Top workplace destinations",
+    "createdAt": "2025-06-06T20:41:52.466Z"
+  },
+  {
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:42:43.945Z"
+  },
+  {
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:42:43.948Z"
+  },
+  {
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T20:42:43.985Z"
+  },
+  {
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T20:42:43.990Z"
+  },
+  {
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:42:45.269Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 7 new ideas!\n\n• Stop doing what you dislike.\n• Super Communicators: Let's dive into three key conversations - How do we feel about this? What are we going to do about this? What is our identity in this?\n• \"Intentionality: The Key to Success\"\n• Stay relevant in a fast-paced world.\n• Trust is the cornerstone of every successful relationship.\n• An expert is someone who has failed in every possible way in a very narrow field. In my case, that field is digital marketing, focusing on web design and development, particularly in usability and conversion.\n• PILLARS: About me, my expertise, GLIDE®, AI, and the people I work with",
+    "createdAt": "2025-06-06T20:42:45.269Z"
+  },
+  {
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:42:45.596Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 12 new ideas!\n\n• Stop doing what you dislike.\n• Super Communicators, let's dive into three key conversations: How do we feel about this? What are we going to do about this? What is our identity in this?\n• \"Intentionality: The Key to Success\"\n• Stay relevant in a fast-paced world.\n• Trust is the foundation of every successful relationship.\n• An expert in digital marketing, specializing in web design and development, with a focus on usability and conversion, is someone who has failed in every possible way in a very narrow field.\n• \"Key Pillars for Building a Strong LinkedIn Profile\"\n• Me in a nutshell\n• Expert in [Your Field]: Let's talk about how I can help you succeed.\n• Unlock the power of GLIDE® for your business!\n• AI: The Future of Work - Are You Ready?\n• My Amazing Team: A Tribute to the Incredible Individuals I Collaborate With",
+    "createdAt": "2025-06-06T20:42:45.596Z"
+  },
+  {
+    "id": "0e8fff13-c175-490d-a2c7-8917aa61ede1",
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:46:28.549Z"
+  },
+  {
+    "id": "5bd5b2f4-6719-406d-94c1-520bef50ef75",
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:46:28.588Z"
+  },
+  {
+    "id": "06c75f14-4bf0-40f8-b62f-34aca8f6df5d",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T20:46:28.592Z"
+  },
+  {
+    "id": "31d96b38-fa98-42e8-95ed-41c638686f94",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T20:46:28.594Z"
+  },
+  {
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:46:30.006Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 7 new ideas!\n\n• Stop wasting time on tasks you don't enjoy.\n• Super Communicators: Let's dive into three key conversations: How do we feel? What's our plan? What defines us in this situation?\n• \"Intentionality: The Key to Success\"\n• Relevance is key.\n• Trust is the foundation of every successful relationship.\n• An expert in digital marketing, specializing in web design and development, with a focus on usability and conversion, is someone who has failed in every possible way in a very narrow field.\n• PILLARS: Me, My Expertise, GLIDE®, AI, My Team",
+    "createdAt": "2025-06-06T20:46:30.006Z"
+  },
+  {
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:46:30.528Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 7 new ideas!\n\n• Stop doing what you dislike.\n• Super Communicators: Let's dive into three key conversations: How do we feel? What's our plan of action? What defines our identity in this?\n• \"Setting Intentions for Success\"\n• Relevance is key.\n• Trust is the foundation of all successful relationships.\n• An expert is someone who has failed in every possible way in a very narrow field. In my case, that field is digital marketing, focusing on web design and development, particularly usability and conversion.\n• PILLARS: Me, my expertise, GLIDE®, AI, and my team.",
+    "createdAt": "2025-06-06T20:46:30.528Z"
+  },
+  {
+    "id": "d8c668a7-172a-4821-a38e-e0c37cad9d08",
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:47:49.825Z"
+  },
+  {
+    "id": "75cdbcd9-6e0a-4b6e-b517-14888ca437ae",
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:47:49.828Z"
+  },
+  {
+    "id": "43eb0b59-b13e-4f25-b053-9f724b1c3a3c",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T20:47:49.869Z"
+  },
+  {
+    "id": "4695909a-628c-4422-b915-4bf89b26ed35",
+    "sender": "agent",
+    "text": "Imported 7 new ideas!\n\n• Stop wasting time on tasks you don't enjoy.\n• Super Communicators: Let's dive into three key conversations: How do we feel? What's our plan of action? What defines us in this situation?\n• \"Intentionality: The Key to Success\"\n• Stay relevant.\n• Trust is the cornerstone of every successful relationship.\n• An expert in digital marketing, specializing in web design and development, with a focus on usability and conversion, is someone who has failed in every possible way in a very narrow field.\n• PILLARS: About me, My expertise, GLIDE®, AI, People I work with",
+    "createdAt": "2025-06-06T20:47:49.871Z"
+  },
+  {
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:47:51.091Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 7 new ideas!\n\n• Stop wasting time on tasks you don't enjoy.\n• Super Communicators: Let's dive into three key conversations: How do we feel? What's our plan of action? What defines us in this situation?\n• \"Intentionality: The Key to Success\"\n• Stay relevant.\n• Trust is the cornerstone of every successful relationship.\n• An expert in digital marketing, specializing in web design and development, with a focus on usability and conversion, is someone who has failed in every possible way in a very narrow field.\n• PILLARS: About me, My expertise, GLIDE®, AI, People I work with",
+    "createdAt": "2025-06-06T20:47:51.091Z"
+  },
+  {
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:47:51.029Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 7 new ideas!\n\n• Stop doing what you dislike.\n• Super Communicators: Let's dive into three key conversations: How do we feel? What's our action plan? What defines us in this situation?\n• \"Intentionality: The Key to Success\"\n• Stay relevant in a fast-paced world.\n• Trust is the foundation of every successful relationship.\n• An expert in digital marketing, specializing in web design and development, with a focus on usability and conversion, is someone who has failed in every possible way in a very narrow field.\n• PILLARS: Me, My Expertise, GLIDE®, AI, My Team",
+    "createdAt": "2025-06-06T20:47:51.029Z"
+  },
+  {
+    "id": "bdc1e5e9-1173-4324-b6b6-f8937ec19c91",
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:48:02.274Z"
+  },
+  {
+    "id": "64ffb521-c501-4d09-bd99-3e7a707916a6",
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:48:02.278Z"
+  },
+  {
+    "id": "4f87337b-3851-4dd4-aadf-81c5e087a253",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T20:48:02.330Z"
+  },
+  {
+    "id": "0a92592f-fd2c-4695-8512-88bdbf8e230a",
+    "sender": "agent",
+    "text": "Imported 7 new ideas!\n\n• Stop doing what you dislike.\n• Super Communicators: Let's dive into three key conversations: How do we feel? What's our plan? What's our identity?\n• Clarify your Intent\n• Relevance is key.\n• Trust is the foundation of every successful relationship.\n• An expert in digital marketing, specializing in web design and development, with a focus on usability and conversion, is someone who has failed in every possible way in a very narrow field.\n• PILLARS: Me, Expertise, GLIDE®, AI, My Team",
+    "createdAt": "2025-06-06T20:48:02.333Z"
+  },
+  {
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:48:03.524Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 7 new ideas!\n\n• Stop doing what you dislike.\n• Super Communicators: Let's dive into three key conversations: How do we feel? What's our plan? What's our identity?\n• Clarify your Intent\n• Relevance is key.\n• Trust is the foundation of every successful relationship.\n• An expert in digital marketing, specializing in web design and development, with a focus on usability and conversion, is someone who has failed in every possible way in a very narrow field.\n• PILLARS: Me, Expertise, GLIDE®, AI, My Team",
+    "createdAt": "2025-06-06T20:48:03.524Z"
+  },
+  {
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:48:04.306Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 7 new ideas!\n\n• Stop doing what you dislike.\n• Super Communicators: Let's dive into three key conversations: How do we feel? What's our plan of action? What defines us in this situation?\n• \"Intentionality: The Key to Success\"\n• Stay relevant in a rapidly changing world.\n• Trust is the foundation of every successful relationship, both personally and professionally.\n• An expert in digital marketing, specializing in web design and development, with a focus on usability and conversion, is someone who has failed in every possible way in a very narrow field.\n• PILLARS: About me, My expertise, GLIDE®, AI, People I work with",
+    "createdAt": "2025-06-06T20:48:04.306Z"
+  },
+  {
+    "id": "8410ca73-4577-4935-9aba-b8c05ece7071",
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:48:55.160Z"
+  },
+  {
+    "id": "a4a671de-7bd4-4363-80e8-9566cc1b1ba1",
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:48:55.163Z"
+  },
+  {
+    "id": "861301d1-afb7-45cc-9110-66697a38e2ba",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T20:48:55.215Z"
+  },
+  {
+    "id": "359fec7a-0f75-4a6a-8b30-963ff39853c6",
+    "sender": "agent",
+    "text": "Imported 7 new ideas!\n\n• Stop wasting time on tasks you don't enjoy.\n• Super Communicators: Let's dive into three key conversations - How do we feel? What's our plan? What defines us in this situation?\n• \"Intentionality in Action\"\n• Stay relevant.\n• Trust is the foundation of every successful relationship.\n• An expert in digital marketing, specializing in web design and development, with a focus on usability and conversion, is someone who has failed in every possible way in a very narrow field.\n• PILLARS: About me, my expertise, GLIDE®, AI, and my amazing colleagues",
+    "createdAt": "2025-06-06T20:48:55.217Z"
+  },
+  {
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:48:56.509Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 7 new ideas!\n\n• Stop wasting time on tasks you don't enjoy.\n• Super Communicators: Let's dive into three key conversations - How do we feel? What's our plan? What defines us in this situation?\n• \"Intentionality in Action\"\n• Stay relevant.\n• Trust is the foundation of every successful relationship.\n• An expert in digital marketing, specializing in web design and development, with a focus on usability and conversion, is someone who has failed in every possible way in a very narrow field.\n• PILLARS: About me, my expertise, GLIDE®, AI, and my amazing colleagues",
+    "createdAt": "2025-06-06T20:48:56.509Z"
+  },
+  {
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:48:56.646Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 7 new ideas!\n\n• Stop doing what you dislike.\n• Super Communicators: Let's dive into three key conversations - How do we feel about this? What are we going to do about this? What is our identity in this?\n• \"Intentionality: The Key to Achieving Your Goals\"\n• Stay relevant.\n• Trust is the cornerstone of every successful relationship.\n• An expert in digital marketing, specializing in web design and development, with a focus on usability and conversion, is someone who has failed in every possible way in a very narrow field.\n• PILLARS: About me, My expertise, GLIDE®, AI, People I work with",
+    "createdAt": "2025-06-06T20:48:56.646Z"
+  },
+  {
+    "id": "347bb973-29d5-4a72-9064-39998bac386d",
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:50:33.772Z"
+  },
+  {
+    "id": "a3cd5a43-545d-4ad8-ba40-cee375c8e7d5",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T20:50:33.838Z"
+  },
+  {
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:50:35.387Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 7 new ideas!\n\n• Stop doing what you dislike.\n• Super Communicators: Let's dive into three key conversations: How do we feel? What's our plan? What's our identity?\n• \"Intentionality: The Key to Success\"\n• Stay relevant in a fast-paced world.\n• Trust is the foundation of all successful relationships, both personal and professional.\n• An expert in digital marketing, specializing in web design and development, with a focus on usability and conversion, is someone who has failed in every possible way in a very narrow field.\n• PILLARS: Me, My Expertise, GLIDE®, AI, My Team",
+    "createdAt": "2025-06-06T20:50:35.387Z"
+  },
+  {
+    "id": "00ecf7f8-e12a-4ff7-b633-4dd0ce0eb615",
+    "sender": "agent",
+    "text": "Imported 7 new ideas!\n\n• Stop doing what you dislike.\n• Super Communicators: Let's dive into three key conversations: How do we feel? What's our plan? What's our identity?\n• \"Intentionality: The Key to Success\"\n• Stay relevant in a fast-paced world.\n• Trust is the foundation of all successful relationships, both personal and professional.\n• An expert in digital marketing, specializing in web design and development, with a focus on usability and conversion, is someone who has failed in every possible way in a very narrow field.\n• PILLARS: Me, My Expertise, GLIDE®, AI, My Team",
+    "createdAt": "2025-06-06T20:50:38.895Z"
+  },
+  {
+    "id": "85c6ffeb-7d4e-4cce-b5d9-df2ff48f264a",
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:51:13.363Z"
+  },
+  {
+    "id": "1aedd2ef-223d-4a7f-aaaa-b0e281e6b28e",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T20:51:13.427Z"
+  },
+  {
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:51:15.058Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 7 new ideas!\n\n• Stop wasting time on tasks you don't enjoy.\n• Super Communicators: Let's dive into three key conversations: How do we feel? What's our plan? What's our identity?\n• \"Intentionality: The Key to Success\"\n• Stay Relevant: The Key to Success\n• Trust is the foundation of every successful relationship, both personally and professionally.\n• An expert in digital marketing, specializing in web design and development, with a focus on usability and conversion, is someone who has failed in every possible way in a very narrow field.\n• PILLARS: About me, Expertise, GLIDE®, AI, My Team",
+    "createdAt": "2025-06-06T20:51:15.058Z"
+  },
+  {
+    "id": "edd49cb9-faf9-49ee-9631-fd466f94da96",
+    "sender": "agent",
+    "text": "Imported 7 new ideas!\n\n• Stop wasting time on tasks you don't enjoy.\n• Super Communicators: Let's dive into three key conversations: How do we feel? What's our plan? What's our identity?\n• \"Intentionality: The Key to Success\"\n• Stay Relevant: The Key to Success\n• Trust is the foundation of every successful relationship, both personally and professionally.\n• An expert in digital marketing, specializing in web design and development, with a focus on usability and conversion, is someone who has failed in every possible way in a very narrow field.\n• PILLARS: About me, Expertise, GLIDE®, AI, My Team",
+    "createdAt": "2025-06-06T20:51:18.285Z"
+  },
+  {
+    "id": "e0163735-1519-4d7f-a1e1-9b8076b15b72",
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:54:08.832Z"
+  },
+  {
+    "id": "57c38ee0-49ae-41ad-9f81-e272c39288c1",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T20:54:08.888Z",
+    "type": "loadingGif",
+    "gif": "https://media2.giphy.com/media/v1.Y2lkPThhMDcxMDNjcjRpd2x5aTNqdzhoZmt0NnYxcno4dDdjcHh6NjhhaHBudmZtdWt0MCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/UwzBSwwZ2G8cWldJgT/200.gif"
+  },
+  {
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:54:10.456Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 7 new ideas!\n\n• Stop wasting time on tasks you don't enjoy.\n• Super Communicators: Let's dive into three key conversations: How do we feel? What's our plan of action? What defines us in this situation?\n• \"Intentionality: The Key to Success\"\n• Stay relevant.\n• Trust is the cornerstone of every successful relationship.\n• An expert in digital marketing, specializing in web design and development, with a focus on usability and conversion, is someone who has failed in every possible way in a very narrow field.\n• PILLARS: About me, Expertise, GLIDE®, AI, People I collaborate with",
+    "createdAt": "2025-06-06T20:54:10.456Z"
+  },
+  {
+    "id": "db32244b-fc93-44ff-8295-af0fda878a59",
+    "sender": "agent",
+    "text": "Imported 7 new ideas!\n\n• Stop wasting time on tasks you don't enjoy.\n• Super Communicators: Let's dive into three key conversations: How do we feel? What's our plan of action? What defines us in this situation?\n• \"Intentionality: The Key to Success\"\n• Stay relevant.\n• Trust is the cornerstone of every successful relationship.\n• An expert in digital marketing, specializing in web design and development, with a focus on usability and conversion, is someone who has failed in every possible way in a very narrow field.\n• PILLARS: About me, Expertise, GLIDE®, AI, People I collaborate with",
+    "createdAt": "2025-06-06T20:54:13.763Z"
+  },
+  {
+    "id": "bd22bae5-4f3a-430e-a7bb-5bd225ca892a",
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:55:08.923Z"
+  },
+  {
+    "id": "96197297-227b-4053-92f2-1f54992a2f8c",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T20:55:08.971Z",
+    "type": "loadingGif",
+    "gif": "https://media4.giphy.com/media/v1.Y2lkPThhMDcxMDNjNncwOWwyMTJjemgzZmZ0ZjhhbTJxcGxvajE0bHFoNms1azF2bWFrZiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ZXKZWB13D6gFO/200.gif"
+  },
+  {
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:55:10.189Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 7 new ideas!\n\n• Stop wasting time on tasks you don't enjoy.\n• Super Communicators: Let's dive into three key conversations: How do we feel? What's our plan? What defines us in this situation?\n• \"Intentionality is key.\"\n• Stay relevant.\n• Trust is the foundation of every successful relationship, both personally and professionally.\n• An expert in digital marketing, specializing in web design and development, with a focus on usability and conversion, is someone who has failed in every possible way in a very narrow field.\n• PILLARS: About me, My expertise, GLIDE®, AI, People I collaborate with",
+    "createdAt": "2025-06-06T20:55:10.189Z"
+  },
+  {
+    "id": "d889dd63-8b41-4e79-b93e-43fde3dfc0d2",
+    "sender": "agent",
+    "text": "Imported 7 new ideas!\n\n• Stop wasting time on tasks you don't enjoy.\n• Super Communicators: Let's dive into three key conversations: How do we feel? What's our plan? What defines us in this situation?\n• \"Intentionality is key.\"\n• Stay relevant.\n• Trust is the foundation of every successful relationship, both personally and professionally.\n• An expert in digital marketing, specializing in web design and development, with a focus on usability and conversion, is someone who has failed in every possible way in a very narrow field.\n• PILLARS: About me, My expertise, GLIDE®, AI, People I collaborate with",
+    "createdAt": "2025-06-06T20:55:13.616Z"
+  },
+  {
+    "id": "a0545f5e-1b94-4ea5-b8b9-7c77f1486d23",
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:56:29.168Z"
+  },
+  {
+    "id": "fc510745-f1bb-40f2-96c3-a36ce45af06d",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T20:56:29.225Z",
+    "type": "loadingGif",
+    "gif": "https://media2.giphy.com/media/v1.Y2lkPThhMDcxMDNjZDVsZXNyaXBwZHd6ZmFiaXM4ZDZvZXVrdXB2djRhcjdodGt1bGdrZSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/lszAB3TzFtRaU/200.gif"
+  },
+  {
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:56:32.069Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 7 new ideas!\n\n• Stop doing what you dislike.\n• Super Communicators: Let's dive into three key conversations: How do we feel? What's our plan of action? What defines us in this situation?\n• \"Intentionality: The Key to Success\"\n• Stay relevant in a rapidly changing world.\n• Trust is the key to building strong professional relationships.\n• An expert in digital marketing, specializing in web design and development, with a focus on usability and conversion, is someone who has failed in every possible way in a very narrow field.\n• PILLARS: About me, My expertise, GLIDE® impact, AI insights, My amazing team",
+    "createdAt": "2025-06-06T20:56:32.069Z"
+  },
+  {
+    "id": "d5d242ba-f74e-404a-8c67-bd4c711f90bb",
+    "sender": "agent",
+    "text": "Imported 7 new ideas!\n\n• Stop doing what you dislike.\n• Super Communicators: Let's dive into three key conversations: How do we feel? What's our plan of action? What defines us in this situation?\n• \"Intentionality: The Key to Success\"\n• Stay relevant in a rapidly changing world.\n• Trust is the key to building strong professional relationships.\n• An expert in digital marketing, specializing in web design and development, with a focus on usability and conversion, is someone who has failed in every possible way in a very narrow field.\n• PILLARS: About me, My expertise, GLIDE® impact, AI insights, My amazing team",
+    "createdAt": "2025-06-06T20:56:36.037Z"
+  },
+  {
+    "id": "468f07a1-1533-40c6-a825-a6a32c5b0759",
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:57:37.903Z"
+  },
+  {
+    "id": "8e534a83-9bf7-443e-bf20-6f28d0964fc9",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T20:57:37.947Z",
+    "type": "loadingGif",
+    "gif": "https://media0.giphy.com/media/v1.Y2lkPThhMDcxMDNjZDVsZXNyaXBwZHd6ZmFiaXM4ZDZvZXVrdXB2djRhcjdodGt1bGdrZSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/NUevhWb3aWuSyXz3FP/200.gif"
+  },
+  {
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T20:57:40.215Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 7 new ideas!\n\n• Stop doing what you dislike.\n• Super Communicators: Let's dive into three key conversations: How do we feel? What's our plan? What's our identity?\n• \"Intentionality: The Key to Success\"\n• Stay relevant in a rapidly changing world.\n• Trust is the cornerstone of every successful relationship.\n• An expert in digital marketing, specializing in web design and development, with a focus on usability and conversion, is someone who has failed in every possible way in a very narrow field.\n• PILLARS: About me, my expertise, GLIDE®, AI, and my team",
+    "createdAt": "2025-06-06T20:57:40.215Z"
+  },
+  {
+    "id": "65148d32-169a-4214-b475-fc8d950fcc1b",
+    "sender": "agent",
+    "text": "Imported 7 new ideas!\n\n• Stop doing what you dislike.\n• Super Communicators: Let's dive into three key conversations: How do we feel? What's our plan? What's our identity?\n• \"Intentionality: The Key to Success\"\n• Stay relevant in a rapidly changing world.\n• Trust is the cornerstone of every successful relationship.\n• An expert in digital marketing, specializing in web design and development, with a focus on usability and conversion, is someone who has failed in every possible way in a very narrow field.\n• PILLARS: About me, my expertise, GLIDE®, AI, and my team",
+    "createdAt": "2025-06-06T20:57:44.581Z"
+  },
+  {
+    "id": "0a627301-c6b7-4f31-b61c-82e99db3ed23",
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T21:00:29.293Z"
+  },
+  {
+    "id": "43ac102c-0629-4252-a187-24b91311b4b9",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T21:00:29.353Z",
+    "type": "loadingGif",
+    "gif": "https://media1.giphy.com/media/v1.Y2lkPThhMDcxMDNjcjRpd2x5aTNqdzhoZmt0NnYxcno4dDdjcHh6NjhhaHBudmZtdWt0MCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/zwKdGzRACa1il2yyHf/200.gif"
+  },
+  {
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T21:00:32.560Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 7 new ideas!\n\n• Stop doing what you dislike.\n• Super Communicators: Let's dive into three key conversations: How do we feel? What's our plan of action? What defines us in this situation?\n• \"Intentionality: The Key to Success\"\n• Stay relevant in a fast-paced world.\n• Trust is the cornerstone of successful relationships, both personally and professionally.\n• An expert in digital marketing, specializing in web design and development, with a focus on usability and conversion, is someone who has failed in every possible way in a very narrow field.\n• PILLARS: About me, my expertise, GLIDE®, AI, and the people I collaborate with",
+    "createdAt": "2025-06-06T21:00:32.560Z"
+  },
+  {
+    "id": "7ee59ea5-ec89-4ba1-8b54-5a07fd63d0bc",
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T21:04:53.970Z"
+  },
+  {
+    "id": "03a28b7a-4e38-4db2-be72-d1d4ee0f3640",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T21:04:54.152Z",
+    "type": "loadingGif",
+    "gif": "https://media3.giphy.com/media/v1.Y2lkPThhMDcxMDNjb2tjbXFwcTk4dW5tYm81M3BnbHlpbWV3cGp3MDByMW5sanQzeXU2MiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/Qgkz5SLaGI359IoeaZ/200.gif"
+  },
+  {
+    "sender": "user",
+    "text": "Stop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with",
+    "createdAt": "2025-06-06T21:04:56.545Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 7 new ideas!\n\n• Stop wasting time on tasks you don't enjoy.\n• Super Communicators: Let's dive into three key conversations: How do we feel? What's our plan? What's our identity?\n• \"Intentionality: The Key to Success\"\n• Stay relevant in a fast-paced world.\n• Trust is the foundation of every successful relationship.\n• An expert in digital marketing, specializing in web design and development, with a focus on usability and conversion, is someone who has failed in every possible way in a very narrow field.\n• PILLARS: About me, My expertise, GLIDE®, AI, People I work with",
+    "createdAt": "2025-06-06T21:04:56.545Z"
+  },
+  {
+    "id": "ef1b2d29-1ce0-4545-92b9-6ad9cb202cf9",
+    "sender": "user",
+    "text": "2. BOT: shows GIPHY loader",
+    "createdAt": "2025-06-06T21:07:38.001Z"
+  },
+  {
+    "id": "05acbc58-6e90-4020-98bc-d972e13a5922",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T21:07:38.172Z",
+    "type": "loadingGif",
+    "gif": "https://media3.giphy.com/media/v1.Y2lkPThhMDcxMDNjMHUwY2RzY2pnejV6Z3B5NzN1Y2Uzd3RkcXhraHN4Mm1yeHpsczFqYyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/uIJBFZoOaifHf52MER/200.gif"
+  },
+  {
+    "sender": "user",
+    "text": "2. BOT: shows GIPHY loader",
+    "createdAt": "2025-06-06T21:07:38.856Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 1 new ideas!\n\n• BOT: Introducing the GIPHY loader! 🚀",
+    "createdAt": "2025-06-06T21:07:38.856Z"
+  },
+  {
+    "id": "b050ac62-5dd5-4082-9909-cf4c28485424",
+    "sender": "user",
+    "text": "10 words to change your life\nYou become what you think about most of the time\n\n—————\n\nInput → Workflow → Output\n\n—————\n\nInput\nOutput\nOutcome\n\n—————\n\nExperience\nKnowledge\nAuthenticity",
+    "createdAt": "2025-06-06T21:07:49.564Z"
+  },
+  {
+    "id": "194e0f1d-ca46-4de6-b0e0-13ab53188e91",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T21:07:49.694Z",
+    "type": "loadingGif",
+    "gif": "https://media0.giphy.com/media/v1.Y2lkPThhMDcxMDNjcXdxcmJ2a3RqOGwydml3Yjlsd3JueTF4dTU2d2ZiMmV5cWc2eWg3NSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/CcmhniXCYXrNa3BE1C/200.gif"
+  },
+  {
+    "sender": "user",
+    "text": "10 words to change your life\nYou become what you think about most of the time\n\n—————\n\nInput → Workflow → Output\n\n—————\n\nInput\nOutput\nOutcome\n\n—————\n\nExperience\nKnowledge\nAuthenticity",
+    "createdAt": "2025-06-06T21:07:50.331Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 2 new ideas!\n\n• 10 life-changing words\n• You are what you consistently think about.",
+    "createdAt": "2025-06-06T21:07:50.331Z"
+  },
+  {
+    "id": "fcf9e09a-3417-4b07-9eaf-dd11d57f822d",
+    "sender": "user",
+    "text": "2. BOT: shows GIPHY loader\n1. ME: copy and paste list\n3. BOT: Shows imported message",
+    "createdAt": "2025-06-06T21:09:50.274Z"
+  },
+  {
+    "id": "68a88e00-a8ea-4316-8fec-33df6bf8391b",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T21:09:50.275Z",
+    "type": "loadingGif",
+    "gif": "https://media1.giphy.com/media/v1.Y2lkPThhMDcxMDNjb2tjbXFwcTk4dW5tYm81M3BnbHlpbWV3cGp3MDByMW5sanQzeXU2MiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/0T7q0fiQNiep7B1ZjY/200.gif"
+  },
+  {
+    "sender": "user",
+    "text": "2. BOT: shows GIPHY loader\n1. ME: copy and paste list\n3. BOT: Shows imported message",
+    "createdAt": "2025-06-06T21:09:51.186Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 3 new ideas!\n\n• BOT: displaying GIPHY loader\n• ME: Copy and paste this list!\n• BOT: Displaying Imported Messages",
+    "createdAt": "2025-06-06T21:09:51.186Z"
+  },
+  {
+    "id": "400260e7-2a9f-41ea-826a-cdd08e1eb645",
+    "sender": "user",
+    "text": "10 words to change your life\nYou become what you think about most of the time\n\n—————\n\nInput → Workflow → Output\n\n—————\n\nInput\nOutput\nOutcome\n\n—————\n\nExperience\nKnowledge\nAuthenticity",
+    "createdAt": "2025-06-06T21:10:01.914Z"
+  },
+  {
+    "id": "faa66da2-5951-40e8-b1e1-54720b3df359",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T21:10:01.915Z",
+    "type": "loadingGif",
+    "gif": "https://media1.giphy.com/media/v1.Y2lkPThhMDcxMDNjb2tjbXFwcTk4dW5tYm81M3BnbHlpbWV3cGp3MDByMW5sanQzeXU2MiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l1AvyYYoX1nYBeNeU/200.gif"
+  },
+  {
+    "sender": "user",
+    "text": "10 words to change your life\nYou become what you think about most of the time\n\n—————\n\nInput → Workflow → Output\n\n—————\n\nInput\nOutput\nOutcome\n\n—————\n\nExperience\nKnowledge\nAuthenticity",
+    "createdAt": "2025-06-06T21:10:02.815Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 2 new ideas!\n\n• 10 life-changing words\n• You are what you consistently think about.",
+    "createdAt": "2025-06-06T21:10:02.815Z"
+  },
+  {
+    "id": "e69b1a63-7a9f-40d9-9c9a-becd14077e60",
+    "sender": "user",
+    "text": "10 words to change your life\nYou become what you think about most of the time\n\n—————\n\nInput → Workflow → Output\n\n—————\n\nInput\nOutput\nOutcome\n\n—————\n\nExperience\nKnowledge\nAuthenticity",
+    "createdAt": "2025-06-06T21:12:47.885Z"
+  },
+  {
+    "id": "a3ea242c-7623-4c09-9531-b4a5f6f54195",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T21:12:47.886Z",
+    "type": "loadingGif",
+    "gif": "https://media4.giphy.com/media/v1.Y2lkPThhMDcxMDNjZThsbG5yMDg4a3E4MDJ3bGQwNG5lMmdkejdoM2R1N2Z2dzg0dDlhaiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/sthmCnCpfr8M8jtTQy/200.gif"
+  },
+  {
+    "sender": "user",
+    "text": "10 words to change your life\nYou become what you think about most of the time\n\n—————\n\nInput → Workflow → Output\n\n—————\n\nInput\nOutput\nOutcome\n\n—————\n\nExperience\nKnowledge\nAuthenticity",
+    "createdAt": "2025-06-06T21:12:48.810Z"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 2 new ideas!\n\n• 10 life-changing words\n• You are what you consistently think about.",
+    "createdAt": "2025-06-06T21:12:48.811Z"
+  },
+  {
+    "id": "992148e2-ee26-4079-a656-7931179954e9",
+    "sender": "user",
+    "text": "10 words to change your life\nYou become what you think about most of the time\n\n—————\n\nInput → Workflow → Output\n\n—————\n\nInput\nOutput\nOutcome\n\n—————\n\nExperience\nKnowledge\nAuthenticity",
+    "createdAt": "2025-06-06T21:14:34.716Z"
+  },
+  {
+    "id": "31afdfc6-d440-46ec-a5a4-9acd1d10e925",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T21:14:34.717Z",
+    "type": "loadingGif",
+    "gif": "https://media0.giphy.com/media/v1.Y2lkPThhMDcxMDNjcXdxcmJ2a3RqOGwydml3Yjlsd3JueTF4dTU2d2ZiMmV5cWc2eWg3NSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/jskVGCYTsc3lGM1zpB/200.gif"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 2 new ideas!\n\n• 10 life-changing words\n• You are what you consistently think about.",
+    "createdAt": "2025-06-06T21:14:34.718Z"
+  },
+  {
+    "id": "26667396-eb81-45a5-a333-432f0171a055",
+    "sender": "user",
+    "text": "test",
+    "createdAt": "2025-06-06T21:14:43.259Z"
+  },
+  {
+    "id": "a1fb2353-3473-439c-a52e-75d546ad9484",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T21:14:43.260Z",
+    "type": "loadingGif",
+    "gif": "https://media4.giphy.com/media/v1.Y2lkPThhMDcxMDNjY3VkMjgxdjI1Z3Fpb3Btdmw1d3oxbnk0ZmQxbTgweTV6ZzVraDl3dCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/TglzubyNXUp6oK2LEX/200.gif"
+  },
+  {
+    "sender": "agent",
+    "text": "Great to see you back! How can I assist you today with your LinkedIn post ideas or anything else on your mind?",
+    "createdAt": "2025-06-06T21:14:43.261Z"
+  },
+  {
+    "id": "2b9d6004-3652-42cb-bf4f-ac8976484da3",
+    "sender": "user",
+    "text": "These ColdIQ guys are good\nSs of email\n\n—————\n\nWhat I learned from hiring three Linked In coaches in 90 days\n\n—————\n\nConsistency\nQuality\nResults\n\n—————\n\nAI right now…\nExperimentation\nAwareness\n\n—————\n\nAI: \n\n—————\n\nMy commitments for LI\n1. Post once every day\n2. Comment on 10 people’s posts\n3. Send 10 connection requests to ICPs\n4. Send 10 DMs\n",
+    "createdAt": "2025-06-06T21:15:12.570Z"
+  },
+  {
+    "id": "092f6045-9fa1-450f-b776-c71f14c60787",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T21:15:12.571Z",
+    "type": "loadingGif",
+    "gif": "https://media2.giphy.com/media/v1.Y2lkPThhMDcxMDNjcXdxcmJ2a3RqOGwydml3Yjlsd3JueTF4dTU2d2ZiMmV5cWc2eWg3NSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/JzOyy8vKMCwvK/200.gif"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 7 new ideas!\n\n• What I learned from hiring three LinkedIn coaches in 90 days\n• Consistency is key!\n• Top-notch Excellence\n• \"Delivering game-changing results!\"\n• AI: Experimentation in the Age of Awareness\n• AI: Revolutionizing the Future of Work\n• My LinkedIn commitments: 1. Daily post 2. Engage on 10 posts 3. Connect with 10 ideal clients 4. Send 10 direct messages. Let's do this!",
+    "createdAt": "2025-06-06T21:15:12.572Z"
+  },
+  {
+    "id": "99d08d85-4ed5-45ca-85d0-86ef3a0c50e5",
+    "sender": "user",
+    "text": "test",
+    "createdAt": "2025-06-06T21:41:06.872Z"
+  },
+  {
+    "id": "ee81c573-2898-45f0-b4b1-be3fb69f2c3d",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T21:41:06.873Z",
+    "type": "loadingGif",
+    "gif": "https://media1.giphy.com/media/v1.Y2lkPThhMDcxMDNjcXdxcmJ2a3RqOGwydml3Yjlsd3JueTF4dTU2d2ZiMmV5cWc2eWg3NSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/tXL4FHPSnVJ0A/200.gif"
+  },
+  {
+    "sender": "agent",
+    "text": "Great to see you back! How can I assist you today with your LinkedIn post ideas or anything else on your mind?",
+    "createdAt": "2025-06-06T21:41:06.874Z"
+  },
+  {
+    "id": "8b1e448f-1914-4a12-b0d7-418649f7a1f9",
+    "sender": "user",
+    "text": "This is a test.\n\nAll right, I'm going to try to record this as a test. I'd like to see how long I can record and if this would actually work properly.\n",
+    "createdAt": "2025-06-06T22:00:46.338Z"
+  },
+  {
+    "id": "2e099e35-50d7-4917-b63c-a185c53c7d73",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T22:00:46.339Z",
+    "type": "loadingGif",
+    "gif": "https://media2.giphy.com/media/v1.Y2lkPThhMDcxMDNjODk0NHNqM2MxMmJhZHJwdmF6ZjNxdHFmbTFzM3JwdHEyNHl4eTJsMSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3oEjHAUOqG3lSS0f1C/200.gif"
+  },
+  {
+    "sender": "agent",
+    "text": "It seems like you're testing out some recording functionality. Let me know if you need any help with your LinkedIn post ideas or if you have any other questions in mind!",
+    "createdAt": "2025-06-06T22:00:46.340Z"
+  },
+  {
+    "id": "ad30eee4-f0a2-4ecf-8791-03a2307c4fc7",
+    "sender": "user",
+    "text": "Can you help me come up my customer persona?",
+    "createdAt": "2025-06-06T22:04:10.965Z"
+  },
+  {
+    "id": "0c816fcc-2f7f-402c-9e3b-4915f46f5734",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T22:04:10.966Z",
+    "type": "loadingGif",
+    "gif": "https://media1.giphy.com/media/v1.Y2lkPThhMDcxMDNjaWlxZmlmOG1sMTNsaWJ3d2R6dzhwem9qa3pza2huajMwZ3Y0MDczciZlcD12MV9naWZzX3NlYXJjaCZjdD1n/9SIXFu7bIUYHhFc19G/200.gif"
+  },
+  {
+    "sender": "agent",
+    "text": "Of course! I'd be happy to help you with creating your customer persona. To get started, could you provide me with some details about your business, such as your industry, target market, and any specific characteristics you think are important for your ideal customer? Let's work together on defining a detailed customer persona that will guide your LinkedIn content strategy effectively.",
+    "createdAt": "2025-06-06T22:04:10.967Z"
+  },
+  {
+    "id": "efd32d9a-0a69-48a5-b740-2b60544077cf",
+    "sender": "user",
+    "text": "GLIDE > LINKEDIN > IDEAS\n\n\nTravis do you have a fundamental objection to making money?\n\n\nhttps://cln.sh/dfqbS7SD\n\nI’m convinced we are all making LinkedIn too hard\n\n\nShoutouts to people that have helped me\n\nWhat gest me excited about posting on linkedin\nbeing myself\nposting about what makes me come alive\nNOT comparing\nNOT posting what other people say i sohuld be posting about\n\nWatching star wars and star wars rebels\n\nI’ve listened to step into your greatness 50+ times\n\nIt’s safer to post bland content that be our authentic self\n\nWhat do I know more about than most people\n\nHubspot is a perfect example of a pre-AI company uselessly bolting on AI and getting left behind\n\nMINE MY COMMENTS\n\nI’ll die on this hill…\n\nRead 100 posts on X and summarize\n\n—————\n\nIn honor of 100% disagreeing with this guy\n\n—————\n\nPlaying guitar in designers wedding\n\n—————\n\nLife is too short to read a shitty book\n\n—————\n\n360 Feedback exercise\n\n—————\n\nAsking John Eckman of 10Up for tips\n\n————— \n\nFInding your integrator\n\n————— \n\nLanding largest deal of my life\n$300K\n\n————— \n\nSolo retreat\n\n—————\n\nThe Dan Sullivan Question\n\n—————\n\nTell the world what you intend to do\nBut show it first\n\n—————\n\nEveryone has a story worth telling\n\n—————\n\nDiscipline eats willpower for breakfast!\n\n—————\n\nHabits and systems\nFor being a great husband and father\n\n—————\n\nWorking out of a shipping container\n\n—————\n\nAug 21, 2024\n\nMy fridge died. For the second time in 2 years. After two techs and two \"diagnostic fees\" I was no closer to a working fridge. With a frustrated wife and 4 hungry kiddos, this needed to get fixed ASAP. I ran to the store and bought 6 bags of ice. Then got to work finding the right one to buy. We found one we liked and bought it at the factory outlet for $500 off of the already $1500 off it was listed at MSRP. I was able to purchase the 3-year extended warranty which I'd never do. I drove the two hours to San Antonio to pick it up. I took the opportunirty to finish an audio book I was reading called 10X is Easier than 2X and started a new one, Buy Back Your Time. While I was there I found a smaller fridge that would be great as a secondary for $300, I couldn't pass up the deal. When I went to put two fridges in my shortbed truck I couldn't close the tailgate. My tie down straps were too short. I had to run 4 blocks to Home Depot and buy new ones. It took me about an hour to make the run, buy the straps, run back, and strap down two refridgerators in the back of my truck with no tailgate up so they wouldn't fall out, in 105 Texas sun beating down. While in San Antonio I thought to call my bestie and grab a quick dinner. I was able to see his apartment and new puppy for the first time, it was amazing. We had a great dinner. On my way home, I called my bestie back and we talked for almost an hour, catching up on all things business and business strategy. I got home around 11:30pm and my wife helped me unload the smaller of the two fridges. We had time to watch a show together and went to sleep.\n\nThere's two ways to look at this story, the gap and the gain. \n\nThe gap is...\n\n- My fridge died and was JUST outside warranty\n- The manufacturer couldn't find anyone in our area to help us\n- All our food spoiled\n- I spent $250 and two hours on two technicians that couldn't help \n- We had to spend $2K on a new fridge unexpectedly\n- The only option was wait 2 weeks or pick drive 5 hours round trip to pick one up\n- I had to buy new tie-down strips\n- I spent a lot of time in the car and traffic\n\nThe gain is...\n\n- My wife and I had been in a quibble and this snapped us out of it, got us talking, and over it\n- We found a new fridge we liked and we had the savings to pay for it\n- We saved thousands and got the extended warranty\n- I found an amazing deal on a second fridge that I couldn't pass up\n- I was able to finish one audiobook and start a new one\n- I was able to visit my best friend and see his new place and puppy\n- I also followed that up with a great phone call in the car\n- I bought some nice new tie down straps\n- I jogged for the first time in 4 weeks since a hamgstring injury to the nearest HomeDepot and felt great\n- I had a lot of quality me time\n- I looked like a hero to my wife and kiddos for \"saving the day\" and bringing home a new fridge\n- I learned my truck can hold two large fridges \n\nWhich do you think helps you achieve and level up and get the most out of life? Living in the gap or living in the gain?!\n\n—————\n\nWED, AUG 28\n\nhttps://www.youtube.com/watch?v=__7nOJ3MGpY&t=126s\nBest lesson my father taught me was...\n\nMON, AUG 26,\n\nBirds, feeders and birdfood\nUX and learning\n\nTUES, AUG 27,\n\nVideo riding OneWheel\nNosty award and a \"thank you\" speech\n\nWED, AUG 28\n\nSales call lowball budget\nBut org is doing 40% on ~$30M in revenue\nAND they are wanting to exit\nTake the call and voila they are a definite ICP and ideal client match\n\nWED, AUG 28\n\nFirst successful L10 by operations team\nIt's been 5 years and the CEO/VP weren't on the call\nIt's finally happening...\n\nTHU, AUG 29\n\nWhat is the best newsletter for business leaders, marketing agencies, and creative professionals?\n\nWED, JAN 8\n\nWriting letter to prospective job seeker\n\nTHURS, JAN 9\n\nWhat got you to here won’t get you to there\n\nHow am I being complicit in creating the situations I say I don't want?\n\n2/13/25\n\nTHe power of YET!  3/14/25\n\nEnterprise has structure but less agility\nSMB have agility but less structure\nMidmarket have some structure and some agility\n\nhttps://www.hollywoodreporter.com/tv/tv-news/ted-lasso-renewed-season-4-apple-tv-1236163347/\n\nABC of culture\n\n—————\n\nPSA to marketing leaders\n\n—————\n\nLooking at 1000 agencies\n\n—————\n\nMarketing should be boring.\n\nHear me out. Many years ago, I was young and zealous and hustling to grow the company. Realizing I knew nothing about sales I came across a fellow who had a massive impact on my early years in sales, Wes Schafer, wes you're a legend, THANK YOU!\n\nOne of the first things he told me was that sales should be boring. I was surprised and he had my attention. The gist was that your sales and marketing was so dialed, so well-tuned that it was automatic, uneventful and consistent. In word, BORING.\n\n\nSo, I leaned into this obsession. I even built a simple, one-page interactive app (Google Spreadsheet + ChatGPT) to help recommend books when people ask.\nBecause every time someone says, “What should I read?”, my ADD brain immediately goes: “Ooooh, how much time do you have?” 😂\nEventually, I want to add notes on the breakthroughs each book gave me.\n(Link in the comments)\n\n—————\n\njenny plan account management\n\n—————\n\nYour success or failure as an agency in one graphic.\n\nI’m convinced 2025 is the line in the sand for many marketing agencies.\n\nThe knowledge economy is dead. The attention ecomony is here.\n\nALL THE OTHER CHANGES\n\nXZY of Upsourced shared this graphic he grabbed from Jenny Plant.\n\nAgencies that are sliding into oblivion are 1 and 2\n\nAgencies that will grow and win are 3 and 4\n\nWe must be:\na) focused on outcomes & ROI and  b) a trusted advisor pointing the way\n\nIf you’re an order taker and a servicer -VS- a challenger and a trusted leader AS AN AGENCY!?! you will not be in business in the next 18 months.\n\n\n——\n\n\n\nSuccess or failure as an agency—visualized in one graphic. \n2025 is the line in the sand. \nThe knowledge economy is dead. The attention economy is here.\nAI adoption is at breakneck speed. \nCraig Baldwin from Upsourced shared this slide from Jenny Plant during a recent talk and it couldn’t be more clear: \nMost agencies fall into one of two camps:\n❌ Level 1 & 2 agencies → Vendors. Order-takers. Fighting for relevance. ✅ Level 3 & 4 agencies → Partners. Trusted advisors. Driving outcomes. \nAs a marketing leader, you already know the difference. One type of agency makes your job harder. The other makes your job easier.\n\nWinning agencies aren’t just checking boxes. They’re: ✅ Challenging thinking, not just executing tasks. ✅ Focused on business outcomes, not just marketing metrics. \nIf your agency still operates like an order taker instead of a challenger, or a servicer instead of a trusted leader, they’re on borrowed time. \nWhich type of agency are you working with?\n\n—————\n\nThe best marketing doesn’t even need words\nEagles\n\n\n—————\nAre you leaving money on the table?\n—————\nDesigned IA is a lot like designing a children’s school\n—————\n# AI job writing post (job seeker)\n—————\n# Everything started as shit before it wasn’t\n—————\n# Emperors new groove old is new ————— # I officially boycott type DECK to get XYZ. I call bullshit test 10 ————— PSA to marketing leaders\nDon’t redesign your website\nRedesign your ________ experience\n—————\nMarketing leaders\nyou’re in a redesign\nYour exiting a redesign\nYou need a redesign\n—————\nPerson should be the leader is high est\n—————\nSolo retreat and finding putpose ————— BIRD FEEDER what a bird feeder can teach us about marketing?\n\nmy wife and I love our birds, it's basically a mortgage payment with the amount of food they eat.\n\nBut, when i go to the store there's WAYYY too many options.\n\ndo i get the THIS or the THAT\n\nI'm sure i could do my research but come on, it's bird food. isn't it all the same?\n\nhow do i know what birds I have and what food they want.\n\nSo, I decided to get a bit experimental.\n\nMy feeder has three compartments so i bought three types of food.\n\nSo i filled each with a different food and just waited to see what would happen\n\nSure enough one vanished almost overnight.\n\nTHe second about 50% was eaten\n\nAnd the third may has well been [something birds don't like at all] because it wasn't touched.\n\nThe point is, in marketing many people just make a choice and go with it.\n\nMaybe it's an acquisition channel, maybe it's an engagement method, maybe it's a conversion strategy. Wherever in their marketing funnel it may be.\n\nHowever, if you're not experimenting, and trying new things. how will you know. ————— 4-day workweek\n—————\n2x2 grid\ngoals, objectives, strategies, tactics\n—————\nI’m a VIBE coder…\n—————\nSending email after work hours\n—————\nYou become what you think about most of the time\n—————\nWalking with my wife\n—————\nServing as community chair for EO\n—————\nThe transformative power of shared gratitude\n—————\nThe reason my wife loves me…\n—————\nGLabs…\n—————\nAI is like the mobile phone from a disruption perspective\n—————\nSince XYZ I’ve closed $10.4M in project deals\nI’ve also lost $8.2M\nLooking for a sales person\n—————\nI’m looking for a storyteller, a community builder, a value-adder.\nAnd yeah, I guess a person that can close deals too.\n—————\nOur enemy is good enough\n—————\nThe power of yet\n—————\nWrite a post about how the days are long and how I think about that most days in that picture of me holding my three kids maybe one \n—————\n# of times people failed before success\n—————\nStory of YETI coolers\n—————\nReal life super powers\n—————\nThe value of the pivot… Megan\n—————\nThere’s no such thing as culture\n—————\nBest place to work\n—————\n10 words to change your life... \"you become what you think about most of the time\" 🤜💥🤛 \n\n—————\n—————\nStart small\nShow up consistetly \nCan’t show up? Start smaller\n\n—————\n\nStop doing what you don’t like doing\n\n—————\n\nSuper Communicators\nWe’re having three types of conversations\n- How do we feel about this?\n- What are we going to do about this?\n- What is our identity in this?\n\n—————\n\nIntent\nRelevance\nTrust\n\n—————\n\nAn expert is someone who has failed in every possible way in a very narrow field… my field is digital marketing, more specifically web design and development, more specifically usability and conversion.\n\n—————\n\nPILLARS\n\nSomething about me\nSomething about my expertise\nSomething about GLIDE®\nSomething about AI\nSomething about people I work with\n\n—————\n\n10 words to change your life\nYou become what you think about most of the time\n\n—————\n\nInput → Workflow → Output\n\n—————\n\nInput\nOutput\nOutcome\n\n—————\n\nExperience\nKnowledge\nAuthenticity\nPassion\n\n—————\n\nThese ColdIQ guys are good\nSs of email\n\n—————\n\nWhat I learned from hiring three Linked In coaches in 90 days\n\n—————\n\nConsistency\nQuality\nResults\n\n—————\n\nAI right now…\nExperimentation\nAwareness\n\n—————\n\nAI: \n\n—————\n\nMy commitments for LI\n1. Post once every day\n2. Comment on 10 people’s posts\n3. Send 10 connection requests to ICPs\n4. Send 10 DMs\n\n—————\n\n1. Leading with Purpose\n* Tough calls + lessons\n* Team wins / retention numbers\n* Core values at work\n* Crew shout‑outs\n* Daily gratitude hacks\n2. Design That Converts\n* UX quick wins\n* Before / after shots\n* ROI breakdowns\n* Top tools\n* Trend hot takes\n3. Proof & Playbooks\n* 60‑sec case studies\n* KPI snapshots\n* Our 5‑step process\n* Client milestones\n* Rapid‑fire FAQs\n4. Thought Leadership\n* Hot takes on news\n* Poll + takeaways\n* Book / podcast nuggets\n* Myth busters\n* Current tool stack\n5. Founder Journey\n* Origin story bites\n* Fail → lesson posts\n* Day‑in‑the‑life snaps\n* Why I do this\n* AMA threads\n6. Business as a Force for Good\n* Non‑profit wins\n* Annual impact numbers\n* B‑Corp habits\n* Volunteer pics\n* Cause call‑outs\nhttps://chatgpt.com/c/6819691c-99a0-8011-8ac5-ebc13d181881\n\n—————\n\nThree traits of an A-player\n- They impress you\n- They don’t have to be managed\n- They care\n\n—————\n\nOne of my favorite quotes by Richard Branson\n- Find great people\n- Make sure they believe in the mission\n- Leave them alone\n\n—————\n\n\nWhat I’ve learned so far… posts should be:  1. A lived experience\n2. Unique\n3. Notable\n4. Add value\n",
+    "createdAt": "2025-06-06T22:08:09.303Z"
+  },
+  {
+    "id": "06ec69f2-2fbe-414f-972e-4df0d18e9869",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T22:08:09.304Z",
+    "type": "loadingGif",
+    "gif": "https://media0.giphy.com/media/v1.Y2lkPThhMDcxMDNjMHUwY2RzY2pnejV6Z3B5NzN1Y2Uzd3RkcXhraHN4Mm1yeHpsczFqYyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/11ASZtb7vdJagM/200.gif"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 96 new ideas!\n\n• I'm convinced we're all overcomplicating LinkedIn.\n• Shoutout to the amazing individuals who have supported me!\n• What gets me excited about posting on LinkedIn?\n• Just being me.\n• Sharing about what ignites my passion\n• Comparing is not the way to go.\n• NOT posting what others say I should post about.\n• Watching Star Wars and Star Wars Rebels marathon tonight! 🚀 #MayTheForceBeWithYou\n• I've listened to \"Step Into Your Greatness\" over 50 times!\n• Original: It’s safer to post bland content than to be our authentic self.\n\nEdited: Posting bland content feels safer than being our authentic selves.\n• What do I know better than most people?\n• Hubspot's struggle with integrating AI serves as a cautionary tale for companies trying to adapt to the future.\n• Uncover valuable insights from your comments\n• I'll stand my ground on this...\n• Read 100 posts on X and provide a concise summary\n• Celebrating a 100% disagreement with this guy!\n• Playing guitar at a designer's wedding\n• Life's too short for bad books.\n• 360 Feedback: Elevate Your Performance with Comprehensive Input\n• Getting tips from John Eckman of 10Up\n• Finding Your Integrator\n• Just closed the biggest deal of my career: $300K! 🚀 #milestone #success\n• Solo retreat: The ultimate self-care experience.\n• The Dan Sullivan Question: A Game-Changer for Your Career\n• Tell the world your plans, but demonstrate them first.\n• Everyone's story is worth sharing.\n• Discipline devours willpower for breakfast!\n• Habits and Systems for Being an Exceptional Husband and Father\n• Working from a shipping container\n• Aug 21, 2024: Save the date!\n• The best lesson I learned from my father was...\n• Birds, Feeders, and Birdfood: Enhancing User Experience and Learning\n• Riding the OneWheel to accept the Nosty award - plus a heartfelt \"thank you\" speech!\n• Sales call with a low budget, but the organization is achieving 40% on around $30M in revenue and looking to exit. Take the call and boom, they are a perfect fit for your Ideal Customer Profile (ICP).\n• First successful Level 10 meeting led by our operations team! After 5 years, the CEO and VP were not present on the call. Exciting times ahead!\n• Looking for the top newsletter for business leaders, marketing agencies, and creative professionals?\n• Drafting a letter to attract top talent\n• What brought you here won't take you there.\n• In what ways am I contributing to the situations I claim to dislike?\n• The Power of \"Yet\"!\n• Enterprise brings structure, SMB brings agility, Midmarket strikes a balance between both.\n• Culture 101: The Basics\n• PSA for Marketing Leaders\n• Exploring 1000 agencies\n• Marketing doesn't have to be boring.\n• Jenny's strategic account management plan is in the works!\n• The key to agency success or failure in a single graphic.\n• The best marketing speaks volumes without saying a word 🦅\n• Leaving money on the table?\n• Crafting Information Architecture is akin to creating a playground for young minds.\n• #AI Job Seekers: Crafting the Perfect Job Post\n• # Everything began as a mess before it became a masterpiece.\n• #Emperor's New Groove: Old is the New New\n• I'm boycotting Type DECK to get XYZ. Calling out the BS with a 10-point test.\n• Don’t redesign your website. Redesign your user experience.\n• The person who should be the leader is the highest.\n• Solo retreat: Discovering your purpose\n• What can a bird feeder teach us about marketing? 🐦🌿\n• 4-Day Workweek: Boosting Productivity and Work-Life Balance\n• 2x2 grid for setting goals, objectives, strategies, and tactics.\n• I'm a VIBE coder...\n• Emailing after hours: A productivity booster or a boundary breaker? 🕒💼 #worklifebalance #productivitytips\n• You are what you consistently think about.\n• Strolling hand in hand with my better half\n• Serving as the community chair for EO - proud to lead and connect with fellow entrepreneurs!\n• The game-changing impact of gratitude-sharing\n• The reason my wife adores me...\n• GLabs: Revolutionizing the Future of Tech!\n• AI is the disruptive force of our generation, much like the mobile phone was in its time.\n• Since XYZ, I've closed $10.4M in project deals but also lost $8.2M. Now seeking a salesperson.\n• I'm seeking a storyteller, a community builder, a value-adder, and someone who can also close deals.\n• Our foe is mediocrity.\n• The power of \"yet\" - unlocking potential through a simple word\n• Share a post reflecting on the long days, often captured in that picture of me with my three kids.\n• Number of Failures Before Achieving Success\n• YETI Coolers: A Success Story\n• Unleashing Your Real-Life Superpowers\n• The power of pivoting... Megan\n• Original: There’s no such thing as culture\n\nEdited: Culture is a myth\n• Top workplace destination\n• 10 words to transform your life: \"You become what you think about.\"\n• Start small, show up consistently. Can't show up? Start even smaller.\n• Stop wasting time on tasks you don't enjoy.\n• Super Communicators, let's dive into three key conversations: How do we feel about this? What are we going to do about this? What is our identity in this?\n• Intent. Relevance. Trust.\n• An expert in digital marketing, specializing in web design and development, with a focus on usability and conversion, is someone who has failed in every possible way in a very narrow field.\n• PILLARS: My story, expertise, GLIDE®, AI, and my amazing team.\n• Input ➡️ Workflow ➡️ Output 🚀\n• Input ➡️ Output ➡️ Outcome 💡\n• Experience. Knowledge. Authenticity. Passion. 🔥\n• These ColdIQ guys are email wizards!\n• What I learned from hiring three LinkedIn coaches in 90 days\n• Consistent Quality = Results\n• AI right now: Embracing the Power of Experimentation\n• LinkedIn goals for this month: 1. Daily posts 2. Engage with 10 posts 3. Connect with 10 ideal clients 4. Send 10 direct messages. Let's do this!\n• Leading with Purpose: Tough decisions and valuable lessons, team successes and retention rates, the impact of core values, shout-outs to the crew, and tips for daily gratitude. Design That Converts: Quick wins in UX, impressive before-and-after shots, ROI breakdowns, essential tools, and bold takes on design trends. Proof & Playbooks: Bite-sized case studies, key KPI snapshots, our proven 5-step process, client achievements, and rapid-fire FAQs. Thought Leadership: Timely insights on industry news, engaging polls with key takeaways, recommendations from books and podcasts, dispelling myths, and sharing our current tool stack. Founder Journey: Insights into our origin story, turning failures into lessons, behind-the-scenes snapshots, the motivation behind our work, and engaging AMA threads. Business as a Force for Good: Celebrating non-profit successes, showcasing our annual impact numbers, highlighting B-Corp practices, sharing volunteer experiences, and rallying support for important causes.",
+    "createdAt": "2025-06-06T22:08:09.305Z"
+  },
+  {
+    "id": "5a04543a-00a8-46c4-be0a-dfadc754b56c",
+    "sender": "user",
+    "text": "\nInput\nOutput\nOutcome\n\n—————\n\nExperience\nKnowledge\nAuthenticity\nPassion\n\n—————\n\nThese ColdIQ guys are good\nSs of email\n\n—————\n\nWhat I learned from hiring three Linked In coaches in 90 days\n\n—————\n\nConsistency\nQuality\nResults\n\n—————\n\nAI right now…\nExperimentation\nAwareness",
+    "createdAt": "2025-06-06T22:44:24.546Z"
+  },
+  {
+    "id": "513cdec6-d4e8-49ee-ad56-ae0c65504d23",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T22:44:24.547Z",
+    "type": "loadingGif",
+    "gif": "https://media3.giphy.com/media/v1.Y2lkPThhMDcxMDNjMHUwY2RzY2pnejV6Z3B5NzN1Y2Uzd3RkcXhraHN4Mm1yeHpsczFqYyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l0He4fJxPCbfqv7Xi/200.gif"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 10 new ideas!\n\n• Unlock Your Potential: Experience the Difference\n• Unlock the power of knowledge.\n• Authenticity: The Key to Building Genuine Connections\n• Passion: Your Key to Success\n• Consistency is key!\n• Top-notch Excellence\n• Results Delivered: How to Achieve Success in Your Career\n• AI right now: What you need to know!\n• Let's Get Experimental!\n• Shine a Light on Awareness",
+    "createdAt": "2025-06-06T22:44:24.548Z"
+  },
+  {
+    "id": "e1e7d390-f6e7-46bf-9b6f-8e3d093bef03",
+    "sender": "user",
+    "text": "\nInput\nOutput\nOutcome\n\n—————\n\nExperience\nKnowledge\nAuthenticity\nPassion\n\n—————\n\nThese ColdIQ guys are good\nSs of email\n\n—————\n\nWhat I learned from hiring three Linked In coaches in 90 days\n\n—————\n\nConsistency\nQuality\nResults\n\n—————\n\nAI right now…\nExperimentation\nAwareness",
+    "createdAt": "2025-06-06T22:53:13.033Z"
+  },
+  {
+    "id": "5b181218-605a-49b5-8fe5-1c11db17af12",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T22:53:13.034Z",
+    "type": "loadingGif",
+    "gif": "https://media3.giphy.com/media/v1.Y2lkPThhMDcxMDNjNDlxNXpwbHJ6eHJteHlsdTczcDFoODRpYmFibjlyZWM1cGF1MHdzciZlcD12MV9naWZzX3NlYXJjaCZjdD1n/Qws8FJu2vVGpCshSXi/200.gif"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 11 new ideas!\n\n• \"Unlock Your Potential: Gain Valuable Experience Today!\"\n• Unlock the Power of Knowledge\n• Authenticity: The Key to Building Strong Connections\n• Passion: The Key to Success\n• What I learned from hiring three LinkedIn coaches in 90 days\n• Consistency is key!\n• Top-notch Excellence\n• Results Speak Louder Than Words.\n• AI right now: What you need to know!\n• Let's Get Experimental!\n• \"Boost Your Brand Awareness with These Proven Strategies\"",
+    "createdAt": "2025-06-06T22:53:13.035Z"
+  },
+  {
+    "id": "ed2b88a6-549c-4b22-9f85-547667cff3cd",
+    "sender": "user",
+    "text": "Travis do you have a fundamental objection to making money?\n\n\nhttps://cln.sh/dfqbS7SD\n\nI’m convinced we are all making LinkedIn too hard\n\n\nShoutouts to people that have helped me\n\nWhat gest me excited about posting on linkedin\nbeing myself\nposting about what makes me come alive\nNOT comparing\nNOT posting what other people say i sohuld be posting about\n\nWatching star wars and star wars rebels\n\nI’ve listened to step into your greatness 50+ times\n\nIt’s safer to post bland content that be our authentic self\n\nWhat do I know more about than most people\n\nHubspot is a perfect example of a pre-AI company uselessly bolting on AI and getting left behind\n\nMINE MY COMMENTS\n\nI’ll die on this hill…\n\nRead 100 posts on X and summarize\n\n—————\n\nIn honor of 100% disagreeing with this guy\n\n—————\n\nPlaying guitar in designers wedding\n\n—————\n\nLife is too short to read a shitty book\n\n—————\n\n360 Feedback exercise\n\n—————\n\nAsking John Eckman of 10Up for tips\n\n————— \n\nFInding your integrator\n\n————— \n\nLanding largest deal of my life\n$300K\n\n————— \n\nSolo retreat\n\n—————\n\nThe Dan Sullivan Question\n\n—————\n\nTell the world what you intend to do\nBut show it first\n\n—————\n\nEveryone has a story worth telling\n\n—————\n\nDiscipline eats willpower for breakfast!\n\n—————\n\nHabits and systems\nFor being a great husband and father\n\n—————\n\nWorking out of a shipping container",
+    "createdAt": "2025-06-06T23:53:12.901Z"
+  },
+  {
+    "id": "a94d4107-0fc7-4c0f-abc5-cd6f23165c0c",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-06T23:53:12.902Z",
+    "type": "loadingGif",
+    "gif": "https://media4.giphy.com/media/v1.Y2lkPThhMDcxMDNjZDR0c29hcWtwMHYzbXBqaDJqMDM5NmU3dW01a29jMnEwMjVjOTU3dyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/NaVl3IsoYEHKfv5bdE/200.gif"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 19 new ideas!\n\n• I’m convinced we are all making LinkedIn too hard\n• \"Authenticity Wins: Sharing What Ignites Your Passion on LinkedIn!\"\n• Hubspot is a perfect example of a pre-AI company uselessly bolting on AI and getting left behind\n• I’ll die on this hill…\n• Life is too short to read a shitty book\n• 360 Feedback exercise\n• Playing guitar in designers wedding\n• Life is too short to read a shitty book\n• 360 Feedback exercise\n• Asking John Eckman of 10Up for tips\n• FInding your integrator\n• Landing largest deal of my life $300K\n• Solo retreat\n• The Dan Sullivan Question\n• Tell the world what you intend to do But show it first\n• Everyone has a story worth telling\n• Discipline eats willpower for breakfast!\n• Habits and systems For being a great husband and father\n• Working out of a shipping container",
+    "createdAt": "2025-06-06T23:53:12.903Z"
+  },
+  {
+    "id": "0301a67e-20b1-40a0-b1c9-e06967f33fa5",
+    "sender": "user",
+    "text": "Travis do you have a fundamental objection to making money?\n\n\nhttps://cln.sh/dfqbS7SD\n\nI’m convinced we are all making LinkedIn too hard\n\n\nShoutouts to people that have helped me\n\nWhat gest me excited about posting on linkedin\nbeing myself\nposting about what makes me come alive\nNOT comparing\nNOT posting what other people say i sohuld be posting about\n\nWatching star wars and star wars rebels\n\nI’ve listened to step into your greatness 50+ times\n\nIt’s safer to post bland content that be our authentic self\n\nWhat do I know more about than most people\n\nHubspot is a perfect example of a pre-AI company uselessly bolting on AI and getting left behind\n\nMINE MY COMMENTS\n\nI’ll die on this hill…\n\nRead 100 posts on X and summarize\n\n—————\n\nIn honor of 100% disagreeing with this guy\n\n—————\n\nPlaying guitar in designers wedding\n\n—————\n\nLife is too short to read a shitty book\n\n—————\n\n360 Feedback exercise\n",
+    "createdAt": "2025-06-07T00:47:07.542Z"
+  },
+  {
+    "id": "fc1fb676-d3b7-42f1-979d-3f99d0a7b1e4",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-07T00:47:07.543Z",
+    "type": "loadingGif",
+    "gif": "https://media1.giphy.com/media/v1.Y2lkPThhMDcxMDNjcXdxcmJ2a3RqOGwydml3Yjlsd3JueTF4dTU2d2ZiMmV5cWc2eWg3NSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/VVmj01MzVOU1tl8jjE/200.gif"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 6 new ideas!\n\n• I’m convinced we are all making LinkedIn too hard\n• What gets me excited about posting on LinkedIn\n• Watching Star Wars and Star Wars Rebels\n• Hubspot is a perfect example of a pre-AI company uselessly bolting on AI and getting left behind\n• Life is too short to read a shitty book\n• 360 Feedback exercise",
+    "createdAt": "2025-06-07T00:47:07.544Z"
+  },
+  {
+    "id": "f967c7c9-d83d-4f9b-802b-1233239fdba8",
+    "sender": "user",
+    "text": "• I’m convinced we are all making LinkedIn too hard\n• What gets me excited about posting on LinkedIn\n• Watching Star Wars and Star Wars Rebels\n• Hubspot is a perfect example of a pre-AI company uselessly bolting on AI and getting left behind\n• Life is too short to read a shitty book\n• 360 Feedback exercise",
+    "createdAt": "2025-06-07T00:50:00.162Z"
+  },
+  {
+    "id": "7c7a4c89-3ea6-4ffe-820d-a2f1a841cabc",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-07T00:50:00.163Z",
+    "type": "loadingGif",
+    "gif": "https://media3.giphy.com/media/v1.Y2lkPThhMDcxMDNjcXdxcmJ2a3RqOGwydml3Yjlsd3JueTF4dTU2d2ZiMmV5cWc2eWg3NSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3og0IM6OKKolU95aWA/200.gif"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 6 new ideas!\n\n• I’m convinced we are all making LinkedIn too hard\n• What gets me excited about posting on LinkedIn\n• Watching Star Wars and Star Wars Rebels\n• Hubspot is a perfect example of a pre-AI company uselessly bolting on AI and getting left behind\n• Life is too short to read a shitty book\n• 360 Feedback exercise",
+    "createdAt": "2025-06-07T00:50:00.164Z"
+  },
+  {
+    "id": "6521e49e-9284-4dfe-945b-8a5745a9e00a",
+    "sender": "user",
+    "text": "I’m convinced we are all making LinkedIn too hard\n\n\nShoutouts to people that have helped me\n\nWhat gest me excited about posting on linkedin\nbeing myself\nposting about what makes me come alive\nNOT comparing\nNOT posting what other people say i sohuld be posting about\n\nWatching star wars and star wars rebels\n\nI’ve listened to step into your greatness 50+ times\n\nIt’s safer to post bland content that be our authentic self\n\nWhat do I know more about than most people\n\nHubspot is a perfect example of a pre-AI company uselessly bolting on AI and getting left behind\n\nMINE MY COMMENTS\n\nI’ll die on this hill…\n\nRead 100 posts on X and summarize\n\n—————\n\nIn honor of 100% disagreeing with this guy\n\n—————\n\nPlaying guitar in designers wedding\n\n—————\n\nLife is too short to read a shitty book\n\n—————\n\n360 Feedback exercise",
+    "createdAt": "2025-06-07T00:54:41.607Z"
+  },
+  {
+    "id": "62745770-38c2-451a-b648-113706eeafc5",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-07T00:54:41.608Z",
+    "type": "loadingGif",
+    "gif": "https://media2.giphy.com/media/v1.Y2lkPThhMDcxMDNjNDlxNXpwbHJ6eHJteHlsdTczcDFoODRpYmFibjlyZWM1cGF1MHdzciZlcD12MV9naWZzX3NlYXJjaCZjdD1n/0jy6pwtjZNoXckTMjn/200.gif"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 15 new ideas!\n\n• I’m convinced we are all making LinkedIn too hard\n• Shoutouts to people that have helped me\n• \"Authenticity is key: Post what excites you on LinkedIn, not what others expect.\"\n• Watching star wars and star wars rebels\n• I’ve listened to step into your greatness 50+ times\n• It’s safer to post bland content that be our authentic self\n• What do I know more about than most people\n• Hubspot is a perfect example of a pre-AI company uselessly bolting on AI and getting left behind\n• MINE MY COMMENTS\n• I’ll die on this hill…\n• Read 100 posts on X and summarize\n• In honor of 100% disagreeing with this guy\n• Playing guitar in designers wedding\n• Life is too short to read a shitty book\n• 360 Feedback exercise",
+    "createdAt": "2025-06-07T00:54:41.609Z"
+  },
+  {
+    "id": "d5ab13b4-e92d-4d74-92f2-6670f2de9cfa",
+    "sender": "user",
+    "text": "My fridge died. For the second time in 2 years. After two techs and two \"diagnostic fees\" I was no closer to a working fridge. With a frustrated wife and 4 hungry kiddos, this needed to get fixed ASAP. I ran to the store and bought 6 bags of ice. Then got to work finding the right one to buy. We found one we liked and bought it at the factory outlet for $500 off of the already $1500 off it was listed at MSRP. I was able to purchase the 3-year extended warranty which I'd never do. I drove the two hours to San Antonio to pick it up. I took the opportunirty to finish an audio book I was reading called 10X is Easier than 2X and started a new one, Buy Back Your Time. While I was there I found a smaller fridge that would be great as a secondary for $300, I couldn't pass up the deal. When I went to put two fridges in my shortbed truck I couldn't close the tailgate. My tie down straps were too short. I had to run 4 blocks to Home Depot and buy new ones. It took me about an hour to make the run, buy the straps, run back, and strap down two refridgerators in the back of my truck with no tailgate up so they wouldn't fall out, in 105 Texas sun beating down. While in San Antonio I thought to call my bestie and grab a quick dinner. I was able to see his apartment and new puppy for the first time, it was amazing. We had a great dinner. On my way home, I called my bestie back and we talked for almost an hour, catching up on all things business and business strategy. I got home around 11:30pm and my wife helped me unload the smaller of the two fridges. We had time to watch a show together and went to sleep.\n",
+    "createdAt": "2025-06-07T00:55:32.670Z"
+  },
+  {
+    "id": "8942fd06-1d15-45cb-8790-90debcb129cb",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-07T00:55:32.671Z",
+    "type": "loadingGif",
+    "gif": "https://media3.giphy.com/media/v1.Y2lkPThhMDcxMDNjcXdxcmJ2a3RqOGwydml3Yjlsd3JueTF4dTU2d2ZiMmV5cWc2eWg3NSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/Emg9qPKR5hquI/200.gif"
+  },
+  {
+    "sender": "agent",
+    "text": "Imported 6 new ideas!\n\n• \"Dealing with a second fridge breakdown in 2 years - time for an upgrade!\"\n• Bought a new fridge at a factory outlet for $500 off MSRP.\n• Purchased a 3-year extended warranty for the fridge.\n• Found a smaller fridge for $300 as a secondary.\n• Strapped down two refrigerators in the back of my truck in 105-degree Texas sun.\n• Caught up with bestie over dinner and business talk in San Antonio.",
+    "createdAt": "2025-06-07T00:55:32.672Z"
+  },
+  {
+    "id": "48a231c5-91e2-4be6-8cf6-e1a7d62b3a82",
+    "sender": "user",
+    "text": "Can you export just your comments from LinkedIn?",
+    "createdAt": "2025-06-07T01:00:12.323Z"
+  },
+  {
+    "id": "c13f016b-a536-4ec0-b29a-c85d5b92f2fa",
+    "sender": "agent",
+    "text": "[GIPHY_WAITING]",
+    "createdAt": "2025-06-07T01:00:12.324Z",
+    "type": "loadingGif",
+    "gif": "https://media1.giphy.com/media/v1.Y2lkPThhMDcxMDNjaWlxZmlmOG1sMTNsaWJ3d2R6dzhwem9qa3pza2huajMwZ3Y0MDczciZlcD12MV9naWZzX3NlYXJjaCZjdD1n/YBHJyPCU9h1VewdaPZ/200.gif"
+  },
+  {
+    "sender": "agent",
+    "text": "I can help you with that! To export just your comments from LinkedIn, you may need to access your LinkedIn account settings and look for options related to data export or download. If you can't find it, I recommend checking LinkedIn's Help Center for specific instructions on how to export your comments. Let me know if you need further assistance with this!",
+    "createdAt": "2025-06-07T01:00:12.325Z"
+  }
+]
