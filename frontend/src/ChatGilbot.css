@@ -189,6 +189,9 @@ body {
     max-width: 500px;
     box-sizing: border-box;
     border: 2px solid red !important;
+    display: flex;
+    gap: 8px;
+    align-items: center;
   }
   .gilbot-input {
     font-size: 1em;
@@ -197,13 +200,14 @@ body {
     min-height: 36px;
     max-height: 80px;
     box-sizing: border-box;
-    width: 100%;
+    flex: 1 1 auto;
   }
   .gilbot-send-btn, .gilbot-mic-btn {
     font-size: 1em;
     padding: 8px 14px;
     border-radius: 24px;
     box-sizing: border-box;
+    flex: 0 0 auto;
   }
   .gilbot-bubble {
     font-size: 0.98em;
