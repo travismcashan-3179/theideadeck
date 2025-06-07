@@ -17,7 +17,8 @@ const CHAT_FILE = path.resolve('./data/chat.json');
 app.use(cors({
   origin: [
     'https://theideadeck-lu7t0taqx-travis-mcashans-projects.vercel.app',
-    'https://theideadeck-4vvxz5t50-travis-mcashans-projects.vercel.app'
+    'https://theideadeck-4vvxz5t50-travis-mcashans-projects.vercel.app',
+    'https://theideadeck.vercel.app'
   ],
   credentials: true
 }));
