@@ -29,11 +29,9 @@ function getImageUrl(url) {
   return url;
 }
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://your-backend-url.com'; // TODO: Replace with your actual backend URL
 function getApiUrl(path) {
-  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-    return `http://localhost:3001${path}`;
-  }
-  return path;
+  return `${BACKEND_URL}${path}`;
 }
 
 export default function App() {
