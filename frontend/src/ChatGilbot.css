@@ -157,9 +157,8 @@ body {
     right: 0;
     z-index: 100;
     background: #f3eeff;
-    padding: 0 0 4px 0;
-    margin-top: 16px;
-    margin-bottom: 0;
+    padding: 12px 0 4px 0;
+    margin: 0;
     height: 60px;
     box-shadow: 0 2px 8px #e7e7fa;
     width: 100%;
@@ -170,8 +169,8 @@ body {
   .gilbot-chat-list {
     flex: 1;
     overflow-y: auto;
-    padding-top: 76px;
-    padding-bottom: 92px;
+    padding-top: 56px;
+    padding-bottom: 64px;
     min-height: 0;
     width: 100%;
     box-sizing: border-box;
@@ -184,24 +183,15 @@ body {
     right: 0;
     z-index: 100;
     background: #f3eeff;
-    padding: 8px 0 8px 0;
-    margin-bottom: 16px;
+    padding: 8px 20px 8px 20px;
+    box-shadow: 0 -2px 8px #e7e7fa;
     width: 100%;
     max-width: 500px;
     box-sizing: border-box;
     border: 2px solid red !important;
-  }
-  .gilbot-input-bar-inner {
-    max-width: 500px;
-    margin: 0 auto;
-    padding-left: 20px;
-    padding-right: 20px;
-    width: 100%;
-    box-sizing: border-box;
     display: flex;
     gap: 8px;
     align-items: center;
-    border: 2px solid green !important;
   }
   .gilbot-input {
     font-size: 1em;
