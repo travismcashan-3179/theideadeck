@@ -388,31 +388,30 @@ export default function App() {
 
   return (
     <div id="gilbot-chat-root">
+      {/* Move header outside of gilbot-inner for bulletproof fixed positioning */}
+      <div className="gilbot-capsule-toggle">
+        <div className={`gilbot-capsule-bg ${tab === 'ideas' ? 'right' : 'left'}`}></div>
+        <button
+          className={`gilbot-capsule-btn${tab === 'chat' ? ' selected' : ''}`}
+          onClick={() => setTab('chat')}
+          type="button"
+        >
+          Chat
+        </button>
+        <button
+          className={`gilbot-capsule-btn${tab === 'ideas' ? ' selected' : ''}`}
+          onClick={() => setTab('ideas')}
+          type="button"
+        >
+          Ideas
+        </button>
+      </div>
       <div className="gilbot-inner">
         {error && (
           <div style={{ color: '#d9534f', background: '#fff0f0', padding: '12px 24px', borderRadius: 12, marginBottom: 18, textAlign: 'center', fontWeight: 600 }}>
             {error}
           </div>
         )}
-        {/* Capsule Toggle Switch */}
-        <div className="gilbot-capsule-toggle">
-          <div className={`gilbot-capsule-bg ${tab === 'ideas' ? 'right' : 'left'}`}></div>
-          <button
-            className={`gilbot-capsule-btn${tab === 'chat' ? ' selected' : ''}`}
-            onClick={() => setTab('chat')}
-            type="button"
-          >
-            Chat
-          </button>
-          <button
-            className={`gilbot-capsule-btn${tab === 'ideas' ? ' selected' : ''}`}
-            onClick={() => setTab('ideas')}
-            type="button"
-          >
-            Ideas
-          </button>
-        </div>
-        {/* End Capsule Toggle Switch */}
         {tab === 'chat' ? (
           <>
             <div className="gilbot-chat-list" ref={chatRef} style={{ position: 'relative' }}>
@@ -962,7 +961,7 @@ export default function App() {
           </div>
         )}
       </div>
-      {/* Move input bar outside of gilbot-inner for bulletproof alignment */}
+      {/* Footer remains outside gilbot-inner for bulletproof alignment */}
       {tab === 'chat' && (
         <form className="gilbot-input-bar" onSubmit={handleSubmit}>
           <div className="gilbot-input-bar-inner">
