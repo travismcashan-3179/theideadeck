@@ -146,7 +146,7 @@ body {
     width: 100vw;
     z-index: 100;
     background: #f3eeff;
-    padding: 0 4vw 4px 4vw;
+    padding: 0 20px 4px 20px;
     margin: 0;
     height: 48px;
     box-shadow: 0 2px 8px #e7e7fa;
@@ -155,7 +155,7 @@ body {
   .gilbot-chat-list {
     flex: 1;
     overflow-y: auto;
-    padding: 56px 4vw 64px 4vw; /* space for toggle and input bar, plus side padding */
+    padding: 56px 20px 64px 20px; /* space for toggle and input bar, plus side padding */
     margin: 0;
     min-height: 0;
     max-width: 100vw;
@@ -168,7 +168,7 @@ body {
     width: 100vw;
     z-index: 100;
     background: #f3eeff;
-    padding: 8px 4vw 8px 4vw;
+    padding: 8px 20px 8px 20px;
     box-shadow: 0 -2px 8px #e7e7fa;
     margin: 0;
     box-sizing: border-box;
@@ -188,14 +188,14 @@ body {
   .gilbot-bubble {
     font-size: 0.98em;
     padding: 10px 12px;
-    max-width: 90vw;
+    max-width: calc(100vw - 60px);
     border-radius: 20px;
   }
   /* Ideas tab cards and grid */
   .ca-card, .ca-card.ca-card-fade {
-    width: 92vw;
+    width: calc(100vw - 40px);
     min-width: 0;
-    max-width: 94vw;
+    max-width: calc(100vw - 40px);
     padding: 12px;
     box-sizing: border-box;
     font-size: 0.98em;
@@ -204,7 +204,7 @@ body {
     min-width: 0;
     width: 100vw;
     max-width: 100vw;
-    padding: 0 2vw;
+    padding: 0 20px;
     margin: 0;
     overflow-x: hidden;
     box-sizing: border-box;
