@@ -18,7 +18,7 @@ app.use(cors({
   origin: function (origin, callback) {
     const allowedOrigins = [
       'https://theideadeck.vercel.app',
-      'https://theideadeck-backend.onrender.com'
+      'https://theideadeck.onrender.com'
     ];
     // Allow all Vercel preview deployments for this project
     if (
