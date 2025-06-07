@@ -8,12 +8,19 @@ body {
 }
 
 #gilbot-chat-root {
-  height: 100vh;
   width: 100vw;
+  max-width: none;
+  margin: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  min-height: 100vh;
+  height: 100vh;
   position: relative;
+  padding: 36px;
+  box-sizing: border-box;
 }
 
 .gilbot-header {
@@ -75,18 +82,17 @@ body {
 }
 
 .gilbot-input-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100vw;
-  max-width: 100vw;
-  z-index: 100;
-  height: 64px;
-  background: #f3eeff;
-  box-shadow: 0 -2px 8px #e7e7fa;
   display: flex;
   align-items: center;
-  padding: 0 20px;
+  gap: 12px;
+  padding: 24px 0 32px 0;
+  background: transparent;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  justify-content: flex-end;
 }
 
 .gilbot-input {
@@ -125,14 +131,12 @@ body {
     background: #f3eeff !important;
   }
   #gilbot-chat-root {
-    padding: 0;
     height: 100vh;
     min-height: 100vh;
     background: #f3eeff;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    position: relative;
   }
   .gilbot-inner {
     max-width: 500px;
@@ -141,35 +145,36 @@ body {
     padding-right: 20px;
     width: 100%;
     box-sizing: border-box;
+    border: 2px solid blue !important;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    padding-top: 60px; /* height of header */
-    padding-bottom: 72px; /* height of footer */
   }
   .gilbot-capsule-toggle {
     position: fixed;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    right: 0;
     z-index: 100;
     background: #f3eeff;
-    padding: 12px 0 4px 0;
-    height: 60px;
+    padding: 0 0 4px 0;
+    margin: 0;
+    height: 48px;
     box-shadow: 0 2px 8px #e7e7fa;
     width: 100%;
     max-width: 500px;
     box-sizing: border-box;
-    border: none;
+    border: 2px solid red !important;
   }
   .gilbot-chat-list {
     flex: 1;
     overflow-y: auto;
-    padding-top: 0;
-    padding-bottom: 0;
+    padding-top: 56px;
+    padding-bottom: 64px;
     min-height: 0;
     width: 100%;
     box-sizing: border-box;
+    border: 2px solid red !important;
   }
   .gilbot-input-bar {
     position: fixed;
@@ -178,16 +183,15 @@ body {
     right: 0;
     z-index: 100;
     background: #f3eeff;
-    padding: 8px 0 12px 0;
+    padding: 8px 20px 8px 20px;
     box-shadow: 0 -2px 8px #e7e7fa;
     width: 100%;
     max-width: 500px;
     box-sizing: border-box;
-    border: none;
+    border: 2px solid red !important;
     display: flex;
     gap: 8px;
     align-items: center;
-    margin: 0 auto;
   }
   .gilbot-input {
     font-size: 1em;
@@ -254,7 +258,7 @@ body {
     display: flex;
     gap: 8px;
     align-items: center;
-    border: none;
+    border: 2px solid green !important;
   }
 }
 
@@ -407,18 +411,16 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 }
 
 .gilbot-capsule-toggle {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  max-width: 100vw;
-  z-index: 100;
-  height: 60px;
-  background: #f3eeff;
-  box-shadow: 0 2px 8px #e7e7fa;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 340px;
+  height: 56px;
+  margin: 0 auto 18px auto;
+  background: #f3eeff;
+  border-radius: 32px;
+  box-shadow: 0 2px 8px #e7e7fa;
 }
 .gilbot-capsule-bg {
   position: absolute;
@@ -760,36 +762,4 @@ body, html, #gilbot-chat-root {
 /* Hide horizontal scrollbars */
 body::-webkit-scrollbar, html::-webkit-scrollbar {
   display: none;
-}
-
-/* Remove all !important debug borders from mobile and desktop */
-.gilbot-inner,
-.gilbot-capsule-toggle,
-.gilbot-chat-list,
-.ca-card,
-.gilbot-masonry-grid,
-.gilbot-grid,
-.gilbot-input-bar,
-.gilbot-input-bar-inner {
-  border: none !important;
-}
-
-/* Add top padding to .gilbot-inner for all screen sizes */
-.gilbot-inner {
-  padding-top: 60px;
-}
-
-.gilbot-body {
-  flex: 1 1 auto;
-  margin-top: 60px;
-  margin-bottom: 64px;
-  overflow-y: auto;
-  width: 100vw;
-  max-width: 100vw;
-  box-sizing: border-box;
-  padding: 0 20px;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* Remove all .gilbot-inner and related hacks */
-.gilbot-inner { display: none !important; } 
+} 
