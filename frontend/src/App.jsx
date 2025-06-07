@@ -437,30 +437,6 @@ export default function App() {
                 </div>
               ))}
             </div>
-            <form className="gilbot-input-bar" onSubmit={handleSubmit}>
-              <textarea
-                className="gilbot-input"
-                value={input}
-                onChange={handleInputChange}
-                onKeyDown={handleKeyDown}
-                placeholder="Type your message..."
-                rows={inputRows}
-                style={{ resize: 'none', minHeight: 44, maxHeight: 44 * maxRows, overflowY: inputRows === maxRows ? 'auto' : 'hidden' }}
-              />
-              <button
-                type="button"
-                className="gilbot-mic-btn"
-                onClick={handleMicClick}
-                style={{ background: recording ? '#d9534f' : '#9194E0', color: '#fff', border: 'none', borderRadius: 32, padding: '14px 18px', marginRight: 8, fontSize: '1.1em', fontWeight: 700, cursor: 'pointer', transition: 'background 0.2s' }}
-                disabled={loading}
-                aria-label={recording ? 'Stop recording' : 'Record voice'}
-              >
-                {/* Simple mic SVG icon */}
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 1v14a4 4 0 0 0 4-4V5a4 4 0 0 0-8 0v6a4 4 0 0 0 4 4z"></path><line x1="19" y1="10" x2="19" y2="10"></line><line x1="5" y1="10" x2="5" y2="10"></line><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
-                {recording ? 'Stop' : ''}
-              </button>
-              <button className="gilbot-send-btn" type="submit" disabled={loading}>Send</button>
-            </form>
           </>
         ) : (
           <div style={{ flex: 1, width: '100%', padding: '32px 0 0 0', overflow: 'auto' }}>
@@ -986,6 +962,35 @@ export default function App() {
           </div>
         )}
       </div>
+      {/* Move input bar outside of gilbot-inner for bulletproof alignment */}
+      {tab === 'chat' && (
+        <form className="gilbot-input-bar" onSubmit={handleSubmit}>
+          <div className="gilbot-input-bar-inner">
+            <textarea
+              className="gilbot-input"
+              value={input}
+              onChange={handleInputChange}
+              onKeyDown={handleKeyDown}
+              placeholder="Type your message..."
+              rows={inputRows}
+              style={{ resize: 'none', minHeight: 44, maxHeight: 44 * maxRows, overflowY: inputRows === maxRows ? 'auto' : 'hidden' }}
+            />
+            <button
+              type="button"
+              className="gilbot-mic-btn"
+              onClick={handleMicClick}
+              style={{ background: recording ? '#d9534f' : '#9194E0', color: '#fff', border: 'none', borderRadius: 32, padding: '14px 18px', marginRight: 8, fontSize: '1.1em', fontWeight: 700, cursor: 'pointer', transition: 'background 0.2s' }}
+              disabled={loading}
+              aria-label={recording ? 'Stop recording' : 'Record voice'}
+            >
+              {/* Simple mic SVG icon */}
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 1v14a4 4 0 0 0 4-4V5a4 4 0 0 0-8 0v6a4 4 0 0 0 4 4z"></path><line x1="19" y1="10" x2="19" y2="10"></line><line x1="5" y1="10" x2="5" y2="10"></line><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+              {recording ? 'Stop' : ''}
+            </button>
+            <button className="gilbot-send-btn" type="submit" disabled={loading}>Send</button>
+          </div>
+        </form>
+      )}
     </div>
   );
 } 

@@ -248,6 +248,18 @@ body {
   .gilbot-input-bar {
     padding: 8px 0 12px 0;
   }
+  .gilbot-input-bar-inner {
+    max-width: 500px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    border: 2px solid green !important;
+  }
 }
 
 body, html, #gilbot-chat-root {
