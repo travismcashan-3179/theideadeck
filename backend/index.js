@@ -14,7 +14,13 @@ const PORT = 3001;
 const DATA_FILE = path.resolve('./data/ideas.json');
 const CHAT_FILE = path.resolve('./data/chat.json');
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    'https://theideadeck-lu7t0taqx-travis-mcashans-projects.vercel.app',
+    'https://theideadeck-4vvxz5t50-travis-mcashans-projects.vercel.app'
+  ],
+  credentials: true
+}));
 app.use(bodyParser.json());
 app.use('/uploads', express.static(path.resolve('uploads')));
 
