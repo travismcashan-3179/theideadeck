@@ -124,18 +124,18 @@ body {
 
 @media (max-width: 700px) {
   html, body {
-    background: #7fff00 !important; /* puke green for sanity check */
     height: 100vh;
     overflow-x: hidden;
     margin: 0;
     padding: 0;
+    background: #f3eeff !important;
   }
   #gilbot-chat-root {
     height: 100vh;
     min-height: 100vh;
     box-sizing: border-box;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
     background: #f3eeff;
     overflow: hidden;
     display: flex;
@@ -148,11 +148,12 @@ body {
     right: 0;
     z-index: 100;
     background: #f3eeff;
-    padding: 0 20px 4px 20px;
+    padding: 0 20px 4px 20px !important;
     margin: 0;
     height: 48px;
     box-shadow: 0 2px 8px #e7e7fa;
     box-sizing: border-box;
+    border: 2px solid red !important;
   }
   .gilbot-chat-list {
     flex: 1;
@@ -161,6 +162,9 @@ body {
     margin: 0;
     min-height: 0;
     box-sizing: border-box;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    border: 2px solid red !important;
   }
   .gilbot-input-bar {
     position: fixed;
@@ -169,10 +173,11 @@ body {
     right: 0;
     z-index: 100;
     background: #f3eeff;
-    padding: 8px 20px 8px 20px;
+    padding: 8px 20px 8px 20px !important;
     box-shadow: 0 -2px 8px #e7e7fa;
     margin: 0;
     box-sizing: border-box;
+    border: 2px solid red !important;
   }
   .gilbot-input {
     font-size: 1em;
@@ -203,6 +208,9 @@ body {
     padding: 12px;
     box-sizing: border-box;
     font-size: 0.98em;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    border: 2px solid red !important;
   }
   .gilbot-masonry-grid, .gilbot-grid {
     min-width: 0;
@@ -212,6 +220,9 @@ body {
     margin: 0;
     overflow-x: hidden;
     box-sizing: border-box;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    border: 2px solid red !important;
   }
   .ca-card-inner, .ca-card-front, .ca-card-back {
     font-size: 0.98em;
