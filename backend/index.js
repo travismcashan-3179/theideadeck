@@ -463,7 +463,8 @@ app.post('/sms-webhook', async (req, res) => {
       phone: from,
       message: replyText,
       key: process.env.TEXTBELT_KEY,
-      replyWebhookUrl: process.env.RENDER_WEBHOOK_URL || 'https://your-backend-on-render.com/sms-webhook'
+      replyWebhookUrl: process.env.RENDER_WEBHOOK_URL || 'https://theideadeck.onrender.com/sms-webhook',
+      sender: 'glidedesign.com'
     });
     res.json({ success: true });
   } catch (err) {
@@ -479,7 +480,8 @@ app.get('/test-sms', async (req, res) => {
       phone: '5127798177',
       message: 'This is a test from your backend. Reply to this message to test SMS mirroring.',
       key: process.env.TEXTBELT_KEY,
-      replyWebhookUrl: process.env.RENDER_WEBHOOK_URL || 'https://your-backend-on-render.com/sms-webhook'
+      replyWebhookUrl: process.env.RENDER_WEBHOOK_URL || 'https://theideadeck.onrender.com/sms-webhook',
+      sender: 'glidedesign.com'
     });
     res.json(response.data);
   } catch (err) {
