@@ -338,6 +338,7 @@ app.post('/ideas/:id/image', upload.single('image'), (req, res) => {
 
 // SMS Webhook for TextBelt
 app.post('/sms-webhook', async (req, res) => {
+  console.log('Received /sms-webhook POST:', JSON.stringify(req.body));
   // TextBelt sends { from, text } in the POST body
   const { from, text } = req.body;
   if (!from || !text) return res.status(400).json({ error: 'from and text required' });
