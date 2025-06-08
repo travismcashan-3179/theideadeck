@@ -22,8 +22,9 @@ app.use(cors({
       'https://theideadeck.vercel.app',
       'https://theideadeck.onrender.com'
     ];
-    // Updated regex to allow all Vercel preview/branch deploys
+    // Allow requests with no origin (like direct API/browser calls)
     if (
+      !origin ||
       allowedOrigins.includes(origin) ||
       /^https:\/\/theideadeck(-[a-z0-9-]+)?-travis-mcashans-projects\.vercel\.app$/.test(origin)
     ) {
