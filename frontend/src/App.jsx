@@ -529,7 +529,7 @@ export default function App() {
             {/* Render ideas as grid or list */}
             <div className={ideasView === 'grid' ? 'gilbot-grid' : ideasView === 'carousel' ? 'gilbot-carousel' : 'gilbot-list'}>
               {ideasView === 'carousel' ? (
-                <div style={{ display: 'flex', overflowX: 'auto', gap: 24, padding: '24px 0', scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}>
+                <div style={{ position: 'relative', width: '100%', maxWidth: 400, margin: '0 auto', height: 400 }}>
                   {filteredIdeas.length === 0 ? (
                     <div style={{ color: '#888', textAlign: 'center', marginTop: 40 }}>No ideas yet. Add some in the chat!</div>
                   ) : filteredIdeas.map((idea, i) => (
@@ -543,12 +543,15 @@ export default function App() {
                       <div
                         className="ca-card ca-card-fade"
                         style={{
-                          width: 280,
-                          minWidth: 280,
-                          maxWidth: 320,
-                          height: 360,
-                          margin: '0 12px',
-                          scrollSnapAlign: 'center',
+                          width: 320,
+                          maxWidth: '90vw',
+                          height: 380,
+                          position: 'absolute',
+                          left: 0,
+                          right: 0,
+                          margin: '0 auto',
+                          top: 0,
+                          zIndex: filteredIdeas.length - i,
                           background: '#fff',
                           borderRadius: 18,
                           boxShadow: '0 4px 16px #0001',
@@ -556,7 +559,6 @@ export default function App() {
                           flexDirection: 'column',
                           justifyContent: 'flex-start',
                           alignItems: 'flex-start',
-                          position: 'relative',
                         }}
                         tabIndex={0}
                         onDoubleClick={e => {
