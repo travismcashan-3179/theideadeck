@@ -339,31 +339,34 @@ app.post('/ideas/:id/image', upload.single('image'), (req, res) => {
 // SMS Webhook for TextBelt
 app.post('/sms-webhook', async (req, res) => {
   console.log('Received /sms-webhook POST:', JSON.stringify(req.body));
-  // Accept both 'from' and 'fromNumber' as the sender
   const from = req.body.from || req.body.fromNumber;
   const text = req.body.text;
   if (!from || !text) return res.status(400).json({ error: 'from and text required' });
 
   try {
-    // Use the same chat logic as the app: call /agent endpoint logic
-    // We'll call the OpenAI logic directly, similar to /agent
-    // (Copy the relevant logic from /agent, but treat 'from' as sender)
-    const message = text;
+    console.log('Starting OpenAI processing for SMS reply...');
     // Allowed values for meta fields
     const POST_TYPES = ["Story", "How-to", "List", "Question", "Announcement", "Opinion", "Inspire", "Collab"];
     const CONTENT_TOPICS = ["Leadership", "Career", "Productivity", "Trends", "Culture", "AI", "Marketing", "Branding"];
     const INTENTS = ["Inspire", "Educate", "Engage", "Promote", "Network", "Entertain"];
     const STATUSES = ["New", "Drafted", "Scheduled", "Posted", "Archived"];
     const AUDIENCES = ["Peers", "Leaders", "Clients", "Job Seekers", "Public"];
-    const extractPrompt = `You are an expert LinkedIn content strategist. The user may send you a list of LinkedIn post ideas, a brain dump, or a chat message.\n\nIf the message contains a list of post ideas (even if short, unpunctuated, or separated by lines/dashes), extract all distinct LinkedIn post ideas and for each, return a JSON object with these fields: text, type, topic, intent, status (default to 'New'), and audience.\n\nFor each field, ONLY choose from these allowed values:\n- type: ${POST_TYPES.join(", ")}\n- topic: ${CONTENT_TOPICS.join(", ")}\n- intent: ${INTENTS.join(", ")}\n- status: ${STATUSES.join(", ")}\n- audience: ${AUDIENCES.join(", ")}\n\nReturn ONLY a JSON array of objects, one per idea. Use short, clear values for each field. If it is not a list of ideas, reply conversationally as yourself. Do not include any explanation or extra text outside the JSON array if extracting ideas.\n\nText:\n${message}`;
-    const completion = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo',
-      messages: [
-        { role: 'system', content: 'You are an expert LinkedIn content strategist.' },
-        { role: 'user', content: extractPrompt }
-      ],
-      temperature: 0.3
-    });
+    const extractPrompt = `You are an expert LinkedIn content strategist. The user may send you a list of LinkedIn post ideas, a brain dump, or a chat message.\n\nIf the message contains a list of post ideas (even if short, unpunctuated, or separated by lines/dashes), extract all distinct LinkedIn post ideas and for each, return a JSON object with these fields: text, type, topic, intent, status (default to 'New'), and audience.\n\nFor each field, ONLY choose from these allowed values:\n- type: ${POST_TYPES.join(", ")}\n- topic: ${CONTENT_TOPICS.join(", ")}\n- intent: ${INTENTS.join(", ")}\n- status: ${STATUSES.join(", ")}\n- audience: ${AUDIENCES.join(", ")}\n\nReturn ONLY a JSON array of objects, one per idea. Use short, clear values for each field. If it is not a list of ideas, reply conversationally as yourself. Do not include any explanation or extra text outside the JSON array if extracting ideas.\n\nText:\n${text}`;
+    let completion;
+    try {
+      completion = await openai.chat.completions.create({
+        model: 'gpt-3.5-turbo',
+        messages: [
+          { role: 'system', content: 'You are an expert LinkedIn content strategist.' },
+          { role: 'user', content: extractPrompt }
+        ],
+        temperature: 0.3
+      });
+      console.log('OpenAI completion received.');
+    } catch (err) {
+      console.error('OpenAI API error:', err);
+      throw err;
+    }
     const aiContent = completion.choices[0].message.content.trim();
     let ideasArr = [];
     let isIdeas = false;
@@ -441,15 +444,22 @@ app.post('/sms-webhook', async (req, res) => {
       // Load last 10 chat messages for context
       const chatHistory = readChat().slice(-10);
       const context = chatHistory.map(m => `${m.sender === 'user' ? 'User' : 'Agent'}: ${m.text}`).join('\n');
-      const prompt = `You are LinkedList, a friendly, smart assistant who helps users brainstorm, organize, and manage LinkedIn post ideas.\n\nYou can chat naturally, give encouragement, and help with content strategy.\n\nIf the user wants to add, list, mark, or delete an idea, you can do it. Otherwise, just reply conversationally.\n\nHere is the recent chat history for context:\n${context}\n\nUser: ${message}`;
-      const chatCompletion = await openai.chat.completions.create({
-        model: 'gpt-3.5-turbo',
-        messages: [
-          { role: 'system', content: 'You are LinkedList, a friendly, smart assistant for LinkedIn post ideas. You can chat naturally, help brainstorm, and manage ideas. If you need to perform an action, reply with a JSON object. Otherwise, just reply as yourself.' },
-          { role: 'user', content: prompt }
-        ],
-        temperature: 0.7
-      });
+      const prompt = `You are LinkedList, a friendly, smart assistant who helps users brainstorm, organize, and manage LinkedIn post ideas.\n\nYou can chat naturally, give encouragement, and help with content strategy.\n\nIf the user wants to add, list, mark, or delete an idea, you can do it. Otherwise, just reply conversationally.\n\nHere is the recent chat history for context:\n${context}\n\nUser: ${text}`;
+      let chatCompletion;
+      try {
+        chatCompletion = await openai.chat.completions.create({
+          model: 'gpt-3.5-turbo',
+          messages: [
+            { role: 'system', content: 'You are LinkedList, a friendly, smart assistant for LinkedIn post ideas. You can chat naturally, help brainstorm, and manage ideas. If you need to perform an action, reply with a JSON object. Otherwise, just reply as yourself.' },
+            { role: 'user', content: prompt }
+          ],
+          temperature: 0.7
+        });
+        console.log('OpenAI chat completion received.');
+      } catch (err) {
+        console.error('OpenAI chat API error:', err);
+        throw err;
+      }
       replyText = chatCompletion.choices[0].message.content.trim();
       const chat = readChat();
       // Ensure AI reply is always after the latest message
@@ -460,7 +470,7 @@ app.post('/sms-webhook', async (req, res) => {
       chat.push({ sender: 'agent', text: replyText, createdAt: aiCreatedAt });
       writeChat(chat);
     }
-    // Send the reply back via TextBelt SMS
+    console.log('About to send SMS reply via TextBelt:', replyText);
     await axios.post('https://textbelt.com/text', {
       phone: from,
       message: replyText,
@@ -468,6 +478,7 @@ app.post('/sms-webhook', async (req, res) => {
       replyWebhookUrl: process.env.RENDER_WEBHOOK_URL || 'https://theideadeck.onrender.com/sms-webhook',
       sender: 'glidedesign.com'
     });
+    console.log('SMS reply sent successfully.');
     res.json({ success: true });
   } catch (err) {
     console.error('SMS webhook error:', err);
