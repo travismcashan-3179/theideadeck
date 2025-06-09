@@ -343,14 +343,15 @@ app.post('/sms-webhook', async (req, res) => {
   const text = req.body.text;
   if (!from || !text) return res.status(400).json({ error: 'from and text required' });
 
-  // Save incoming SMS as a user message in chat history
+  // Atomic chat history update: read once, push both user and bot messages, write once
   const chat = readChat();
+  const now = new Date().toISOString();
+  // Save incoming SMS as a user message
   chat.push({
     sender: 'user',
     text,
-    createdAt: new Date().toISOString()
+    createdAt: now
   });
-  writeChat(chat);
 
   try {
     console.log('Starting OpenAI processing for SMS reply...');
@@ -394,8 +395,7 @@ app.post('/sms-webhook', async (req, res) => {
     }
     let replyText = '';
     if (isIdeas) {
-      const ideas = readIdeas();
-      const now = new Date().toISOString();
+      const now2 = new Date(new Date(now).getTime() + 1).toISOString();
       // For each extracted idea, generate a hook and store meta fields
       const newIdeas = [];
       for (const ideaObj of ideasArr) {
@@ -426,7 +426,7 @@ app.post('/sms-webhook', async (req, res) => {
           id: Date.now().toString() + Math.random().toString().slice(2, 8),
           hook,
           original,
-          createdAt: now,
+          createdAt: now2,
           used: false,
           type: ideaObj.type || '',
           topic: ideaObj.topic || '',
@@ -435,23 +435,15 @@ app.post('/sms-webhook', async (req, res) => {
           audience: ideaObj.audience || ''
         });
       }
-      newIdeas.forEach(idea => ideas.unshift(idea));
-      writeIdeas(ideas);
       // Save to chat history
-      const chat = readChat();
       const hooksList = newIdeas.map(idea => `• ${idea.hook}`).join('\n');
       replyText = `Imported ${newIdeas.length} new ideas!\n\n${hooksList}`;
       // Ensure AI reply is always after the latest message
-      const lastMsg = chat[chat.length - 1];
-      const aiCreatedAt = lastMsg && lastMsg.createdAt
-        ? new Date(new Date(lastMsg.createdAt).getTime() + 1).toISOString()
-        : new Date().toISOString();
-      chat.push({ sender: 'agent', text: replyText, createdAt: aiCreatedAt });
-      writeChat(chat);
+      chat.push({ sender: 'agent', text: replyText, createdAt: now2 });
     } else {
       // Not a list, reply as chat
       // Load last 10 chat messages for context
-      const chatHistory = readChat().slice(-10);
+      const chatHistory = chat.slice(-10);
       const context = chatHistory.map(m => `${m.sender === 'user' ? 'User' : 'Agent'}: ${m.text}`).join('\n');
       const prompt = `You are LinkedList, a friendly, smart assistant who helps users brainstorm, organize, and manage LinkedIn post ideas.\n\nYou can chat naturally, give encouragement, and help with content strategy.\n\nIf the user wants to add, list, mark, or delete an idea, you can do it. Otherwise, just reply conversationally.\n\nHere is the recent chat history for context:\n${context}\n\nUser: ${text}`;
       let chatCompletion;
@@ -469,16 +461,12 @@ app.post('/sms-webhook', async (req, res) => {
         console.error('OpenAI chat API error:', err);
         throw err;
       }
+      const now2 = new Date(new Date(now).getTime() + 1).toISOString();
       replyText = chatCompletion.choices[0].message.content.trim();
-      const chat = readChat();
-      // Ensure AI reply is always after the latest message
-      const lastMsg = chat[chat.length - 1];
-      const aiCreatedAt = lastMsg && lastMsg.createdAt
-        ? new Date(new Date(lastMsg.createdAt).getTime() + 1).toISOString()
-        : new Date().toISOString();
-      chat.push({ sender: 'agent', text: replyText, createdAt: aiCreatedAt });
-      writeChat(chat);
+      chat.push({ sender: 'agent', text: replyText, createdAt: now2 });
     }
+    // Write chat history once, after both user and agent messages
+    writeChat(chat);
     console.log('About to send SMS reply via TextBelt:', replyText);
     await axios.post('https://textbelt.com/text', {
       phone: from,
