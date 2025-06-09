@@ -559,6 +559,7 @@ export default function App() {
                           flexDirection: 'column',
                           justifyContent: 'flex-start',
                           alignItems: 'flex-start',
+                          border: '4px solid #000',
                         }}
                         tabIndex={0}
                         onDoubleClick={e => {
