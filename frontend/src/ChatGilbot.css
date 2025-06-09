@@ -762,4 +762,65 @@ body, html, #gilbot-chat-root {
 /* Hide horizontal scrollbars */
 body::-webkit-scrollbar, html::-webkit-scrollbar {
   display: none;
-} 
+}
+
+/* --- Desktop fixes for toggles and input field --- */
+@media (min-width: 701px) {
+  .gilbot-capsule-toggle {
+    width: 420px;
+    min-width: 320px;
+    max-width: 100%;
+    margin: 0 auto 24px auto;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    box-shadow: 0 2px 8px #e7e7fa;
+    background: #f3eeff;
+    border-radius: 32px;
+  }
+  .gilbot-capsule-btn {
+    font-size: 1.35em;
+    min-width: 120px;
+    height: 100%;
+    border-radius: 32px;
+  }
+  .gilbot-input-bar {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 18px 24px 18px 24px;
+    background: #f3eeff;
+    box-shadow: 0 -2px 8px #e7e7fa;
+    border-radius: 32px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .gilbot-input-bar-inner {
+    width: 100%;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .gilbot-input {
+    font-size: 1.18em;
+    min-height: 54px;
+    max-height: 180px;
+    padding: 18px 28px;
+    border-radius: 32px;
+    flex: 1 1 auto;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .gilbot-send-btn, .gilbot-mic-btn {
+    font-size: 1.18em;
+    padding: 14px 28px;
+    border-radius: 32px;
+    min-width: 64px;
+  }
+}
+
+/* --- End desktop fixes --- */ 
