@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import TinderCard from 'react-tinder-card';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 import './ChatGilbot.css';
 
 const BOT_AVATAR = (
@@ -529,65 +531,65 @@ export default function App() {
             {/* Render ideas as grid or list */}
             <div className={ideasView === 'grid' ? 'gilbot-grid' : ideasView === 'carousel' ? 'gilbot-carousel' : 'gilbot-list'}>
               {ideasView === 'carousel' ? (
-                <div style={{ display: 'flex', overflowX: 'auto', gap: 24, padding: '24px 0', scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch' }}>
-                  {filteredIdeas.length === 0 ? (
-                    <div style={{ color: '#888', textAlign: 'center', marginTop: 40 }}>No ideas yet. Add some in the chat!</div>
-                  ) : filteredIdeas.map((idea, i) => (
-                    <TinderCard
-                      key={idea.id}
-                      preventSwipe={['up', 'down']}
-                      flickOnSwipe={true}
-                      onSwipe={() => {}}
-                      onCardLeftScreen={() => {}}
-                    >
-                      <div
-                        className="ca-card ca-card-fade"
-                        style={{
-                          width: 280,
-                          minWidth: 280,
-                          maxWidth: 320,
-                          height: 360,
-                          margin: '0 12px',
-                          scrollSnapAlign: 'center',
-                          background: '#fff',
-                          borderRadius: 18,
-                          boxShadow: '0 4px 16px #0001',
-                          display: 'flex',
-                          flexDirection: 'column',
-                          justifyContent: 'flex-start',
-                          alignItems: 'flex-start',
-                          position: 'relative',
-                        }}
-                        tabIndex={0}
-                        onDoubleClick={e => {
-                          if (editingTitleId !== idea.id) setDetailIdea(idea);
-                        }}
-                      >
-                        <div className="ca-card-text-overlay">
-                          <span className="ca-card-hook editable-title" style={{ fontWeight: 700, fontSize: '1.18em', color: '#343794', marginBottom: 12 }}>{idea.hook || idea.text}</span>
-                          {idea.imageUrl && (
-                            <img src={getImageUrl(idea.imageUrl)} alt="Idea" style={{ width: 96, height: 96, borderRadius: 16, objectFit: 'cover', display: 'block', margin: '18px 0 0 0' }} />
-                          )}
+                filteredIdeas.length === 0 ? (
+                  <div style={{ color: '#888', textAlign: 'center', marginTop: 40 }}>No ideas yet. Add some in the chat!</div>
+                ) : (
+                  <Swiper
+                    spaceBetween={24}
+                    slidesPerView={1}
+                    centeredSlides={true}
+                    grabCursor={true}
+                    style={{ padding: '24px 0', width: '100%', maxWidth: 400 }}
+                  >
+                    {filteredIdeas.map((idea, i) => (
+                      <SwiperSlide key={idea.id}>
+                        <div
+                          className="ca-card ca-card-fade"
+                          style={{
+                            width: 320,
+                            maxWidth: 340,
+                            height: 360,
+                            margin: '0 auto',
+                            background: '#fff',
+                            borderRadius: 18,
+                            boxShadow: '0 4px 16px #0001',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'flex-start',
+                            alignItems: 'flex-start',
+                            position: 'relative',
+                          }}
+                          tabIndex={0}
+                          onDoubleClick={e => {
+                            if (editingTitleId !== idea.id) setDetailIdea(idea);
+                          }}
+                        >
+                          <div className="ca-card-text-overlay">
+                            <span className="ca-card-hook editable-title" style={{ fontWeight: 700, fontSize: '1.18em', color: '#343794', marginBottom: 12 }}>{idea.hook || idea.text}</span>
+                            {idea.imageUrl && (
+                              <img src={getImageUrl(idea.imageUrl)} alt="Idea" style={{ width: 96, height: 96, borderRadius: 16, objectFit: 'cover', display: 'block', margin: '18px 0 0 0' }} />
+                            )}
+                          </div>
+                          <div className="ca-card-tags">
+                            {idea.type && (
+                              <button className="ca-card-tag" type="button" onClick={() => setFilterPostType(idea.type)}>{idea.type}</button>
+                            )}
+                            {idea.topic && (
+                              <button className="ca-card-tag" type="button" onClick={() => setFilterContentTopic(idea.topic)}>{idea.topic}</button>
+                            )}
+                            {idea.intent && (
+                              <button className="ca-card-tag" type="button" onClick={() => setFilterIntent(idea.intent)}>{idea.intent}</button>
+                            )}
+                          </div>
+                          <div className="ca-card-actions">
+                            {!idea.used && <button className="ca-card-btn" onClick={() => markUsed(idea.id)}>Mark as Used</button>}
+                            <button className="ca-card-btn delete" onClick={() => deleteIdea(idea.id)}>Delete</button>
+                          </div>
                         </div>
-                        <div className="ca-card-tags">
-                          {idea.type && (
-                            <button className="ca-card-tag" type="button" onClick={() => setFilterPostType(idea.type)}>{idea.type}</button>
-                          )}
-                          {idea.topic && (
-                            <button className="ca-card-tag" type="button" onClick={() => setFilterContentTopic(idea.topic)}>{idea.topic}</button>
-                          )}
-                          {idea.intent && (
-                            <button className="ca-card-tag" type="button" onClick={() => setFilterIntent(idea.intent)}>{idea.intent}</button>
-                          )}
-                        </div>
-                        <div className="ca-card-actions">
-                          {!idea.used && <button className="ca-card-btn" onClick={() => markUsed(idea.id)}>Mark as Used</button>}
-                          <button className="ca-card-btn delete" onClick={() => deleteIdea(idea.id)}>Delete</button>
-                        </div>
-                      </div>
-                    </TinderCard>
-                  ))}
-                </div>
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                )
               ) : filteredIdeas.length === 0 ? (
                 <div style={{ color: '#888', textAlign: 'center', marginTop: 40, gridColumn: '1/-1' }}>No ideas yet. Add some in the chat!</div>
               ) : groupedIdeas.map(({ group, items }) => (
