@@ -66,18 +66,16 @@ export default function App() {
     async function loadChat() {
       try {
         const res = await fetch(getApiUrl('/chat'));
-        if (!res.ok) throw new Error('Failed to load chat history');
-        const history = await res.json();
-        if (history && history.length > 0) {
-          history.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
-          setMessages(history);
-        }
+        if (!res.ok) throw new Error('Failed to load chat');
+        const chat = await res.json();
+        console.log('Fetched chat from backend:', chat);
+        setMessages(chat);
       } catch (err) {
-        setError('Failed to load chat history.');
+        setError('Failed to load chat.');
       }
     }
-    loadChat();
-  }, []);
+    if (tab === 'chat') loadChat();
+  }, [tab]);
 
   useEffect(() => {
     if (tab === 'ideas') {
@@ -385,6 +383,13 @@ export default function App() {
       setError('Image upload failed.');
     }
   }
+
+  // Add logging for rendered messages
+  useEffect(() => {
+    if (tab === 'chat') {
+      console.log('Messages rendered in chat UI:', messages);
+    }
+  }, [messages, tab]);
 
   return (
     <div id="gilbot-chat-root">
