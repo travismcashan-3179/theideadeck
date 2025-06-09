@@ -343,6 +343,15 @@ app.post('/sms-webhook', async (req, res) => {
   const text = req.body.text;
   if (!from || !text) return res.status(400).json({ error: 'from and text required' });
 
+  // Save incoming SMS as a user message in chat history
+  const chat = readChat();
+  chat.push({
+    sender: 'user',
+    text,
+    createdAt: new Date().toISOString()
+  });
+  writeChat(chat);
+
   try {
     console.log('Starting OpenAI processing for SMS reply...');
     // Allowed values for meta fields
