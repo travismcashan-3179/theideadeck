@@ -521,17 +521,7 @@ app.post('/api/analyze-linkedin', upload.fields([
 
     // Compose prompt
     const prompt = `
-Given the following LinkedIn profile and posts, extract:
-1. The user's discipline and market.
-2. Their ideal customer profile.
-3. Suggested topic pillars for their content.
-
-Profile:
-${profileText}
-
-Posts:
-${postsText}
-`;
+Given the following LinkedIn profile and posts, extract the following as short, clear, first-person phrases (not about the user, but as if written by the user, no fluff):\n- Discipline: What do you do? (e.g. 'web design and development, digital marketing')\n- Market: Who do you do it for? (e.g. 'startups, nonprofits, beloved brands')\n\nReturn only the facts, no extra explanation.\n\nProfile:\n${profileText}\n\nPosts:\n${postsText}`;
 
     // Call OpenAI
     const aiRes = await openai.chat.completions.create({
