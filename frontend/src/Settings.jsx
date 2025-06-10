@@ -27,7 +27,7 @@ export default function Settings({ onSave, initialValues }) {
     formData.append('profile', profileFile);
     formData.append('posts', postsFile);
     try {
-      const res = await fetch('/api/analyze-linkedin', {
+      const res = await fetch('https://theideadeck.onrender.com/api/analyze-linkedin', {
         method: 'POST',
         body: formData
       });
