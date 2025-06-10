@@ -565,6 +565,92 @@ ${postsText}
   }
 });
 
+// Analyze discipline and market only
+app.post('/api/analyze-discipline-market', upload.fields([
+  { name: 'profile', maxCount: 1 },
+  { name: 'posts', maxCount: 1 }
+]), async (req, res) => {
+  try {
+    const profilePath = req.files.profile[0].path;
+    const profileBuffer = fs.readFileSync(profilePath);
+    const profileText = (await pdfParse(profileBuffer)).text;
+
+    const postsPath = req.files.posts[0].path;
+    const postsCsv = fs.readFileSync(postsPath, 'utf8');
+    const postsRows = csvParse.parse(postsCsv, { columns: true });
+    const postsText = postsRows.map(row => row.Text || row.Content || '').join('\n');
+
+    const prompt = `Given the following LinkedIn profile and posts, extract:\n1. The user's discipline.\n2. The user's market.\n\nProfile:\n${profileText}\n\nPosts:\n${postsText}`;
+
+    const aiRes = await openai.chat.completions.create({
+      model: 'gpt-3.5-turbo',
+      messages: [{ role: 'user', content: prompt }],
+      max_tokens: 200,
+    });
+
+    const aiText = aiRes.choices[0].message.content;
+    const result = {};
+    ['Discipline', 'Market'].forEach(key => {
+      const match = aiText.match(new RegExp(`${key}:\\s*([\\s\\S]*?)(?=\\n[A-Z]|$)`, 'i'));
+      if (match) result[key.toLowerCase()] = match[1].trim();
+    });
+
+    res.json({
+      discipline: result.discipline || '',
+      market: result.market || ''
+    });
+
+    fs.unlinkSync(profilePath);
+    fs.unlinkSync(postsPath);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to analyze discipline and market' });
+  }
+});
+
+// Analyze topic pillars and customer profile only
+app.post('/api/analyze-topic-pillars', upload.fields([
+  { name: 'profile', maxCount: 1 },
+  { name: 'posts', maxCount: 1 }
+]), async (req, res) => {
+  try {
+    const profilePath = req.files.profile[0].path;
+    const profileBuffer = fs.readFileSync(profilePath);
+    const profileText = (await pdfParse(profileBuffer)).text;
+
+    const postsPath = req.files.posts[0].path;
+    const postsCsv = fs.readFileSync(postsPath, 'utf8');
+    const postsRows = csvParse.parse(postsCsv, { columns: true });
+    const postsText = postsRows.map(row => row.Text || row.Content || '').join('\n');
+
+    const prompt = `Given the following LinkedIn profile and posts, extract:\n1. Suggested topic pillars for their content.\n2. Their ideal customer profile.\n\nProfile:\n${profileText}\n\nPosts:\n${postsText}`;
+
+    const aiRes = await openai.chat.completions.create({
+      model: 'gpt-3.5-turbo',
+      messages: [{ role: 'user', content: prompt }],
+      max_tokens: 300,
+    });
+
+    const aiText = aiRes.choices[0].message.content;
+    const result = {};
+    ['Topic Pillars', 'Ideal Customer Profile'].forEach(key => {
+      const match = aiText.match(new RegExp(`${key}:\\s*([\\s\\S]*?)(?=\\n[A-Z]|$)`, 'i'));
+      if (match) result[key.replace(/ /g, '').replace('IdealCustomerProfile', 'customerProfile').replace('TopicPillars', 'topicPillars').toLowerCase()] = match[1].trim();
+    });
+
+    res.json({
+      topicPillars: result.topicPillars || '',
+      customerProfile: result.customerProfile || ''
+    });
+
+    fs.unlinkSync(profilePath);
+    fs.unlinkSync(postsPath);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to analyze topic pillars' });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Backend running on http://localhost:${PORT}`);
 }); 
