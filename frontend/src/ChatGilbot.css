@@ -766,50 +766,29 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 
 /* --- Desktop fixes for toggles and input field --- */
 @media (min-width: 701px) {
-  .gilbot-capsule-toggle {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 420px;
-    min-width: 320px;
-    max-width: 100vw;
-    margin: 0 auto;
-    z-index: 1000;
-    box-shadow: 0 2px 8px #e7e7fa;
-    background: #f3eeff;
-    border-radius: 0 0 32px 32px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
   .gilbot-inner {
+    max-width: 1400px;
+    margin: 0 auto;
     padding-top: 80px; /* header height + margin */
     padding-bottom: 100px; /* footer height + margin */
     min-height: 100vh;
     box-sizing: border-box;
     max-width: 700px;
-    margin: 0 auto;
     width: 100%;
     display: flex;
     flex-direction: column;
   }
-  .gilbot-chat-list {
-    flex: 1 1 auto;
-    overflow-y: auto;
-    min-height: 0;
-    max-height: calc(100vh - 180px); /* header + footer */
-    padding-bottom: 24px;
-    padding-top: 0;
+  .gilbot-grid, .gilbot-list {
+    max-width: 1400px;
+    margin: 0 auto;
   }
   .gilbot-input-bar {
+    max-width: 1400px;
+    margin: 0 auto;
     position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
-    max-width: 700px;
-    margin: 0 auto;
     z-index: 1000;
     background: #f3eeff;
     box-shadow: 0 -2px 8px #e7e7fa;
@@ -841,40 +820,16 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
     border-radius: 32px;
     min-width: 64px;
   }
+  .gilbot-capsule-toggle {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
 }
 
 /* --- End desktop fixes --- */
 
-/* Carousel view for ideas */
-.gilbot-carousel {
-  display: flex;
-  flex-direction: row;
-  overflow-x: auto;
-  gap: 24px;
-  padding: 24px 0;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  min-height: 400px;
-}
-.gilbot-carousel::-webkit-scrollbar {
-  display: none;
-}
-.gilbot-carousel .ca-card {
-  scroll-snap-align: center;
-  margin: 0 12px;
-  width: 280px;
-  min-width: 280px;
-  max-width: 320px;
-  height: 360px;
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 4px 16px #0001;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  position: relative;
+.gilbot-inner, .gilbot-grid, .gilbot-list, .gilbot-input-bar, .gilbot-capsule-toggle {
+  /* max-width: 700px; */
+  /* max-width: 1200px; */
+  /* Remove any fixed max-width here, handled in media query for desktop */
 } 
