@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import TinderCard from 'react-tinder-card';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -129,6 +129,16 @@ export default function App() {
     };
     chatList.addEventListener('scroll', handleScroll);
     return () => chatList.removeEventListener('scroll', handleScroll);
+  }, [tab]);
+
+  // On initial mount or tab switch to chat, scroll to bottom immediately
+  useLayoutEffect(() => {
+    if (tab === 'chat') {
+      const chatList = chatRef.current;
+      if (chatList) {
+        chatList.scrollTop = chatList.scrollHeight;
+      }
+    }
   }, [tab]);
 
   const handleInputChange = (e) => {
