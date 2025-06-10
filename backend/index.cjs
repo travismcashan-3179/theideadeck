@@ -641,6 +641,105 @@ app.post('/api/analyze-topic-pillars', upload.fields([
   }
 });
 
+// Analyze discipline (profile only)
+app.post('/api/analyze-discipline', upload.fields([
+  { name: 'profile', maxCount: 1 }
+]), async (req, res) => {
+  try {
+    const profilePath = req.files.profile[0].path;
+    const profileBuffer = fs.readFileSync(profilePath);
+    const profileText = (await pdfParse(profileBuffer)).text;
+    const prompt = `Given the following LinkedIn profile, extract 3-5 short, clear, first-person keywords that best describe what you do (your discipline). No extra explanation.\n\nProfile:\n${profileText}`;
+    const aiRes = await openai.chat.completions.create({
+      model: 'gpt-4o',
+      messages: [{ role: 'user', content: prompt }],
+      max_tokens: 100,
+    });
+    const aiText = aiRes.choices[0].message.content.trim();
+    res.json({ discipline: aiText });
+    fs.unlinkSync(profilePath);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to analyze discipline' });
+  }
+});
+
+// Analyze market (profile only)
+app.post('/api/analyze-market', upload.fields([
+  { name: 'profile', maxCount: 1 }
+]), async (req, res) => {
+  try {
+    const profilePath = req.files.profile[0].path;
+    const profileBuffer = fs.readFileSync(profilePath);
+    const profileText = (await pdfParse(profileBuffer)).text;
+    const prompt = `Given the following LinkedIn profile, extract 3-5 short, clear, first-person keywords that best describe who you do it for (your core market). No extra explanation.\n\nProfile:\n${profileText}`;
+    const aiRes = await openai.chat.completions.create({
+      model: 'gpt-4o',
+      messages: [{ role: 'user', content: prompt }],
+      max_tokens: 100,
+    });
+    const aiText = aiRes.choices[0].message.content.trim();
+    res.json({ market: aiText });
+    fs.unlinkSync(profilePath);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to analyze market' });
+  }
+});
+
+// Analyze ICP (profile + posts)
+app.post('/api/analyze-icp', upload.fields([
+  { name: 'profile', maxCount: 1 },
+  { name: 'posts', maxCount: 1 }
+]), async (req, res) => {
+  try {
+    const profilePath = req.files.profile[0].path;
+    const profileBuffer = fs.readFileSync(profilePath);
+    const profileText = (await pdfParse(profileBuffer)).text;
+    const postsPath = req.files.posts[0].path;
+    const postsCsv = fs.readFileSync(postsPath, 'utf8');
+    const postsRows = csvParse.parse(postsCsv, { columns: true });
+    const postsText = postsRows.map(row => row.Text || row.Content || '').join('\n');
+    const prompt = `Given the following LinkedIn profile and posts, extract 3-5 short, clear, first-person keywords that best describe your ideal customer profile. No extra explanation.\n\nProfile:\n${profileText}\n\nPosts:\n${postsText}`;
+    const aiRes = await openai.chat.completions.create({
+      model: 'gpt-4o',
+      messages: [{ role: 'user', content: prompt }],
+      max_tokens: 100,
+    });
+    const aiText = aiRes.choices[0].message.content.trim();
+    res.json({ customerProfile: aiText });
+    fs.unlinkSync(profilePath);
+    fs.unlinkSync(postsPath);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to analyze ICP' });
+  }
+});
+
+// Analyze topic pillars (posts only)
+app.post('/api/analyze-topic-pillars', upload.fields([
+  { name: 'posts', maxCount: 1 }
+]), async (req, res) => {
+  try {
+    const postsPath = req.files.posts[0].path;
+    const postsCsv = fs.readFileSync(postsPath, 'utf8');
+    const postsRows = csvParse.parse(postsCsv, { columns: true });
+    const postsText = postsRows.map(row => row.Text || row.Content || '').join('\n');
+    const prompt = `Given the following LinkedIn posts, extract 3-5 short, clear, first-person keywords that best describe your main topic pillars. No extra explanation.\n\nPosts:\n${postsText}`;
+    const aiRes = await openai.chat.completions.create({
+      model: 'gpt-4o',
+      messages: [{ role: 'user', content: prompt }],
+      max_tokens: 100,
+    });
+    const aiText = aiRes.choices[0].message.content.trim();
+    res.json({ topicPillars: aiText });
+    fs.unlinkSync(postsPath);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to analyze topic pillars' });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Backend running on http://localhost:${PORT}`);
 }); 
