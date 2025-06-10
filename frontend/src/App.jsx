@@ -62,6 +62,7 @@ export default function App() {
   const [editingTitleId, setEditingTitleId] = useState(null);
   const [dragOverId, setDragOverId] = useState(null);
   const [error, setError] = useState("");
+  const [navOpen, setNavOpen] = useState(false);
 
   // Load chat history on mount
   useEffect(() => {
@@ -395,23 +396,120 @@ export default function App() {
 
   return (
     <div id="gilbot-chat-root">
-      <div className="gilbot-capsule-toggle">
-        <div className={`gilbot-capsule-bg ${tab === 'ideas' ? 'right' : 'left'}`}></div>
-        <button
-          className={`gilbot-capsule-btn${tab === 'chat' ? ' selected' : ''}`}
-          onClick={() => setTab('chat')}
-          type="button"
+      {/* Floating Hamburger Button */}
+      <button
+        className="gilbot-hamburger"
+        onClick={() => setNavOpen(true)}
+        aria-label="Open navigation"
+        style={{
+          position: 'fixed',
+          top: 24,
+          right: 32,
+          zIndex: 2001,
+          background: '#fff',
+          border: 'none',
+          borderRadius: 12,
+          boxShadow: '0 2px 8px #e7e7fa',
+          width: 48,
+          height: 48,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          cursor: 'pointer',
+        }}
+      >
+        {/* Hamburger icon */}
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#343794" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      </button>
+      {/* Modal Navigation */}
+      {navOpen && (
+        <div
+          className="gilbot-nav-modal"
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'rgba(0,0,0,0.32)',
+            zIndex: 2000,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+          onClick={() => setNavOpen(false)}
         >
-          Chat
-        </button>
-        <button
-          className={`gilbot-capsule-btn${tab === 'ideas' ? ' selected' : ''}`}
-          onClick={() => setTab('ideas')}
-          type="button"
-        >
-          Ideas
-        </button>
-      </div>
+          <div
+            style={{
+              background: '#fff',
+              borderRadius: 18,
+              boxShadow: '0 8px 32px #0002',
+              padding: 36,
+              minWidth: 240,
+              maxWidth: 320,
+              width: '90vw',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 24,
+              alignItems: 'center',
+              position: 'relative',
+            }}
+            onClick={e => e.stopPropagation()}
+          >
+            <button
+              style={{
+                position: 'absolute',
+                top: 12,
+                right: 12,
+                background: 'none',
+                border: 'none',
+                fontSize: 28,
+                color: '#343794',
+                cursor: 'pointer',
+              }}
+              onClick={() => setNavOpen(false)}
+              aria-label="Close navigation"
+            >
+              &times;
+            </button>
+            <button
+              style={{
+                width: '100%',
+                padding: '18px 0',
+                fontSize: '1.3em',
+                fontWeight: 700,
+                color: tab === 'chat' ? '#fff' : '#343794',
+                background: tab === 'chat' ? '#343794' : '#f3eeff',
+                border: 'none',
+                borderRadius: 12,
+                marginBottom: 12,
+                cursor: 'pointer',
+                transition: 'background 0.2s',
+              }}
+              onClick={() => { setTab('chat'); setNavOpen(false); }}
+            >
+              Chat
+            </button>
+            <button
+              style={{
+                width: '100%',
+                padding: '18px 0',
+                fontSize: '1.3em',
+                fontWeight: 700,
+                color: tab === 'ideas' ? '#fff' : '#343794',
+                background: tab === 'ideas' ? '#343794' : '#f3eeff',
+                border: 'none',
+                borderRadius: 12,
+                cursor: 'pointer',
+                transition: 'background 0.2s',
+              }}
+              onClick={() => { setTab('ideas'); setNavOpen(false); }}
+            >
+              Ideas
+            </button>
+          </div>
+        </div>
+      )}
       <div className="gilbot-body">
         {error && (
           <div style={{ color: '#d9534f', background: '#fff0f0', padding: '12px 24px', borderRadius: 12, marginBottom: 18, textAlign: 'center', fontWeight: 600 }}>
