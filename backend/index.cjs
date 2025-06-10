@@ -16,6 +16,7 @@ const app = express();
 const PORT = 3001;
 const DATA_FILE = path.resolve('./data/ideas.json');
 const CHAT_FILE = path.resolve('./data/chat.json');
+const tagsPath = path.join(__dirname, 'data', 'tags.json');
 
 app.use(cors({
   origin: function (origin, callback) {
@@ -724,6 +725,33 @@ app.post('/api/analyze-icp', upload.fields([
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Failed to analyze ICP' });
+  }
+});
+
+// GET tags
+app.get('/api/tags', (req, res) => {
+  try {
+    if (!fs.existsSync(tagsPath)) {
+      return res.json({ discipline: '', market: '', customerProfile: '', topicPillars: '' });
+    }
+    const tags = JSON.parse(fs.readFileSync(tagsPath, 'utf8'));
+    res.json(tags);
+  } catch (err) {
+    console.error('Failed to read tags:', err);
+    res.status(500).json({ error: 'Failed to read tags' });
+  }
+});
+
+// POST save tags
+app.post('/api/save-tags', express.json(), (req, res) => {
+  try {
+    const { discipline = '', market = '', customerProfile = '', topicPillars = '' } = req.body;
+    const tags = { discipline, market, customerProfile, topicPillars };
+    fs.writeFileSync(tagsPath, JSON.stringify(tags, null, 2));
+    res.json({ success: true });
+  } catch (err) {
+    console.error('Failed to save tags:', err);
+    res.status(500).json({ error: 'Failed to save tags' });
   }
 });
 

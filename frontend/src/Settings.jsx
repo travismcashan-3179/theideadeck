@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 function TagInput({ label, tags, setTags, placeholder, maxTags = 5 }) {
   const inputRef = useRef();
@@ -87,23 +87,36 @@ function getFormDataSingle(file, name) {
   return fd;
 }
 
+// Helper to save tags to backend
+async function saveTags({ discipline, market, customerProfile, topicPillars }) {
+  await fetch('https://theideadeck.onrender.com/api/save-tags', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ discipline, market, customerProfile, topicPillars })
+  });
+}
+
 export default function Settings({ onSave, initialValues }) {
   const [profileFile, setProfileFile] = useState(null);
   const [postsFile, setPostsFile] = useState(null);
-  const [disciplineTags, setDisciplineTags] = useState(
-    initialValues?.discipline ? initialValues.discipline.split(',').map(t => t.trim()).filter(Boolean) : []
-  );
-  const [marketTags, setMarketTags] = useState(
-    initialValues?.market ? initialValues.market.split(',').map(t => t.trim()).filter(Boolean) : []
-  );
-  const [icpTags, setIcpTags] = useState(
-    initialValues?.customerProfile ? initialValues.customerProfile.split(',').map(t => t.trim()).filter(Boolean) : []
-  );
-  const [topicPillarsTags, setTopicPillarsTags] = useState(
-    initialValues?.topicPillars ? initialValues.topicPillars.split(',').map(t => t.trim()).filter(Boolean) : []
-  );
+  const [disciplineTags, setDisciplineTags] = useState([]);
+  const [marketTags, setMarketTags] = useState([]);
+  const [icpTags, setIcpTags] = useState([]);
+  const [topicPillarsTags, setTopicPillarsTags] = useState([]);
   const [loading, setLoading] = useState(''); // which field is loading
   const [error, setError] = useState('');
+
+  // On mount, fetch tags from backend
+  useEffect(() => {
+    fetch('https://theideadeck.onrender.com/api/tags')
+      .then(res => res.json())
+      .then(data => {
+        setDisciplineTags((data.discipline || '').split(',').map(t => t.trim()).filter(Boolean));
+        setMarketTags((data.market || '').split(',').map(t => t.trim()).filter(Boolean));
+        setIcpTags((data.customerProfile || '').split(',').map(t => t.trim()).filter(Boolean));
+        setTopicPillarsTags((data.topicPillars || '').split(',').map(t => t.trim()).filter(Boolean));
+      });
+  }, []);
 
   const cleanTag = (tag) => {
     return tag
@@ -114,6 +127,16 @@ export default function Settings({ onSave, initialValues }) {
       .replace(/\s+/g, ' ')
       .replace(/[,.;:]+$/, '')
       .trim();
+  };
+
+  // Save tags helper for all fields
+  const saveAllTags = (next = {}) => {
+    saveTags({
+      discipline: (next.discipline || disciplineTags).join(', '),
+      market: (next.market || marketTags).join(', '),
+      customerProfile: (next.customerProfile || icpTags).join(', '),
+      topicPillars: (next.topicPillars || topicPillarsTags).join(', ')
+    });
   };
 
   // Analyze Discipline (profile only)
@@ -132,7 +155,9 @@ export default function Settings({ onSave, initialValues }) {
       });
       if (!res.ok) throw new Error('Failed to analyze discipline');
       const data = await res.json();
-      setDisciplineTags((data.discipline || '').split(/,|\n/).map(cleanTag).filter(Boolean).slice(0,5));
+      const tags = (data.discipline || '').split(/,|\n/).map(cleanTag).filter(Boolean).slice(0,5);
+      setDisciplineTags(tags);
+      saveAllTags({ discipline: tags });
     } catch (err) {
       setError('Discipline analysis failed.');
     }
@@ -155,7 +180,9 @@ export default function Settings({ onSave, initialValues }) {
       });
       if (!res.ok) throw new Error('Failed to analyze market');
       const data = await res.json();
-      setMarketTags((data.market || '').split(/,|\n/).map(cleanTag).filter(Boolean).slice(0,5));
+      const tags = (data.market || '').split(/,|\n/).map(cleanTag).filter(Boolean).slice(0,5);
+      setMarketTags(tags);
+      saveAllTags({ market: tags });
     } catch (err) {
       setError('Market analysis failed.');
     }
@@ -180,7 +207,9 @@ export default function Settings({ onSave, initialValues }) {
       });
       if (!res.ok) throw new Error('Failed to analyze ICP');
       const data = await res.json();
-      setIcpTags((data.customerProfile || '').split(/,|\n/).map(cleanTag).filter(Boolean).slice(0,5));
+      const tags = (data.customerProfile || '').split(/,|\n/).map(cleanTag).filter(Boolean).slice(0,5);
+      setIcpTags(tags);
+      saveAllTags({ customerProfile: tags });
     } catch (err) {
       setError('ICP analysis failed.');
     }
@@ -203,22 +232,31 @@ export default function Settings({ onSave, initialValues }) {
       });
       if (!res.ok) throw new Error('Failed to analyze topic pillars');
       const data = await res.json();
-      setTopicPillarsTags((data.topicPillars || '').split(/,|\n/).map(cleanTag).filter(Boolean).slice(0,5));
+      const tags = (data.topicPillars || '').split(/,|\n/).map(cleanTag).filter(Boolean).slice(0,5);
+      setTopicPillarsTags(tags);
+      saveAllTags({ topicPillars: tags });
     } catch (err) {
       setError('Topic Pillars analysis failed.');
     }
     setLoading('');
   };
 
-  const handleSave = () => {
-    if (onSave) {
-      onSave({
-        discipline: disciplineTags.join(', '),
-        market: marketTags.join(', '),
-        customerProfile: icpTags.join(', '),
-        topicPillars: topicPillarsTags.join(', ')
-      });
-    }
+  // TagInput wrappers to auto-save on edit
+  const handleDisciplineTags = tags => {
+    setDisciplineTags(tags);
+    saveAllTags({ discipline: tags });
+  };
+  const handleMarketTags = tags => {
+    setMarketTags(tags);
+    saveAllTags({ market: tags });
+  };
+  const handleIcpTags = tags => {
+    setIcpTags(tags);
+    saveAllTags({ customerProfile: tags });
+  };
+  const handleTopicPillarsTags = tags => {
+    setTopicPillarsTags(tags);
+    saveAllTags({ topicPillars: tags });
   };
 
   return (
@@ -240,7 +278,7 @@ export default function Settings({ onSave, initialValues }) {
       <TagInput
         label="Discipline (What do you do?)"
         tags={disciplineTags}
-        setTags={setDisciplineTags}
+        setTags={handleDisciplineTags}
         placeholder="Add a service (e.g. web design)"
         maxTags={5}
       />
@@ -256,7 +294,7 @@ export default function Settings({ onSave, initialValues }) {
       <TagInput
         label="Market (Who do you do it for?)"
         tags={marketTags}
-        setTags={setMarketTags}
+        setTags={handleMarketTags}
         placeholder="Add a market (e.g. startups)"
         maxTags={5}
       />
@@ -272,7 +310,7 @@ export default function Settings({ onSave, initialValues }) {
       <TagInput
         label="Ideal Customer Profile (ICP)"
         tags={icpTags}
-        setTags={setIcpTags}
+        setTags={handleIcpTags}
         placeholder="Add a customer profile keyword"
         maxTags={5}
       />
@@ -288,7 +326,7 @@ export default function Settings({ onSave, initialValues }) {
       <TagInput
         label="Topic Pillars"
         tags={topicPillarsTags}
-        setTags={setTopicPillarsTags}
+        setTags={handleTopicPillarsTags}
         placeholder="Add a topic pillar (e.g. Leadership)"
         maxTags={5}
       />
@@ -301,14 +339,6 @@ export default function Settings({ onSave, initialValues }) {
           marginBottom: 32, marginRight: 12, boxShadow: '0 2px 8px rgba(100,100,150,0.07)', cursor: loading === 'topicPillars' ? 'not-allowed' : 'pointer', opacity: loading === 'topicPillars' ? 0.7 : 1
         }}
       >{loading === 'topicPillars' ? 'Analyzing...' : 'Analyze Topic Pillars'}</button>
-      <button
-        onClick={handleSave}
-        style={{
-          background: 'linear-gradient(90deg, #43cea2 0%, #185a9d 100%)',
-          color: '#fff', border: 'none', borderRadius: 8, padding: '14px 32px', fontWeight: 700, fontSize: 18,
-          boxShadow: '0 2px 8px rgba(100,100,150,0.07)', cursor: 'pointer', transition: 'background 0.2s, box-shadow 0.2s',
-        }}
-      >Save</button>
     </div>
   );
 } 
