@@ -395,35 +395,32 @@ export default function App() {
 
   return (
     <div id="gilbot-chat-root">
-      <div className="gilbot-inner">
+      <div className="gilbot-capsule-toggle">
+        <div className={`gilbot-capsule-bg ${tab === 'ideas' ? 'right' : 'left'}`}></div>
+        <button
+          className={`gilbot-capsule-btn${tab === 'chat' ? ' selected' : ''}`}
+          onClick={() => setTab('chat')}
+          type="button"
+        >
+          Chat
+        </button>
+        <button
+          className={`gilbot-capsule-btn${tab === 'ideas' ? ' selected' : ''}`}
+          onClick={() => setTab('ideas')}
+          type="button"
+        >
+          Ideas
+        </button>
+      </div>
+      <div className="gilbot-body">
         {error && (
           <div style={{ color: '#d9534f', background: '#fff0f0', padding: '12px 24px', borderRadius: 12, marginBottom: 18, textAlign: 'center', fontWeight: 600 }}>
             {error}
           </div>
         )}
-        {/* Capsule Toggle Switch */}
-        <div className="gilbot-capsule-toggle">
-          <div className={`gilbot-capsule-bg ${tab === 'ideas' ? 'right' : 'left'}`}></div>
-          <button
-            className={`gilbot-capsule-btn${tab === 'chat' ? ' selected' : ''}`}
-            onClick={() => setTab('chat')}
-            type="button"
-          >
-            Chat
-          </button>
-          <button
-            className={`gilbot-capsule-btn${tab === 'ideas' ? ' selected' : ''}`}
-            onClick={() => setTab('ideas')}
-            type="button"
-          >
-            Ideas
-          </button>
-        </div>
-        {/* End Capsule Toggle Switch */}
         {tab === 'chat' ? (
           <>
             <div className="gilbot-chat-list" ref={chatRef} style={{ position: 'relative' }}>
-              {/* Fade overlay at the top */}
               <div className="gilbot-chat-fade-top" />
               {messages.map((m, i) => (
                 <div
@@ -444,10 +441,34 @@ export default function App() {
                 </div>
               ))}
             </div>
+            <form className="gilbot-input-bar" onSubmit={handleSubmit}>
+              <div className="gilbot-input-bar-inner">
+                <textarea
+                  className="gilbot-input"
+                  value={input}
+                  onChange={handleInputChange}
+                  onKeyDown={handleKeyDown}
+                  placeholder="Type your message..."
+                  rows={inputRows}
+                  style={{ resize: 'none', minHeight: 44, maxHeight: 44 * maxRows, overflowY: inputRows === maxRows ? 'auto' : 'hidden' }}
+                />
+                <button
+                  type="button"
+                  className="gilbot-mic-btn"
+                  onClick={handleMicClick}
+                  style={{ background: recording ? '#d9534f' : '#9194E0', color: '#fff', border: 'none', borderRadius: 32, padding: '14px 18px', marginRight: 8, fontSize: '1.1em', fontWeight: 700, cursor: 'pointer', transition: 'background 0.2s' }}
+                  disabled={loading}
+                  aria-label={recording ? 'Stop recording' : 'Record voice'}
+                >
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 1v14a4 4 0 0 0 4-4V5a4 4 0 0 0-8 0v6a4 4 0 0 0 4 4z"></path><line x1="19" y1="10" x2="19" y2="10"></line><line x1="5" y1="10" x2="5" y2="10"></line><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                  {recording ? 'Stop' : ''}
+                </button>
+                <button className="gilbot-send-btn" type="submit" disabled={loading}>Send</button>
+              </div>
+            </form>
           </>
         ) : (
           <div style={{ flex: 1, width: '100%', padding: '32px 0 0 0', overflow: 'auto' }}>
-            {/* Filter dropdowns, view toggle, and group by */}
             <div style={{ display: 'flex', gap: 16, marginBottom: 24, flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
               <div className="gilbot-filter-group">
                 <div className="gilbot-filter-label">Type</div>
@@ -479,7 +500,6 @@ export default function App() {
                   })}
                 </select>
               </div>
-              {/* View toggle icons */}
               <div style={{ display: 'flex', gap: 8, marginLeft: 18 }}>
                 <button
                   type="button"
@@ -488,7 +508,6 @@ export default function App() {
                   aria-label="Grid view"
                   style={{ background: 'none', border: 'none', padding: 6, borderRadius: 8, cursor: 'pointer', color: ideasView === 'grid' ? '#343794' : '#bbb', outline: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                 >
-                  {/* Grid icon */}
                   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
                 </button>
                 <button
@@ -498,7 +517,6 @@ export default function App() {
                   aria-label="List view"
                   style={{ background: 'none', border: 'none', padding: 6, borderRadius: 8, cursor: 'pointer', color: ideasView === 'list' ? '#343794' : '#bbb', outline: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                 >
-                  {/* List icon */}
                   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="4" cy="6" r="2"/><circle cx="4" cy="12" r="2"/><circle cx="4" cy="18" r="2"/></svg>
                 </button>
                 <button
@@ -508,11 +526,9 @@ export default function App() {
                   aria-label="Carousel view"
                   style={{ background: 'none', border: 'none', padding: 6, borderRadius: 8, cursor: 'pointer', color: ideasView === 'carousel' ? '#343794' : '#bbb', outline: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                 >
-                  {/* Carousel icon */}
                   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="10" rx="5"/><circle cx="7" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="17" cy="12" r="2"/></svg>
                 </button>
               </div>
-              {/* Group By dropdown */}
               <div style={{ marginLeft: 18, minWidth: 120 }}>
                 <div className="gilbot-filter-label" style={{ textAlign: 'center' }}>Group By</div>
                 <select
@@ -528,7 +544,6 @@ export default function App() {
                 </select>
               </div>
             </div>
-            {/* Render ideas as grid or list */}
             <div className={ideasView === 'grid' ? 'gilbot-grid' : ideasView === 'carousel' ? 'gilbot-carousel' : 'gilbot-list'}>
               {ideasView === 'carousel' ? (
                 filteredIdeas.length === 0 ? (
@@ -761,7 +776,6 @@ export default function App() {
                                   <img src={getImageUrl(idea.imageUrl)} alt="Idea" style={{ width: 96, height: 96, borderRadius: 16, objectFit: 'cover', display: 'block', margin: '18px 0 0 0' }} />
                                 )}
                               </div>
-                              {/* Capsule tags for type, topic, intent */}
                               <div className="ca-card-tags">
                                 {idea.type && (
                                   <button
@@ -843,11 +857,9 @@ export default function App() {
                           }}
                           onDrop={e => handleImageDrop(e, idea)}
                         >
-                          {/* Image */}
                           {idea.imageUrl && (
                             <img src={getImageUrl(idea.imageUrl)} alt="Idea" style={{ width: 56, height: 56, borderRadius: 12, objectFit: 'cover', flexShrink: 0 }} />
                           )}
-                          {/* Title */}
                           <div style={{ fontWeight: 700, fontSize: '1.08em', color: '#343794', flex: 1, minWidth: 0, textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>
                             {editingTitleId === idea.id ? (
                               <textarea
@@ -917,13 +929,11 @@ export default function App() {
                               </span>
                             )}
                           </div>
-                          {/* Tags */}
                           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginLeft: 8, marginRight: 16 }}>
                             {idea.type && <span className="ca-card-tag" style={{ padding: '4px 12px', fontSize: '0.98em' }}>{idea.type}</span>}
                             {idea.topic && <span className="ca-card-tag" style={{ padding: '4px 12px', fontSize: '0.98em' }}>{idea.topic}</span>}
                             {idea.intent && <span className="ca-card-tag" style={{ padding: '4px 12px', fontSize: '0.98em' }}>{idea.intent}</span>}
                           </div>
-                          {/* Edit button (always visible in list view) */}
                           <button
                             className="ca-card-edit-btn"
                             type="button"
@@ -942,7 +952,6 @@ export default function App() {
                 </React.Fragment>
               ))}
             </div>
-            {/* Delete All Ideas Button */}
             {ideas.length > 0 && (
               <button
                 style={{
@@ -970,7 +979,6 @@ export default function App() {
                 Delete All Ideas
               </button>
             )}
-            {/* Detail Modal */}
             {detailIdea && (
               <div style={{
                 position: 'fixed',
@@ -1029,7 +1037,6 @@ export default function App() {
                     {detailIdea.intent && <span style={{ background: '#f3eeff', color: '#343794', borderRadius: 18, padding: '6px 16px', fontWeight: 600 }}>{detailIdea.intent}</span>}
                     <span style={{ color: '#aaa', fontWeight: 400, marginLeft: 8 }}>{formatDate(detailIdea.createdAt)}</span>
                   </div>
-                  {/* In detail modal, show image below title, above meta fields */}
                   {detailIdea && detailIdea.imageUrl && (
                     <img src={getImageUrl(detailIdea.imageUrl)} alt="Idea" style={{ width: 192, height: 192, borderRadius: 18, objectFit: 'cover', display: 'block', margin: '18px auto 0 auto' }} />
                   )}
@@ -1039,35 +1046,6 @@ export default function App() {
           </div>
         )}
       </div>
-      {/* Move input bar outside of gilbot-inner for bulletproof alignment */}
-      {tab === 'chat' && (
-        <form className="gilbot-input-bar" onSubmit={handleSubmit}>
-          <div className="gilbot-input-bar-inner">
-            <textarea
-              className="gilbot-input"
-              value={input}
-              onChange={handleInputChange}
-              onKeyDown={handleKeyDown}
-              placeholder="Type your message..."
-              rows={inputRows}
-              style={{ resize: 'none', minHeight: 44, maxHeight: 44 * maxRows, overflowY: inputRows === maxRows ? 'auto' : 'hidden' }}
-            />
-            <button
-              type="button"
-              className="gilbot-mic-btn"
-              onClick={handleMicClick}
-              style={{ background: recording ? '#d9534f' : '#9194E0', color: '#fff', border: 'none', borderRadius: 32, padding: '14px 18px', marginRight: 8, fontSize: '1.1em', fontWeight: 700, cursor: 'pointer', transition: 'background 0.2s' }}
-              disabled={loading}
-              aria-label={recording ? 'Stop recording' : 'Record voice'}
-            >
-              {/* Simple mic SVG icon */}
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 1v14a4 4 0 0 0 4-4V5a4 4 0 0 0-8 0v6a4 4 0 0 0 4 4z"></path><line x1="19" y1="10" x2="19" y2="10"></line><line x1="5" y1="10" x2="5" y2="10"></line><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
-              {recording ? 'Stop' : ''}
-            </button>
-            <button className="gilbot-send-btn" type="submit" disabled={loading}>Send</button>
-          </div>
-        </form>
-      )}
     </div>
   );
 } 
