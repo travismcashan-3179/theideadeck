@@ -636,8 +636,8 @@ app.post('/api/analyze-topic-pillars', upload.fields([
     res.json({ topicPillars: aiText });
     fs.unlinkSync(postsPath);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Failed to analyze topic pillars' });
+    console.error('analyze-topic-pillars error:', err);
+    res.status(500).json({ error: 'Failed to analyze topic pillars', details: err.message, stack: err.stack });
   }
 });
 
@@ -753,8 +753,8 @@ app.post('/api/analyze-topic-pillars', upload.fields([
     res.json({ topicPillars: aiText });
     fs.unlinkSync(postsPath);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Failed to analyze topic pillars' });
+    console.error('analyze-topic-pillars error:', err);
+    res.status(500).json({ error: 'Failed to analyze topic pillars', details: err.message, stack: err.stack });
   }
 });
 
