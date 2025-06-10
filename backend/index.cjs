@@ -600,11 +600,10 @@ app.post('/api/analyze-discipline-market', upload.fields([
 
 // Analyze topic pillars and customer profile only
 app.post('/api/analyze-topic-pillars', upload.fields([
-  { name: 'profile', maxCount: 1 },
   { name: 'posts', maxCount: 1 }
 ]), async (req, res) => {
   try {
-    if (!req.files || !req.files.posts || !req.files.posts[0]) {
+    if (!req.files || !req.files.posts || !Array.isArray(req.files.posts) || !req.files.posts[0]) {
       return res.status(400).json({ error: 'No posts file uploaded. Please upload a CSV file.' });
     }
     const postsPath = req.files.posts[0].path;
@@ -713,48 +712,6 @@ app.post('/api/analyze-icp', upload.fields([
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Failed to analyze ICP' });
-  }
-});
-
-// Analyze topic pillars (posts only)
-app.post('/api/analyze-topic-pillars', upload.fields([
-  { name: 'posts', maxCount: 1 }
-]), async (req, res) => {
-  try {
-    if (!req.files || !req.files.posts || !req.files.posts[0]) {
-      return res.status(400).json({ error: 'No posts file uploaded. Please upload a CSV file.' });
-    }
-    const postsPath = req.files.posts[0].path;
-    const postsCsv = fs.readFileSync(postsPath, 'utf8');
-    if (!postsCsv.trim()) {
-      fs.unlinkSync(postsPath);
-      return res.status(400).json({ error: 'Uploaded posts file is empty.' });
-    }
-    let postsRows;
-    try {
-      postsRows = csvParse.parse(postsCsv, { columns: true });
-    } catch (parseErr) {
-      fs.unlinkSync(postsPath);
-      console.error('CSV parse error:', parseErr);
-      return res.status(400).json({ error: 'Uploaded file is not a valid CSV.' });
-    }
-    const postsText = postsRows.map(row => row.ShareCommentary || row.Text || row.Content || '').join('\n');
-    if (!postsText.trim()) {
-      fs.unlinkSync(postsPath);
-      return res.status(400).json({ error: 'No post content found in CSV.' });
-    }
-    const prompt = `Given the following LinkedIn posts, extract 3-5 short, clear, first-person keywords that best describe your main topic pillars. No extra explanation.\n\nPosts:\n${postsText}`;
-    const aiRes = await openai.chat.completions.create({
-      model: 'gpt-4o',
-      messages: [{ role: 'user', content: prompt }],
-      max_tokens: 100,
-    });
-    const aiText = aiRes.choices[0].message.content.trim();
-    res.json({ topicPillars: aiText });
-    fs.unlinkSync(postsPath);
-  } catch (err) {
-    console.error('analyze-topic-pillars error:', err);
-    res.status(500).json({ error: 'Failed to analyze topic pillars', details: err.message, stack: err.stack });
   }
 });
 
