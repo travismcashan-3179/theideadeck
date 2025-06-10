@@ -1,10 +1,94 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+
+function TagInput({ label, tags, setTags, placeholder, maxTags = 5 }) {
+  const inputRef = useRef();
+  const [input, setInput] = useState('');
+
+  const addTag = (value) => {
+    const val = value.trim().replace(/,+$/, '');
+    if (val && !tags.includes(val) && tags.length < maxTags) {
+      setTags([...tags, val]);
+    }
+  };
+
+  const handleInput = (e) => {
+    setInput(e.target.value);
+  };
+
+  const handleKeyDown = (e) => {
+    if ([',', 'Enter', 'Tab'].includes(e.key)) {
+      e.preventDefault();
+      if (input) {
+        addTag(input);
+        setInput('');
+      }
+    } else if (e.key === 'Backspace' && !input && tags.length) {
+      setTags(tags.slice(0, -1));
+    }
+  };
+
+  const removeTag = (idx) => {
+    setTags(tags.filter((_, i) => i !== idx));
+  };
+
+  return (
+    <div style={{ marginBottom: 28 }}>
+      <label style={{ fontWeight: 600, fontSize: 16, marginBottom: 8, display: 'block' }}>{label}
+        <div style={{
+          display: 'flex', flexWrap: 'wrap', gap: 8, minHeight: 48, alignItems: 'center',
+          border: '1px solid #ddd', borderRadius: 8, padding: '8px 8px', marginTop: 8, background: '#fafbfc'
+        }}>
+          {tags.map((tag, idx) => (
+            <span key={tag+idx} style={{
+              display: 'inline-flex', alignItems: 'center', background: '#e3e9f6', color: '#2d3a4a',
+              borderRadius: 16, padding: '6px 14px 6px 14px', fontSize: 15, fontWeight: 500, position: 'relative',
+              marginRight: 4, marginBottom: 4, transition: 'background 0.2s'
+            }}>
+              {tag}
+              <span
+                onClick={() => removeTag(idx)}
+                style={{
+                  marginLeft: 8, cursor: 'pointer', fontWeight: 700, color: '#888',
+                  opacity: 0.7, fontSize: 16, transition: 'opacity 0.2s',
+                  padding: '0 2px', borderRadius: 8,
+                  ':hover': { opacity: 1, color: '#d9534f' }
+                }}
+                title="Remove"
+                onMouseOver={e => e.target.style.opacity = 1}
+                onMouseOut={e => e.target.style.opacity = 0.7}
+              >×</span>
+            </span>
+          ))}
+          {tags.length < maxTags && (
+            <input
+              ref={inputRef}
+              value={input}
+              onChange={handleInput}
+              onKeyDown={handleKeyDown}
+              placeholder={placeholder}
+              style={{
+                border: 'none', outline: 'none', fontSize: 15, minWidth: 80, flex: 1, background: 'transparent',
+                padding: 4, marginLeft: 2
+              }}
+              maxLength={32}
+            />
+          )}
+        </div>
+      </label>
+      <div style={{ fontSize: 13, color: '#888', marginTop: 4 }}>{tags.length}/{maxTags} tags</div>
+    </div>
+  );
+}
 
 export default function Settings({ onSave, initialValues }) {
   const [profileFile, setProfileFile] = useState(null);
   const [postsFile, setPostsFile] = useState(null);
-  const [discipline, setDiscipline] = useState(initialValues?.discipline || '');
-  const [market, setMarket] = useState(initialValues?.market || '');
+  const [disciplineTags, setDisciplineTags] = useState(
+    initialValues?.discipline ? initialValues.discipline.split(',').map(t => t.trim()).filter(Boolean) : []
+  );
+  const [marketTags, setMarketTags] = useState(
+    initialValues?.market ? initialValues.market.split(',').map(t => t.trim()).filter(Boolean) : []
+  );
   const [customerProfile, setCustomerProfile] = useState(initialValues?.customerProfile || '');
   const [topicPillars, setTopicPillars] = useState(initialValues?.topicPillars || '');
   const [loading, setLoading] = useState(false);
@@ -34,8 +118,9 @@ export default function Settings({ onSave, initialValues }) {
       });
       if (!res1.ok) throw new Error('Failed to analyze discipline/market');
       const data1 = await res1.json();
-      setDiscipline(data1.discipline || '');
-      setMarket(data1.market || '');
+      // Split by comma or new line, trim, filter empty, max 5
+      setDisciplineTags((data1.discipline || '').split(/,|\n/).map(t => t.trim()).filter(Boolean).slice(0,5));
+      setMarketTags((data1.market || '').split(/,|\n/).map(t => t.trim()).filter(Boolean).slice(0,5));
     } catch (err) {
       setError('Discipline/Market analysis failed.');
       setLoading(false);
@@ -64,7 +149,12 @@ export default function Settings({ onSave, initialValues }) {
 
   const handleSave = () => {
     if (onSave) {
-      onSave({ discipline, market, customerProfile, topicPillars });
+      onSave({
+        discipline: disciplineTags.join(', '),
+        market: marketTags.join(', '),
+        customerProfile,
+        topicPillars
+      });
     }
   };
 
@@ -104,16 +194,20 @@ export default function Settings({ onSave, initialValues }) {
         {loading ? 'Analyzing...' : 'Analyze with AI'}
       </button>
       {error && <div style={{ color: '#d9534f', marginBottom: 24, fontWeight: 600, fontSize: 16 }}>{error}</div>}
-      <div style={{ marginBottom: 28 }}>
-        <label style={{ fontWeight: 600, fontSize: 16, marginBottom: 8, display: 'block' }}>Discipline
-          <textarea value={discipline} onChange={e => setDiscipline(e.target.value)} style={{ width: '100%', minHeight: 60, fontSize: 16, padding: 12, borderRadius: 8, border: '1px solid #ddd', marginTop: 8, resize: 'vertical' }} />
-        </label>
-      </div>
-      <div style={{ marginBottom: 28 }}>
-        <label style={{ fontWeight: 600, fontSize: 16, marginBottom: 8, display: 'block' }}>Market
-          <textarea value={market} onChange={e => setMarket(e.target.value)} style={{ width: '100%', minHeight: 60, fontSize: 16, padding: 12, borderRadius: 8, border: '1px solid #ddd', marginTop: 8, resize: 'vertical' }} />
-        </label>
-      </div>
+      <TagInput
+        label="Discipline (What do you do?)"
+        tags={disciplineTags}
+        setTags={setDisciplineTags}
+        placeholder="Add a service (e.g. web design)"
+        maxTags={5}
+      />
+      <TagInput
+        label="Market (Who do you do it for?)"
+        tags={marketTags}
+        setTags={setMarketTags}
+        placeholder="Add a market (e.g. startups)"
+        maxTags={5}
+      />
       <div style={{ marginBottom: 28 }}>
         <label style={{ fontWeight: 600, fontSize: 16, marginBottom: 8, display: 'block' }}>Ideal Customer Profile
           <textarea value={customerProfile} onChange={e => setCustomerProfile(e.target.value)} style={{ width: '100%', minHeight: 80, fontSize: 16, padding: 12, borderRadius: 8, border: '1px solid #ddd', marginTop: 8, resize: 'vertical' }} />
