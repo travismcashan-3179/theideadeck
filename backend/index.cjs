@@ -368,7 +368,7 @@ app.post('/sms-webhook', async (req, res) => {
     let completion;
     try {
       completion = await openai.chat.completions.create({
-        model: 'gpt-3.5-turbo',
+        model: 'gpt-4o',
         messages: [
           { role: 'system', content: 'You are an expert LinkedIn content strategist.' },
           { role: 'user', content: extractPrompt }
@@ -415,7 +415,7 @@ app.post('/sms-webhook', async (req, res) => {
           try {
             const rewritePrompt = `If the following text is already a single, short, catchy sentence, return it unchanged. If it is long, multi-line, a list, or a paragraph, rewrite it as a single, catchy sentence suitable as a LinkedIn post idea title.\n\nText:\n${original}`;
             const rewriteCompletion = await openai.chat.completions.create({
-              model: 'gpt-3.5-turbo',
+              model: 'gpt-4o',
               messages: [
                 { role: 'system', content: 'You are an expert LinkedIn content strategist.' },
                 { role: 'user', content: rewritePrompt }
@@ -452,7 +452,7 @@ app.post('/sms-webhook', async (req, res) => {
       let chatCompletion;
       try {
         chatCompletion = await openai.chat.completions.create({
-          model: 'gpt-3.5-turbo',
+          model: 'gpt-4o',
           messages: [
             { role: 'system', content: 'You are LinkedList, a friendly, smart assistant for LinkedIn post ideas. You can chat naturally, help brainstorm, and manage ideas. If you need to perform an action, reply with a JSON object. Otherwise, just reply as yourself.' },
             { role: 'user', content: prompt }
@@ -535,7 +535,7 @@ ${postsText}
 
     // Call OpenAI
     const aiRes = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo',
+      model: 'gpt-4o',
       messages: [{ role: 'user', content: prompt }],
       max_tokens: 400,
     });
@@ -583,7 +583,7 @@ app.post('/api/analyze-discipline-market', upload.fields([
     const prompt = `Given the following LinkedIn profile and posts, extract:\n1. The user's discipline.\n2. The user's market.\n\nProfile:\n${profileText}\n\nPosts:\n${postsText}`;
 
     const aiRes = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo',
+      model: 'gpt-4o',
       messages: [{ role: 'user', content: prompt }],
       max_tokens: 200,
     });
@@ -626,7 +626,7 @@ app.post('/api/analyze-topic-pillars', upload.fields([
     const prompt = `Given the following LinkedIn profile and posts, extract:\n1. Suggested topic pillars for their content.\n2. Their ideal customer profile.\n\nProfile:\n${profileText}\n\nPosts:\n${postsText}`;
 
     const aiRes = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo',
+      model: 'gpt-4o',
       messages: [{ role: 'user', content: prompt }],
       max_tokens: 300,
     });
