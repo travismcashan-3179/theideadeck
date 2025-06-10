@@ -495,22 +495,6 @@ export default function App() {
           >
             <button
               style={{
-                position: 'absolute',
-                top: 8,
-                right: 8,
-                background: 'none',
-                border: 'none',
-                fontSize: 24,
-                color: '#343794',
-                cursor: 'pointer',
-              }}
-              onClick={() => setNavOpen(false)}
-              aria-label="Close navigation"
-            >
-              &times;
-            </button>
-            <button
-              style={{
                 width: '100%',
                 padding: '14px 0',
                 fontSize: '1.1em',
