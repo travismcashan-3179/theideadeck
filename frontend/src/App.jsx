@@ -36,6 +36,102 @@ function getApiUrl(path) {
   return `${BACKEND_URL}${path}`;
 }
 
+function SettingsScreen({ onBack }) {
+  const [discipline, setDiscipline] = useState('');
+  const [market, setMarket] = useState('');
+  const [icp, setIcp] = useState('');
+  const [topicPillars, setTopicPillars] = useState([]);
+  const [profileFile, setProfileFile] = useState(null);
+  const [postsFile, setPostsFile] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+
+  useEffect(() => {
+    fetch('/settings')
+      .then(r => r.json())
+      .then(data => {
+        setDiscipline(data.discipline || '');
+        setMarket(data.market || '');
+        setIcp(data.icp || '');
+        setTopicPillars(data.topicPillars || []);
+      });
+  }, []);
+
+  const handleUpload = async e => {
+    e.preventDefault();
+    setLoading(true); setError(''); setSuccess('');
+    const formData = new FormData();
+    if (profileFile) formData.append('profile', profileFile);
+    if (postsFile) formData.append('posts', postsFile);
+    try {
+      const res = await fetch('/settings/upload', { method: 'POST', body: formData });
+      if (!res.ok) throw new Error('Upload failed');
+      const data = await res.json();
+      setDiscipline(data.discipline || '');
+      setMarket(data.market || '');
+      setIcp(data.icp || '');
+      setTopicPillars(data.topicPillars || []);
+      setSuccess('AI analysis complete!');
+    } catch (e) {
+      setError('Upload or AI analysis failed.');
+    }
+    setLoading(false);
+  };
+
+  const handleSave = async e => {
+    e.preventDefault();
+    setLoading(true); setError(''); setSuccess('');
+    try {
+      const res = await fetch('/settings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ discipline, market, icp, topicPillars })
+      });
+      if (!res.ok) throw new Error('Save failed');
+      setSuccess('Settings saved!');
+    } catch (e) {
+      setError('Save failed.');
+    }
+    setLoading(false);
+  };
+
+  return (
+    <div style={{ maxWidth: 480, margin: '40px auto', background: '#fff', borderRadius: 18, boxShadow: '0 2px 8px #e7e7fa', padding: 32 }}>
+      <h2 style={{ textAlign: 'center', marginBottom: 24 }}>Profile Settings</h2>
+      <form onSubmit={handleUpload} style={{ marginBottom: 24 }}>
+        <div style={{ marginBottom: 12 }}>
+          <label>Profile PDF: <input type="file" accept="application/pdf" onChange={e => setProfileFile(e.target.files[0])} /></label>
+        </div>
+        <div style={{ marginBottom: 12 }}>
+          <label>Posts CSV: <input type="file" accept=".csv" onChange={e => setPostsFile(e.target.files[0])} /></label>
+        </div>
+        <button type="submit" disabled={loading || !profileFile || !postsFile} style={{ padding: '10px 24px', borderRadius: 8, background: '#343794', color: '#fff', fontWeight: 700, border: 'none', cursor: 'pointer' }}>Run AI Analysis</button>
+      </form>
+      <form onSubmit={handleSave}>
+        <div style={{ marginBottom: 16 }}>
+          <label>Discipline:<br /><input type="text" value={discipline} onChange={e => setDiscipline(e.target.value)} style={{ width: '100%', padding: 8, borderRadius: 6, border: '1px solid #ccc' }} /></label>
+        </div>
+        <div style={{ marginBottom: 16 }}>
+          <label>Market:<br /><input type="text" value={market} onChange={e => setMarket(e.target.value)} style={{ width: '100%', padding: 8, borderRadius: 6, border: '1px solid #ccc' }} /></label>
+        </div>
+        <div style={{ marginBottom: 16 }}>
+          <label>Ideal Customer Profile:<br /><textarea value={icp} onChange={e => setIcp(e.target.value)} style={{ width: '100%', padding: 8, borderRadius: 6, border: '1px solid #ccc', minHeight: 48 }} /></label>
+        </div>
+        <div style={{ marginBottom: 16 }}>
+          <label>Topic Pillars:<br />
+            <input type="text" value={topicPillars.join(', ')} onChange={e => setTopicPillars(e.target.value.split(',').map(s => s.trim()))} style={{ width: '100%', padding: 8, borderRadius: 6, border: '1px solid #ccc' }} placeholder="Comma separated" />
+          </label>
+        </div>
+        <button type="submit" disabled={loading} style={{ padding: '10px 24px', borderRadius: 8, background: '#343794', color: '#fff', fontWeight: 700, border: 'none', cursor: 'pointer' }}>Save</button>
+        {success && <div style={{ color: '#4caf50', marginTop: 12 }}>{success}</div>}
+        {error && <div style={{ color: '#d9534f', marginTop: 12 }}>{error}</div>}
+      </form>
+      <button onClick={onBack} style={{ marginTop: 24, background: 'none', border: 'none', color: '#343794', textDecoration: 'underline', cursor: 'pointer' }}>Back</button>
+    </div>
+  );
+}
+
 export default function App() {
   const initialTab = (window.location.pathname.replace(/^\//, '') === 'ideas') ? 'ideas' : 'chat';
   const [tab, setTab] = useState(initialTab);
@@ -65,6 +161,7 @@ export default function App() {
   const [error, setError] = useState("");
   const [navOpen, setNavOpen] = useState(false);
   const [isUserScrolledUp, setIsUserScrolledUp] = useState(false);
+  const [settingsTab, setSettingsTab] = useState(false);
 
   // Load chat history on mount
   useEffect(() => {
@@ -528,6 +625,23 @@ export default function App() {
             >
               Ideas
             </button>
+            <button
+              style={{
+                width: '100%',
+                padding: '14px 0',
+                fontSize: '1.1em',
+                fontWeight: 700,
+                color: settingsTab ? '#fff' : '#343794',
+                background: settingsTab ? '#343794' : '#f3eeff',
+                border: 'none',
+                borderRadius: 10,
+                cursor: 'pointer',
+                transition: 'background 0.2s',
+              }}
+              onClick={() => { setSettingsTab(true); setNavOpen(false); }}
+            >
+              Settings
+            </button>
           </div>
         </div>
       )}
@@ -537,7 +651,9 @@ export default function App() {
             {error}
           </div>
         )}
-        {tab === 'chat' ? (
+        {settingsTab ? (
+          <SettingsScreen onBack={() => setSettingsTab(false)} />
+        ) : tab === 'chat' ? (
           <>
             <div className="gilbot-chat-list" ref={chatRef} style={{ position: 'relative' }}>
               <div className="gilbot-chat-fade-top" />
@@ -548,7 +664,10 @@ export default function App() {
                   style={{ alignSelf: m.sender === 'user' ? 'flex-end' : 'flex-start' }}
                 >
                   {m.type === 'loadingGif' && m.gif ? (
-                    <img src={m.gif} alt="Loading..." style={{ width: 160, height: 160, borderRadius: 18, boxShadow: '0 2px 8px #e7e7fa' }} />
+                    <React.Fragment>
+                      <img src={m.gif} alt="Loading..." style={{ width: 160, height: 160, borderRadius: 18, boxShadow: '0 2px 8px #e7e7fa' }} />
+                      {/* Optionally, you can add a loading message or leave it as just the GIF */}
+                    </React.Fragment>
                   ) : (
                     m.text.split('\n').map((line, idx) => (
                       <React.Fragment key={idx}>
@@ -587,7 +706,7 @@ export default function App() {
               </div>
             </form>
           </>
-        ) : (
+        ) : tab === 'ideas' ? (
           <div style={{ flex: 1, width: '100%', padding: '32px 0 0 0', overflow: 'auto' }}>
             <div style={{ display: 'flex', gap: 16, marginBottom: 24, flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
               <div className="gilbot-filter-group">
