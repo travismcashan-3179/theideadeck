@@ -27,18 +27,37 @@ export default function Settings({ onSave, initialValues }) {
     formData.append('profile', profileFile);
     formData.append('posts', postsFile);
     try {
-      const res = await fetch('https://theideadeck.onrender.com/api/analyze-linkedin', {
+      // Analyze discipline and market
+      const res1 = await fetch('https://theideadeck.onrender.com/api/analyze-discipline-market', {
         method: 'POST',
         body: formData
       });
-      if (!res.ok) throw new Error('Failed to analyze files');
-      const data = await res.json();
-      setDiscipline(data.discipline || '');
-      setMarket(data.market || '');
-      setCustomerProfile(data.customerProfile || '');
-      setTopicPillars(data.topicPillars || '');
+      if (!res1.ok) throw new Error('Failed to analyze discipline/market');
+      const data1 = await res1.json();
+      setDiscipline(data1.discipline || '');
+      setMarket(data1.market || '');
     } catch (err) {
-      setError('Analysis failed.');
+      setError('Discipline/Market analysis failed.');
+      setLoading(false);
+      return;
+    }
+    try {
+      // Need to re-create FormData because it is consumed after first fetch
+      const formData2 = new FormData();
+      formData2.append('profile', profileFile);
+      formData2.append('posts', postsFile);
+      const res2 = await fetch('https://theideadeck.onrender.com/api/analyze-topic-pillars', {
+        method: 'POST',
+        body: formData2
+      });
+      if (!res2.ok) throw new Error('Failed to analyze topic pillars');
+      const data2 = await res2.json();
+      setCustomerProfile(data2.customerProfile || '');
+      setTopicPillars(data2.topicPillars || '');
+    } catch (err) {
+      setError('Topic Pillars analysis failed.');
+      setLoading(false);
+      return;
     }
     setLoading(false);
   };
