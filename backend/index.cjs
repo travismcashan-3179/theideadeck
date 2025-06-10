@@ -621,7 +621,7 @@ app.post('/api/analyze-topic-pillars', upload.fields([
       console.error('CSV parse error:', parseErr);
       return res.status(400).json({ error: 'Uploaded file is not a valid CSV.' });
     }
-    const postsText = postsRows.map(row => row.Text || row.Content || '').join('\n');
+    const postsText = postsRows.map(row => row.ShareCommentary || row.Text || row.Content || '').join('\n');
     if (!postsText.trim()) {
       fs.unlinkSync(postsPath);
       return res.status(400).json({ error: 'No post content found in CSV.' });
@@ -738,7 +738,7 @@ app.post('/api/analyze-topic-pillars', upload.fields([
       console.error('CSV parse error:', parseErr);
       return res.status(400).json({ error: 'Uploaded file is not a valid CSV.' });
     }
-    const postsText = postsRows.map(row => row.Text || row.Content || '').join('\n');
+    const postsText = postsRows.map(row => row.ShareCommentary || row.Text || row.Content || '').join('\n');
     if (!postsText.trim()) {
       fs.unlinkSync(postsPath);
       return res.status(400).json({ error: 'No post content found in CSV.' });
