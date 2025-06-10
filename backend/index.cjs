@@ -605,9 +605,19 @@ app.post('/api/analyze-topic-pillars', upload.fields([
   try {
     console.log('analyze-topic-pillars req.files:', req.files);
     console.log('analyze-topic-pillars req.body:', req.body);
-    if (!req.files || !req.files.posts || !Array.isArray(req.files.posts) || !req.files.posts[0]) {
-      return res.status(400).json({ error: 'No posts file uploaded. Please upload a CSV file.' });
+
+    // Defensive: check for file presence
+    if (
+      !req.files ||
+      typeof req.files !== 'object' ||
+      !req.files.posts ||
+      !Array.isArray(req.files.posts) ||
+      !req.files.posts.length ||
+      !req.files.posts[0]
+    ) {
+      return res.status(400).json({ error: 'No posts file uploaded. Please upload a CSV file with the field name "posts".' });
     }
+
     const postsPath = req.files.posts[0].path;
     const postsCsv = fs.readFileSync(postsPath, 'utf8');
     if (!postsCsv.trim()) {
