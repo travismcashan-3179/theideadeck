@@ -431,24 +431,8 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
   box-shadow: 0 4px 16px #9194e0aa;
   outline: none;
 }
-.gilbot-hamburger .bar {
-  display: block;
-  width: 28px;
-  height: 3.5px;
-  background: #343794;
-  border-radius: 2px;
-  margin: 3.5px 0;
-  transition: all 0.32s cubic-bezier(.4,2,.6,1);
-}
-.gilbot-hamburger.open .bar:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-.gilbot-hamburger.open .bar:nth-child(2) {
-  opacity: 0;
-  transform: scaleX(0.5);
-}
-.gilbot-hamburger.open .bar:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+.gilbot-hamburger .bar, .gilbot-hamburger .x-bar {
+  /* All handled inline for now, but keep for possible overrides */
 }
 @media (max-width: 700px) {
   .gilbot-hamburger {
@@ -457,11 +441,21 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
     width: 40px;
     height: 40px;
   }
-  .gilbot-hamburger .bar {
-    width: 22px;
-    height: 3px;
-    margin: 3px 0;
+  .hamburger-icon {
+    width: 22px !important;
+    height: 22px !important;
   }
+  .gilbot-hamburger .bar, .gilbot-hamburger .x-bar {
+    width: 22px !important;
+    height: 3px !important;
+    left: 0 !important;
+    border-radius: 2px !important;
+  }
+  .gilbot-hamburger .bar.bar1 { top: 2px !important; }
+  .gilbot-hamburger .bar.bar2 { top: 9px !important; }
+  .gilbot-hamburger .bar.bar3 { top: 16px !important; }
+  .gilbot-hamburger .x-bar.x1,
+  .gilbot-hamburger .x-bar.x2 { top: 10px !important; }
 }
 
 .gilbot-nav-modal {

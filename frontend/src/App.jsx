@@ -418,9 +418,15 @@ export default function App() {
           cursor: 'pointer',
         }}
       >
-        <span className="bar" />
-        <span className="bar" />
-        <span className="bar" />
+        <span className="hamburger-icon" style={{ position: 'relative', width: 28, height: 28, display: 'block' }}>
+          {/* Hamburger lines */}
+          <span className="bar bar1" style={{ position: 'absolute', left: 0, width: 28, height: 3.5, borderRadius: 2, background: '#343794', top: 3, opacity: navOpen ? 0 : 1, transition: 'opacity 0.22s' }} />
+          <span className="bar bar2" style={{ position: 'absolute', left: 0, width: 28, height: 3.5, borderRadius: 2, background: '#343794', top: 12, opacity: navOpen ? 0 : 1, transition: 'opacity 0.22s' }} />
+          <span className="bar bar3" style={{ position: 'absolute', left: 0, width: 28, height: 3.5, borderRadius: 2, background: '#343794', top: 21, opacity: navOpen ? 0 : 1, transition: 'opacity 0.22s' }} />
+          {/* X icon */}
+          <span className="x-bar x1" style={{ position: 'absolute', left: 0, top: 14, width: 28, height: 3.5, borderRadius: 2, background: '#343794', opacity: navOpen ? 1 : 0, transform: 'rotate(45deg)', transition: 'opacity 0.22s' }} />
+          <span className="x-bar x2" style={{ position: 'absolute', left: 0, top: 14, width: 28, height: 3.5, borderRadius: 2, background: '#343794', opacity: navOpen ? 1 : 0, transform: 'rotate(-45deg)', transition: 'opacity 0.22s' }} />
+        </span>
       </button>
       {/* Modal Navigation as dropdown below hamburger */}
       {navOpen && (
