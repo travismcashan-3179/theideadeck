@@ -604,36 +604,36 @@ app.post('/api/analyze-topic-pillars', upload.fields([
   { name: 'posts', maxCount: 1 }
 ]), async (req, res) => {
   try {
-    const profilePath = req.files.profile[0].path;
-    const profileBuffer = fs.readFileSync(profilePath);
-    const profileText = (await pdfParse(profileBuffer)).text;
-
+    if (!req.files || !req.files.posts || !req.files.posts[0]) {
+      return res.status(400).json({ error: 'No posts file uploaded. Please upload a CSV file.' });
+    }
     const postsPath = req.files.posts[0].path;
     const postsCsv = fs.readFileSync(postsPath, 'utf8');
-    const postsRows = csvParse.parse(postsCsv, { columns: true });
+    if (!postsCsv.trim()) {
+      fs.unlinkSync(postsPath);
+      return res.status(400).json({ error: 'Uploaded posts file is empty.' });
+    }
+    let postsRows;
+    try {
+      postsRows = csvParse.parse(postsCsv, { columns: true });
+    } catch (parseErr) {
+      fs.unlinkSync(postsPath);
+      console.error('CSV parse error:', parseErr);
+      return res.status(400).json({ error: 'Uploaded file is not a valid CSV.' });
+    }
     const postsText = postsRows.map(row => row.Text || row.Content || '').join('\n');
-
-    const prompt = `Given the following LinkedIn profile and posts, extract:\n1. Suggested topic pillars for their content.\n2. Their ideal customer profile.\n\nProfile:\n${profileText}\n\nPosts:\n${postsText}`;
-
+    if (!postsText.trim()) {
+      fs.unlinkSync(postsPath);
+      return res.status(400).json({ error: 'No post content found in CSV.' });
+    }
+    const prompt = `Given the following LinkedIn posts, extract 3-5 short, clear, first-person keywords that best describe your main topic pillars. No extra explanation.\n\nPosts:\n${postsText}`;
     const aiRes = await openai.chat.completions.create({
       model: 'gpt-4o',
       messages: [{ role: 'user', content: prompt }],
-      max_tokens: 300,
+      max_tokens: 100,
     });
-
-    const aiText = aiRes.choices[0].message.content;
-    const result = {};
-    ['Topic Pillars', 'Ideal Customer Profile'].forEach(key => {
-      const match = aiText.match(new RegExp(`${key}:\\s*([\\s\\S]*?)(?=\\n[A-Z]|$)`, 'i'));
-      if (match) result[key.replace(/ /g, '').replace('IdealCustomerProfile', 'customerProfile').replace('TopicPillars', 'topicPillars').toLowerCase()] = match[1].trim();
-    });
-
-    res.json({
-      topicPillars: result.topicPillars || '',
-      customerProfile: result.customerProfile || ''
-    });
-
-    fs.unlinkSync(profilePath);
+    const aiText = aiRes.choices[0].message.content.trim();
+    res.json({ topicPillars: aiText });
     fs.unlinkSync(postsPath);
   } catch (err) {
     console.error(err);
@@ -721,10 +721,28 @@ app.post('/api/analyze-topic-pillars', upload.fields([
   { name: 'posts', maxCount: 1 }
 ]), async (req, res) => {
   try {
+    if (!req.files || !req.files.posts || !req.files.posts[0]) {
+      return res.status(400).json({ error: 'No posts file uploaded. Please upload a CSV file.' });
+    }
     const postsPath = req.files.posts[0].path;
     const postsCsv = fs.readFileSync(postsPath, 'utf8');
-    const postsRows = csvParse.parse(postsCsv, { columns: true });
+    if (!postsCsv.trim()) {
+      fs.unlinkSync(postsPath);
+      return res.status(400).json({ error: 'Uploaded posts file is empty.' });
+    }
+    let postsRows;
+    try {
+      postsRows = csvParse.parse(postsCsv, { columns: true });
+    } catch (parseErr) {
+      fs.unlinkSync(postsPath);
+      console.error('CSV parse error:', parseErr);
+      return res.status(400).json({ error: 'Uploaded file is not a valid CSV.' });
+    }
     const postsText = postsRows.map(row => row.Text || row.Content || '').join('\n');
+    if (!postsText.trim()) {
+      fs.unlinkSync(postsPath);
+      return res.status(400).json({ error: 'No post content found in CSV.' });
+    }
     const prompt = `Given the following LinkedIn posts, extract 3-5 short, clear, first-person keywords that best describe your main topic pillars. No extra explanation.\n\nPosts:\n${postsText}`;
     const aiRes = await openai.chat.completions.create({
       model: 'gpt-4o',
