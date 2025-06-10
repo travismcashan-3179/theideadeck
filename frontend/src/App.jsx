@@ -63,6 +63,7 @@ export default function App() {
   const [dragOverId, setDragOverId] = useState(null);
   const [error, setError] = useState("");
   const [navOpen, setNavOpen] = useState(false);
+  const [isUserScrolledUp, setIsUserScrolledUp] = useState(false);
 
   // Load chat history on mount
   useEffect(() => {
@@ -105,6 +106,30 @@ export default function App() {
   useEffect(() => {
     chatRef.current?.scrollTo(0, chatRef.current.scrollHeight);
   }, [messages, tab]);
+
+  // Scroll to bottom unless user has scrolled up
+  useEffect(() => {
+    if (!isUserScrolledUp && tab === 'chat') {
+      const chatList = chatRef.current;
+      if (chatList) {
+        chatList.scrollTop = chatList.scrollHeight;
+      }
+    }
+  }, [messages, tab, isUserScrolledUp]);
+
+  // Detect if user scrolls up in chat
+  useEffect(() => {
+    if (tab !== 'chat') return;
+    const chatList = chatRef.current;
+    if (!chatList) return;
+    const handleScroll = () => {
+      // If user is near the bottom (within 40px), consider as not scrolled up
+      const atBottom = chatList.scrollHeight - chatList.scrollTop - chatList.clientHeight < 40;
+      setIsUserScrolledUp(!atBottom);
+    };
+    chatList.addEventListener('scroll', handleScroll);
+    return () => chatList.removeEventListener('scroll', handleScroll);
+  }, [tab]);
 
   const handleInputChange = (e) => {
     setInput(e.target.value);
