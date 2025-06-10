@@ -47,6 +47,7 @@ body {
   padding: 0 0 24px 0;
   overflow-y: auto;
   min-height: 0;
+  padding-bottom: 96px !important;
 }
 
 .gilbot-bubble {
@@ -170,7 +171,7 @@ body {
     flex: 1;
     overflow-y: auto;
     padding-top: 56px;
-    padding-bottom: 64px;
+    padding-bottom: 80px !important;
     min-height: 0;
     width: 100%;
     box-sizing: border-box;
@@ -502,14 +503,7 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
 }
 
 .gilbot-chat-fade-top {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 44px;
-  pointer-events: none;
-  z-index: 2;
-  background: linear-gradient(180deg, #F3EEFF 80%, rgba(247, 250, 255, 0) 100%);
+  display: none !important;
 }
 
 .ca-card-text-overlay {
