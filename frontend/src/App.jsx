@@ -43,6 +43,7 @@ export default function App() {
   const [input, setInput] = useState('');
   const [ideas, setIdeas] = useState([]);
   const chatRef = useRef(null);
+  const bottomRef = useRef(null);
   const [inputRows, setInputRows] = useState(1);
   const maxRows = 6;
   const [loading, setLoading] = useState(false);
@@ -107,13 +108,10 @@ export default function App() {
     chatRef.current?.scrollTo(0, chatRef.current.scrollHeight);
   }, [messages, tab]);
 
-  // Scroll to bottom unless user has scrolled up
+  // Scroll to bottom using anchor unless user has scrolled up
   useEffect(() => {
-    if (!isUserScrolledUp && tab === 'chat') {
-      const chatList = chatRef.current;
-      if (chatList) {
-        chatList.scrollTop = chatList.scrollHeight;
-      }
+    if (!isUserScrolledUp && tab === 'chat' && bottomRef.current) {
+      bottomRef.current.scrollIntoView({ behavior: 'auto' });
     }
   }, [messages, tab, isUserScrolledUp]);
 
@@ -133,11 +131,8 @@ export default function App() {
 
   // On initial mount or tab switch to chat, scroll to bottom immediately
   useLayoutEffect(() => {
-    if (tab === 'chat') {
-      const chatList = chatRef.current;
-      if (chatList) {
-        chatList.scrollTop = chatList.scrollHeight;
-      }
+    if (tab === 'chat' && bottomRef.current) {
+      bottomRef.current.scrollIntoView({ behavior: 'auto' });
     }
   }, [tab]);
 
@@ -580,6 +575,7 @@ export default function App() {
                   )}
                 </div>
               ))}
+              <div ref={bottomRef} />
             </div>
             <form className="gilbot-input-bar" onSubmit={handleSubmit}>
               <div className="gilbot-input-bar-inner">
