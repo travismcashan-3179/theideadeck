@@ -80,6 +80,13 @@ function TagInput({ label, tags, setTags, placeholder, maxTags = 5 }) {
   );
 }
 
+// Add new helper for single-file FormData
+function getFormDataSingle(file, name) {
+  const fd = new FormData();
+  fd.append(name, file);
+  return fd;
+}
+
 export default function Settings({ onSave, initialValues }) {
   const [profileFile, setProfileFile] = useState(null);
   const [postsFile, setPostsFile] = useState(null);
@@ -89,79 +96,118 @@ export default function Settings({ onSave, initialValues }) {
   const [marketTags, setMarketTags] = useState(
     initialValues?.market ? initialValues.market.split(',').map(t => t.trim()).filter(Boolean) : []
   );
-  const [customerProfile, setCustomerProfile] = useState(initialValues?.customerProfile || '');
-  const [topicPillars, setTopicPillars] = useState(initialValues?.topicPillars || '');
-  const [loading, setLoading] = useState(false);
+  const [icpTags, setIcpTags] = useState(
+    initialValues?.customerProfile ? initialValues.customerProfile.split(',').map(t => t.trim()).filter(Boolean) : []
+  );
+  const [topicPillarsTags, setTopicPillarsTags] = useState(
+    initialValues?.topicPillars ? initialValues.topicPillars.split(',').map(t => t.trim()).filter(Boolean) : []
+  );
+  const [loading, setLoading] = useState(''); // which field is loading
   const [error, setError] = useState('');
-
-  const handleFileChange = (e, setter) => {
-    if (e.target.files && e.target.files[0]) {
-      setter(e.target.files[0]);
-    }
-  };
 
   const cleanTag = (tag) => {
     return tag
-      .replace(/^[\s*-]+/, '') // leading spaces, asterisks, dashes
-      .replace(/^[0-9]+\.?\s*/, '') // leading numbers
-      .replace(/\*+/g, '') // all asterisks
-      .replace(/^(the user('|'?)s?|discipline|market|:|\s)+/i, '') // leading phrases
+      .replace(/^[\s*-]+/, '')
+      .replace(/^[0-9]+\.?\s*/, '')
+      .replace(/\*+/g, '')
+      .replace(/^(the user('|'?)s?|discipline|market|ideal customer profile|topic pillars|:|\s)+/i, '')
       .replace(/\s+/g, ' ')
-      .replace(/[,.;:]+$/, '') // trailing punctuation
+      .replace(/[,.;:]+$/, '')
       .trim();
   };
 
-  const handleAnalyze = async () => {
+  // Analyze Discipline (profile only)
+  const handleAnalyzeDiscipline = async () => {
+    if (!profileFile) {
+      setError('Please upload your profile PDF.');
+      return;
+    }
+    setLoading('discipline');
+    setError('');
+    try {
+      const formData = getFormDataSingle(profileFile, 'profile');
+      const res = await fetch('https://theideadeck.onrender.com/api/analyze-discipline', {
+        method: 'POST',
+        body: formData
+      });
+      if (!res.ok) throw new Error('Failed to analyze discipline');
+      const data = await res.json();
+      setDisciplineTags((data.discipline || '').split(/,|\n/).map(cleanTag).filter(Boolean).slice(0,5));
+    } catch (err) {
+      setError('Discipline analysis failed.');
+    }
+    setLoading('');
+  };
+
+  // Analyze Market (profile only)
+  const handleAnalyzeMarket = async () => {
+    if (!profileFile) {
+      setError('Please upload your profile PDF.');
+      return;
+    }
+    setLoading('market');
+    setError('');
+    try {
+      const formData = getFormDataSingle(profileFile, 'profile');
+      const res = await fetch('https://theideadeck.onrender.com/api/analyze-market', {
+        method: 'POST',
+        body: formData
+      });
+      if (!res.ok) throw new Error('Failed to analyze market');
+      const data = await res.json();
+      setMarketTags((data.market || '').split(/,|\n/).map(cleanTag).filter(Boolean).slice(0,5));
+    } catch (err) {
+      setError('Market analysis failed.');
+    }
+    setLoading('');
+  };
+
+  // Analyze ICP (profile + posts)
+  const handleAnalyzeICP = async () => {
     if (!profileFile || !postsFile) {
       setError('Please upload both your profile PDF and posts CSV.');
       return;
     }
-    setLoading(true);
+    setLoading('icp');
     setError('');
-    const formData = new FormData();
-    formData.append('profile', profileFile);
-    formData.append('posts', postsFile);
     try {
-      // Analyze discipline and market
-      const res1 = await fetch('https://theideadeck.onrender.com/api/analyze-discipline-market', {
+      const formData = new FormData();
+      formData.append('profile', profileFile);
+      formData.append('posts', postsFile);
+      const res = await fetch('https://theideadeck.onrender.com/api/analyze-icp', {
         method: 'POST',
         body: formData
       });
-      if (!res1.ok) throw new Error('Failed to analyze discipline/market');
-      const data1 = await res1.json();
-      // Split by comma or new line, trim, filter empty, max 5
-      setDisciplineTags((data1.discipline || '').split(/,|\n/)
-        .map(t => cleanTag(t))
-        .filter(t => t && t.length > 1 && !/^(the user|discipline|market)$/i.test(t))
-        .slice(0,5));
-      setMarketTags((data1.market || '').split(/,|\n/)
-        .map(t => cleanTag(t))
-        .filter(t => t && t.length > 1 && !/^(the user|discipline|market)$/i.test(t))
-        .slice(0,5));
+      if (!res.ok) throw new Error('Failed to analyze ICP');
+      const data = await res.json();
+      setIcpTags((data.customerProfile || '').split(/,|\n/).map(cleanTag).filter(Boolean).slice(0,5));
     } catch (err) {
-      setError('Discipline/Market analysis failed.');
-      setLoading(false);
+      setError('ICP analysis failed.');
+    }
+    setLoading('');
+  };
+
+  // Analyze Topic Pillars (posts only)
+  const handleAnalyzeTopicPillars = async () => {
+    if (!postsFile) {
+      setError('Please upload your posts CSV.');
       return;
     }
+    setLoading('topicPillars');
+    setError('');
     try {
-      // Need to re-create FormData because it is consumed after first fetch
-      const formData2 = new FormData();
-      formData2.append('profile', profileFile);
-      formData2.append('posts', postsFile);
-      const res2 = await fetch('https://theideadeck.onrender.com/api/analyze-topic-pillars', {
+      const formData = getFormDataSingle(postsFile, 'posts');
+      const res = await fetch('https://theideadeck.onrender.com/api/analyze-topic-pillars', {
         method: 'POST',
-        body: formData2
+        body: formData
       });
-      if (!res2.ok) throw new Error('Failed to analyze topic pillars');
-      const data2 = await res2.json();
-      setCustomerProfile(data2.customerProfile || '');
-      setTopicPillars(data2.topicPillars || '');
+      if (!res.ok) throw new Error('Failed to analyze topic pillars');
+      const data = await res.json();
+      setTopicPillarsTags((data.topicPillars || '').split(/,|\n/).map(cleanTag).filter(Boolean).slice(0,5));
     } catch (err) {
       setError('Topic Pillars analysis failed.');
-      setLoading(false);
-      return;
     }
-    setLoading(false);
+    setLoading('');
   };
 
   const handleSave = () => {
@@ -169,8 +215,8 @@ export default function Settings({ onSave, initialValues }) {
       onSave({
         discipline: disciplineTags.join(', '),
         market: marketTags.join(', '),
-        customerProfile,
-        topicPillars
+        customerProfile: icpTags.join(', '),
+        topicPillars: topicPillarsTags.join(', ')
       });
     }
   };
@@ -181,35 +227,15 @@ export default function Settings({ onSave, initialValues }) {
       <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', marginBottom: 32 }}>
         <div style={{ flex: 1, minWidth: 220 }}>
           <label style={{ fontWeight: 600, fontSize: 16, marginBottom: 8, display: 'block' }}>Profile PDF
-            <input type="file" accept="application/pdf" onChange={e => handleFileChange(e, setProfileFile)} style={{ marginTop: 8, width: '100%' }} />
+            <input type="file" accept="application/pdf" onChange={e => setProfileFile(e.target.files[0])} style={{ marginTop: 8, width: '100%' }} />
           </label>
         </div>
         <div style={{ flex: 1, minWidth: 220 }}>
           <label style={{ fontWeight: 600, fontSize: 16, marginBottom: 8, display: 'block' }}>Posts CSV
-            <input type="file" accept=".csv" onChange={e => handleFileChange(e, setPostsFile)} style={{ marginTop: 8, width: '100%' }} />
+            <input type="file" accept=".csv" onChange={e => setPostsFile(e.target.files[0])} style={{ marginTop: 8, width: '100%' }} />
           </label>
         </div>
       </div>
-      <button
-        onClick={handleAnalyze}
-        disabled={loading}
-        style={{
-          background: 'linear-gradient(90deg, #6a82fb 0%, #fc5c7d 100%)',
-          color: '#fff',
-          border: 'none',
-          borderRadius: 8,
-          padding: '14px 32px',
-          fontWeight: 700,
-          fontSize: 18,
-          marginBottom: 32,
-          boxShadow: '0 2px 8px rgba(100,100,150,0.07)',
-          cursor: loading ? 'not-allowed' : 'pointer',
-          transition: 'background 0.2s, box-shadow 0.2s',
-          opacity: loading ? 0.7 : 1
-        }}
-      >
-        {loading ? 'Analyzing...' : 'Analyze with AI'}
-      </button>
       {error && <div style={{ color: '#d9534f', marginBottom: 24, fontWeight: 600, fontSize: 16 }}>{error}</div>}
       <TagInput
         label="Discipline (What do you do?)"
@@ -218,6 +244,15 @@ export default function Settings({ onSave, initialValues }) {
         placeholder="Add a service (e.g. web design)"
         maxTags={5}
       />
+      <button
+        onClick={handleAnalyzeDiscipline}
+        disabled={loading === 'discipline'}
+        style={{
+          background: 'linear-gradient(90deg, #6a82fb 0%, #fc5c7d 100%)',
+          color: '#fff', border: 'none', borderRadius: 8, padding: '10px 24px', fontWeight: 700, fontSize: 16,
+          marginBottom: 18, marginRight: 12, boxShadow: '0 2px 8px rgba(100,100,150,0.07)', cursor: loading === 'discipline' ? 'not-allowed' : 'pointer', opacity: loading === 'discipline' ? 0.7 : 1
+        }}
+      >{loading === 'discipline' ? 'Analyzing...' : 'Analyze Discipline'}</button>
       <TagInput
         label="Market (Who do you do it for?)"
         tags={marketTags}
@@ -225,33 +260,55 @@ export default function Settings({ onSave, initialValues }) {
         placeholder="Add a market (e.g. startups)"
         maxTags={5}
       />
-      <div style={{ marginBottom: 28 }}>
-        <label style={{ fontWeight: 600, fontSize: 16, marginBottom: 8, display: 'block' }}>Ideal Customer Profile
-          <textarea value={customerProfile} onChange={e => setCustomerProfile(e.target.value)} style={{ width: '100%', minHeight: 80, fontSize: 16, padding: 12, borderRadius: 8, border: '1px solid #ddd', marginTop: 8, resize: 'vertical' }} />
-        </label>
-      </div>
-      <div style={{ marginBottom: 32 }}>
-        <label style={{ fontWeight: 600, fontSize: 16, marginBottom: 8, display: 'block' }}>Topic Pillars
-          <textarea value={topicPillars} onChange={e => setTopicPillars(e.target.value)} style={{ width: '100%', minHeight: 60, fontSize: 16, padding: 12, borderRadius: 8, border: '1px solid #ddd', marginTop: 8, resize: 'vertical' }} placeholder="Comma-separated (e.g. Leadership, SaaS, Product)" />
-        </label>
-      </div>
+      <button
+        onClick={handleAnalyzeMarket}
+        disabled={loading === 'market'}
+        style={{
+          background: 'linear-gradient(90deg, #43cea2 0%, #185a9d 100%)',
+          color: '#fff', border: 'none', borderRadius: 8, padding: '10px 24px', fontWeight: 700, fontSize: 16,
+          marginBottom: 18, marginRight: 12, boxShadow: '0 2px 8px rgba(100,100,150,0.07)', cursor: loading === 'market' ? 'not-allowed' : 'pointer', opacity: loading === 'market' ? 0.7 : 1
+        }}
+      >{loading === 'market' ? 'Analyzing...' : 'Analyze Market'}</button>
+      <TagInput
+        label="Ideal Customer Profile (ICP)"
+        tags={icpTags}
+        setTags={setIcpTags}
+        placeholder="Add a customer profile keyword"
+        maxTags={5}
+      />
+      <button
+        onClick={handleAnalyzeICP}
+        disabled={loading === 'icp'}
+        style={{
+          background: 'linear-gradient(90deg, #fc5c7d 0%, #6a82fb 100%)',
+          color: '#fff', border: 'none', borderRadius: 8, padding: '10px 24px', fontWeight: 700, fontSize: 16,
+          marginBottom: 18, marginRight: 12, boxShadow: '0 2px 8px rgba(100,100,150,0.07)', cursor: loading === 'icp' ? 'not-allowed' : 'pointer', opacity: loading === 'icp' ? 0.7 : 1
+        }}
+      >{loading === 'icp' ? 'Analyzing...' : 'Analyze ICP'}</button>
+      <TagInput
+        label="Topic Pillars"
+        tags={topicPillarsTags}
+        setTags={setTopicPillarsTags}
+        placeholder="Add a topic pillar (e.g. Leadership)"
+        maxTags={5}
+      />
+      <button
+        onClick={handleAnalyzeTopicPillars}
+        disabled={loading === 'topicPillars'}
+        style={{
+          background: 'linear-gradient(90deg, #185a9d 0%, #43cea2 100%)',
+          color: '#fff', border: 'none', borderRadius: 8, padding: '10px 24px', fontWeight: 700, fontSize: 16,
+          marginBottom: 32, marginRight: 12, boxShadow: '0 2px 8px rgba(100,100,150,0.07)', cursor: loading === 'topicPillars' ? 'not-allowed' : 'pointer', opacity: loading === 'topicPillars' ? 0.7 : 1
+        }}
+      >{loading === 'topicPillars' ? 'Analyzing...' : 'Analyze Topic Pillars'}</button>
       <button
         onClick={handleSave}
         style={{
           background: 'linear-gradient(90deg, #43cea2 0%, #185a9d 100%)',
-          color: '#fff',
-          border: 'none',
-          borderRadius: 8,
-          padding: '14px 32px',
-          fontWeight: 700,
-          fontSize: 18,
-          boxShadow: '0 2px 8px rgba(100,100,150,0.07)',
-          cursor: 'pointer',
-          transition: 'background 0.2s, box-shadow 0.2s',
+          color: '#fff', border: 'none', borderRadius: 8, padding: '14px 32px', fontWeight: 700, fontSize: 18,
+          boxShadow: '0 2px 8px rgba(100,100,150,0.07)', cursor: 'pointer', transition: 'background 0.2s, box-shadow 0.2s',
         }}
-      >
-        Save
-      </button>
+      >Save</button>
     </div>
   );
 } 
