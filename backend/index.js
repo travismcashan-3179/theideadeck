@@ -9,6 +9,8 @@ import { v4 as uuidv4 } from 'uuid';
 import multer from 'multer';
 import ffmpeg from 'fluent-ffmpeg';
 import axios from 'axios';
+import pdfParse from 'pdf-parse';
+import csvParse from 'csv-parse/sync';
 
 const app = express();
 const PORT = 3001;
@@ -348,6 +350,7 @@ app.post('/sms-webhook', async (req, res) => {
   const now = new Date().toISOString();
   // Save incoming SMS as a user message
   chat.push({
+    id: uuidv4(),
     sender: 'user',
     text,
     createdAt: now
@@ -497,6 +500,68 @@ app.get('/test-sms', async (req, res) => {
   } catch (err) {
     console.error('Test SMS error:', err);
     res.status(500).json({ error: 'Failed to send test SMS', details: err.message });
+  }
+});
+
+app.post('/api/analyze-linkedin', upload.fields([
+  { name: 'profile', maxCount: 1 },
+  { name: 'posts', maxCount: 1 }
+]), async (req, res) => {
+  try {
+    // Parse PDF
+    const profilePath = req.files.profile[0].path;
+    const profileBuffer = fs.readFileSync(profilePath);
+    const profileText = (await pdfParse(profileBuffer)).text;
+
+    // Parse CSV
+    const postsPath = req.files.posts[0].path;
+    const postsCsv = fs.readFileSync(postsPath, 'utf8');
+    const postsRows = csvParse.parse(postsCsv, { columns: true });
+    const postsText = postsRows.map(row => row.Text || row.Content || '').join('\n');
+
+    // Compose prompt
+    const prompt = `
+Given the following LinkedIn profile and posts, extract:
+1. The user's discipline and market.
+2. Their ideal customer profile.
+3. Suggested topic pillars for their content.
+
+Profile:
+${profileText}
+
+Posts:
+${postsText}
+`;
+
+    // Call OpenAI
+    const aiRes = await openai.createChatCompletion({
+      model: 'gpt-3.5-turbo',
+      messages: [{ role: 'user', content: prompt }],
+      max_tokens: 400,
+    });
+
+    const aiText = aiRes.data.choices[0].message.content;
+
+    // Simple extraction
+    const result = {};
+    ['Discipline', 'Market', 'Ideal Customer Profile', 'Topic Pillars'].forEach(key => {
+      const match = aiText.match(new RegExp(`${key}:\\s*([\\s\\S]*?)(?=\\n[A-Z]|$)`, 'i'));
+      if (match) result[key.replace(/ /g, '').replace('IdealCustomerProfile', 'customerProfile').replace('TopicPillars', 'topicPillars').toLowerCase()] = match[1].trim();
+    });
+
+    res.json({
+      discipline: result.discipline || '',
+      market: result.market || '',
+      customerProfile: result.customerProfile || '',
+      topicPillars: result.topicPillars || '',
+    });
+
+    // Clean up files
+    fs.unlinkSync(profilePath);
+    fs.unlinkSync(postsPath);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to analyze files' });
   }
 });
 
