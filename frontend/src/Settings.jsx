@@ -100,6 +100,17 @@ export default function Settings({ onSave, initialValues }) {
     }
   };
 
+  const cleanTag = (tag) => {
+    return tag
+      .replace(/^[\s*-]+/, '') // leading spaces, asterisks, dashes
+      .replace(/^[0-9]+\.?\s*/, '') // leading numbers
+      .replace(/\*+/g, '') // all asterisks
+      .replace(/^(the user('|'?)s?|discipline|market|:|\s)+/i, '') // leading phrases
+      .replace(/\s+/g, ' ')
+      .replace(/[,.;:]+$/, '') // trailing punctuation
+      .trim();
+  };
+
   const handleAnalyze = async () => {
     if (!profileFile || !postsFile) {
       setError('Please upload both your profile PDF and posts CSV.');
@@ -119,8 +130,14 @@ export default function Settings({ onSave, initialValues }) {
       if (!res1.ok) throw new Error('Failed to analyze discipline/market');
       const data1 = await res1.json();
       // Split by comma or new line, trim, filter empty, max 5
-      setDisciplineTags((data1.discipline || '').split(/,|\n/).map(t => t.trim()).filter(Boolean).slice(0,5));
-      setMarketTags((data1.market || '').split(/,|\n/).map(t => t.trim()).filter(Boolean).slice(0,5));
+      setDisciplineTags((data1.discipline || '').split(/,|\n/)
+        .map(t => cleanTag(t))
+        .filter(t => t && t.length > 1 && !/^(the user|discipline|market)$/i.test(t))
+        .slice(0,5));
+      setMarketTags((data1.market || '').split(/,|\n/)
+        .map(t => cleanTag(t))
+        .filter(t => t && t.length > 1 && !/^(the user|discipline|market)$/i.test(t))
+        .slice(0,5));
     } catch (err) {
       setError('Discipline/Market analysis failed.');
       setLoading(false);
