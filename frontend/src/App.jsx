@@ -421,7 +421,7 @@ export default function App() {
         {/* Hamburger icon */}
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#343794" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
       </button>
-      {/* Modal Navigation */}
+      {/* Modal Navigation as dropdown below hamburger */}
       {navOpen && (
         <div
           className="gilbot-nav-modal"
@@ -431,39 +431,39 @@ export default function App() {
             left: 0,
             right: 0,
             bottom: 0,
-            background: 'rgba(0,0,0,0.32)',
+            background: 'transparent',
             zIndex: 2000,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
           }}
           onClick={() => setNavOpen(false)}
         >
           <div
             style={{
+              position: 'absolute',
+              top: 72, // 48px button + 24px margin
+              right: 32,
               background: '#fff',
               borderRadius: 18,
               boxShadow: '0 8px 32px #0002',
-              padding: 36,
-              minWidth: 240,
-              maxWidth: 320,
+              padding: 24,
+              minWidth: 180,
+              maxWidth: 240,
               width: '90vw',
               display: 'flex',
               flexDirection: 'column',
-              gap: 24,
-              alignItems: 'center',
-              position: 'relative',
+              gap: 16,
+              alignItems: 'stretch',
+              zIndex: 2001,
             }}
             onClick={e => e.stopPropagation()}
           >
             <button
               style={{
                 position: 'absolute',
-                top: 12,
-                right: 12,
+                top: 8,
+                right: 8,
                 background: 'none',
                 border: 'none',
-                fontSize: 28,
+                fontSize: 24,
                 color: '#343794',
                 cursor: 'pointer',
               }}
@@ -475,14 +475,14 @@ export default function App() {
             <button
               style={{
                 width: '100%',
-                padding: '18px 0',
-                fontSize: '1.3em',
+                padding: '14px 0',
+                fontSize: '1.1em',
                 fontWeight: 700,
                 color: tab === 'chat' ? '#fff' : '#343794',
                 background: tab === 'chat' ? '#343794' : '#f3eeff',
                 border: 'none',
-                borderRadius: 12,
-                marginBottom: 12,
+                borderRadius: 10,
+                marginBottom: 8,
                 cursor: 'pointer',
                 transition: 'background 0.2s',
               }}
@@ -493,13 +493,13 @@ export default function App() {
             <button
               style={{
                 width: '100%',
-                padding: '18px 0',
-                fontSize: '1.3em',
+                padding: '14px 0',
+                fontSize: '1.1em',
                 fontWeight: 700,
                 color: tab === 'ideas' ? '#fff' : '#343794',
                 background: tab === 'ideas' ? '#343794' : '#f3eeff',
                 border: 'none',
-                borderRadius: 12,
+                borderRadius: 10,
                 cursor: 'pointer',
                 transition: 'background 0.2s',
               }}
