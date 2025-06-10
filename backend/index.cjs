@@ -1,14 +1,14 @@
-import express from 'express';
-import cors from 'cors';
-import bodyParser from 'body-parser';
-import fs from 'fs';
-import path from 'path';
-import 'dotenv/config';
-import OpenAI from 'openai';
-import { v4 as uuidv4 } from 'uuid';
-import multer from 'multer';
-import ffmpeg from 'fluent-ffmpeg';
-import axios from 'axios';
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const fs = require('fs');
+const path = require('path');
+require('dotenv').config();
+const { OpenAIApi, Configuration } = require('openai');
+const { v4: uuidv4 } = require('uuid');
+const multer = require('multer');
+const ffmpeg = require('fluent-ffmpeg');
+const axios = require('axios');
 const pdfParse = require('pdf-parse');
 const csvParse = require('csv-parse/sync');
 
@@ -59,7 +59,7 @@ function writeChat(chat) {
   fs.writeFileSync(CHAT_FILE, JSON.stringify(chat, null, 2));
 }
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const openai = new OpenAIApi(new Configuration({ apiKey: process.env.OPENAI_API_KEY }));
 
 const upload = multer({ dest: 'uploads/' });
 
@@ -176,7 +176,7 @@ app.post('/agent', async (req, res) => {
     const STATUSES = ["New", "Drafted", "Scheduled", "Posted", "Archived"];
     const AUDIENCES = ["Peers", "Leaders", "Clients", "Job Seekers", "Public"];
     const extractPrompt = `You are an expert LinkedIn content strategist. The user may send you a list of LinkedIn post ideas, a brain dump, or a chat message.\n\nIf the message contains a list of post ideas (even if short, unpunctuated, or separated by lines/dashes), extract all distinct LinkedIn post ideas and for each, return a JSON object with these fields: text, type, topic, intent, status (default to 'New'), and audience.\n\nFor each field, ONLY choose from these allowed values:\n- type: ${POST_TYPES.join(", ")}\n- topic: ${CONTENT_TOPICS.join(", ")}\n- intent: ${INTENTS.join(", ")}\n- status: ${STATUSES.join(", ")}\n- audience: ${AUDIENCES.join(", ")}\n\nReturn ONLY a JSON array of objects, one per idea. Use short, clear values for each field. If it is not a list of ideas, reply conversationally as yourself. Do not include any explanation or extra text outside the JSON array if extracting ideas.\n\nText:\n${message}`;
-    const completion = await openai.chat.completions.create({
+    const completion = await openai.createChatCompletion({
       model: 'gpt-3.5-turbo',
       messages: [
         { role: 'system', content: 'You are an expert LinkedIn content strategist.' },
@@ -184,7 +184,7 @@ app.post('/agent', async (req, res) => {
       ],
       temperature: 0.3
     });
-    const aiContent = completion.choices[0].message.content.trim();
+    const aiContent = completion.data.choices[0].message.content.trim();
     let ideasArr = [];
     let isIdeas = false;
     try {
@@ -218,7 +218,7 @@ app.post('/agent', async (req, res) => {
         if (!isShortSingleSentence) {
           try {
             const rewritePrompt = `If the following text is already a single, short, catchy sentence, return it unchanged. If it is long, multi-line, a list, or a paragraph, rewrite it as a single, catchy sentence suitable as a LinkedIn post idea title.\n\nText:\n${original}`;
-            const rewriteCompletion = await openai.chat.completions.create({
+            const rewriteCompletion = await openai.createChatCompletion({
               model: 'gpt-3.5-turbo',
               messages: [
                 { role: 'system', content: 'You are an expert LinkedIn content strategist.' },
@@ -226,7 +226,7 @@ app.post('/agent', async (req, res) => {
               ],
               temperature: 0.3
             });
-            hook = rewriteCompletion.choices[0].message.content.trim();
+            hook = rewriteCompletion.data.choices[0].message.content.trim();
           } catch (e) {}
         }
         newIdeas.push({
@@ -262,7 +262,7 @@ app.post('/agent', async (req, res) => {
       const chatHistory = readChat().slice(-10);
       const context = chatHistory.map(m => `${m.sender === 'user' ? 'User' : 'Agent'}: ${m.text}`).join('\n');
       const prompt = `You are LinkedList, a friendly, smart assistant who helps users brainstorm, organize, and manage LinkedIn post ideas.\n\nYou can chat naturally, give encouragement, and help with content strategy.\n\nIf the user wants to add, list, mark, or delete an idea, you can do it. Otherwise, just reply conversationally.\n\nHere is the recent chat history for context:\n${context}\n\nUser: ${message}`;
-      const chatCompletion = await openai.chat.completions.create({
+      const chatCompletion = await openai.createChatCompletion({
         model: 'gpt-3.5-turbo',
         messages: [
           { role: 'system', content: 'You are LinkedList, a friendly, smart assistant for LinkedIn post ideas. You can chat naturally, help brainstorm, and manage ideas. If you need to perform an action, reply with a JSON object. Otherwise, just reply as yourself.' },
@@ -270,7 +270,7 @@ app.post('/agent', async (req, res) => {
         ],
         temperature: 0.7
       });
-      const aiReply = chatCompletion.choices[0].message.content.trim();
+      const aiReply = chatCompletion.data.choices[0].message.content.trim();
       const chat = readChat();
       // Ensure AI reply is always after the latest message
       const lastMsg = chat[chat.length - 1];
@@ -306,16 +306,17 @@ app.post('/transcribe', upload.single('audio'), async (req, res) => {
     });
     console.log('Converted to WAV:', outputPath);
     // Send WAV to OpenAI Whisper
-    const transcription = await openai.audio.transcriptions.create({
-      file: fs.createReadStream(outputPath),
-      model: 'whisper-1',
-      response_format: 'text',
-      language: 'en'
-    });
+    const transcription = await openai.createTranscription(
+      fs.createReadStream(outputPath),
+      'whisper-1',
+      null,
+      'text',
+      'en'
+    );
     fs.unlinkSync(inputPath); // Clean up original file
     fs.unlinkSync(outputPath); // Clean up wav file
     console.log('Transcription result:', transcription);
-    res.json({ text: transcription.data || transcription });
+    res.json({ text: transcription.data.text || transcription.data });
   } catch (err) {
     console.error('Transcription failed:', err);
     if (fs.existsSync(inputPath)) fs.unlinkSync(inputPath);
@@ -367,7 +368,7 @@ app.post('/sms-webhook', async (req, res) => {
     const extractPrompt = `You are an expert LinkedIn content strategist. The user may send you a list of LinkedIn post ideas, a brain dump, or a chat message.\n\nIf the message contains a list of post ideas (even if short, unpunctuated, or separated by lines/dashes), extract all distinct LinkedIn post ideas and for each, return a JSON object with these fields: text, type, topic, intent, status (default to 'New'), and audience.\n\nFor each field, ONLY choose from these allowed values:\n- type: ${POST_TYPES.join(", ")}\n- topic: ${CONTENT_TOPICS.join(", ")}\n- intent: ${INTENTS.join(", ")}\n- status: ${STATUSES.join(", ")}\n- audience: ${AUDIENCES.join(", ")}\n\nReturn ONLY a JSON array of objects, one per idea. Use short, clear values for each field. If it is not a list of ideas, reply conversationally as yourself. Do not include any explanation or extra text outside the JSON array if extracting ideas.\n\nText:\n${text}`;
     let completion;
     try {
-      completion = await openai.chat.completions.create({
+      completion = await openai.createChatCompletion({
         model: 'gpt-3.5-turbo',
         messages: [
           { role: 'system', content: 'You are an expert LinkedIn content strategist.' },
@@ -380,7 +381,7 @@ app.post('/sms-webhook', async (req, res) => {
       console.error('OpenAI API error:', err);
       throw err;
     }
-    const aiContent = completion.choices[0].message.content.trim();
+    const aiContent = completion.data.choices[0].message.content.trim();
     let ideasArr = [];
     let isIdeas = false;
     try {
@@ -414,7 +415,7 @@ app.post('/sms-webhook', async (req, res) => {
         if (!isShortSingleSentence) {
           try {
             const rewritePrompt = `If the following text is already a single, short, catchy sentence, return it unchanged. If it is long, multi-line, a list, or a paragraph, rewrite it as a single, catchy sentence suitable as a LinkedIn post idea title.\n\nText:\n${original}`;
-            const rewriteCompletion = await openai.chat.completions.create({
+            const rewriteCompletion = await openai.createChatCompletion({
               model: 'gpt-3.5-turbo',
               messages: [
                 { role: 'system', content: 'You are an expert LinkedIn content strategist.' },
@@ -422,7 +423,7 @@ app.post('/sms-webhook', async (req, res) => {
               ],
               temperature: 0.3
             });
-            hook = rewriteCompletion.choices[0].message.content.trim();
+            hook = rewriteCompletion.data.choices[0].message.content.trim();
           } catch (e) {}
         }
         newIdeas.push({
@@ -451,7 +452,7 @@ app.post('/sms-webhook', async (req, res) => {
       const prompt = `You are LinkedList, a friendly, smart assistant who helps users brainstorm, organize, and manage LinkedIn post ideas.\n\nYou can chat naturally, give encouragement, and help with content strategy.\n\nIf the user wants to add, list, mark, or delete an idea, you can do it. Otherwise, just reply conversationally.\n\nHere is the recent chat history for context:\n${context}\n\nUser: ${text}`;
       let chatCompletion;
       try {
-        chatCompletion = await openai.chat.completions.create({
+        chatCompletion = await openai.createChatCompletion({
           model: 'gpt-3.5-turbo',
           messages: [
             { role: 'system', content: 'You are LinkedList, a friendly, smart assistant for LinkedIn post ideas. You can chat naturally, help brainstorm, and manage ideas. If you need to perform an action, reply with a JSON object. Otherwise, just reply as yourself.' },
@@ -465,7 +466,7 @@ app.post('/sms-webhook', async (req, res) => {
         throw err;
       }
       const now2 = new Date(new Date(now).getTime() + 1).toISOString();
-      replyText = chatCompletion.choices[0].message.content.trim();
+      replyText = chatCompletion.data.choices[0].message.content.trim();
       chat.push({ sender: 'agent', text: replyText, createdAt: now2 });
     }
     // Write chat history once, after both user and agent messages
