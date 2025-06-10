@@ -431,6 +431,38 @@ body::-webkit-scrollbar, html::-webkit-scrollbar {
   box-shadow: 0 4px 16px #9194e0aa;
   outline: none;
 }
+.gilbot-hamburger .bar {
+  display: block;
+  width: 28px;
+  height: 3.5px;
+  background: #343794;
+  border-radius: 2px;
+  margin: 3.5px 0;
+  transition: all 0.32s cubic-bezier(.4,2,.6,1);
+}
+.gilbot-hamburger.open .bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.gilbot-hamburger.open .bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0.5);
+}
+.gilbot-hamburger.open .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+@media (max-width: 700px) {
+  .gilbot-hamburger {
+    top: 12px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+  }
+  .gilbot-hamburger .bar {
+    width: 22px;
+    height: 3px;
+    margin: 3px 0;
+  }
+}
 
 .gilbot-nav-modal {
   position: fixed;

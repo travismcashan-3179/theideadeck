@@ -398,9 +398,9 @@ export default function App() {
     <div id="gilbot-chat-root">
       {/* Floating Hamburger Button */}
       <button
-        className="gilbot-hamburger"
-        onClick={() => setNavOpen(true)}
-        aria-label="Open navigation"
+        className={`gilbot-hamburger${navOpen ? ' open' : ''}`}
+        onClick={() => setNavOpen(!navOpen)}
+        aria-label={navOpen ? 'Close navigation' : 'Open navigation'}
         style={{
           position: 'fixed',
           top: 24,
@@ -418,8 +418,9 @@ export default function App() {
           cursor: 'pointer',
         }}
       >
-        {/* Hamburger icon */}
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#343794" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+        <span className="bar" />
+        <span className="bar" />
+        <span className="bar" />
       </button>
       {/* Modal Navigation as dropdown below hamburger */}
       {navOpen && (
