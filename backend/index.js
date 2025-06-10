@@ -9,8 +9,8 @@ import { v4 as uuidv4 } from 'uuid';
 import multer from 'multer';
 import ffmpeg from 'fluent-ffmpeg';
 import axios from 'axios';
-import pdfParse from 'pdf-parse';
-import csvParse from 'csv-parse/sync';
+const pdfParse = require('pdf-parse');
+const csvParse = require('csv-parse/sync');
 
 const app = express();
 const PORT = 3001;
