@@ -699,48 +699,22 @@ export default function App() {
                   >
                     {filteredIdeas.map((idea, i) => (
                       <SwiperSlide key={idea.id}>
-                        <div
-                          className="ca-card ca-card-fade"
-                          style={{
-                            width: 320,
-                            maxWidth: 340,
-                            height: 360,
-                            margin: '0 auto',
-                            background: '#fff',
-                            borderRadius: 18,
-                            boxShadow: '0 4px 16px #0001',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            justifyContent: 'flex-start',
-                            alignItems: 'flex-start',
-                            position: 'relative',
-                          }}
-                          tabIndex={0}
-                          onDoubleClick={e => {
-                            if (editingTitleId !== idea.id) setDetailIdea(idea);
-                          }}
-                        >
-                          <div className="ca-card-text-overlay">
-                            <span className="ca-card-hook editable-title" style={{ fontWeight: 700, fontSize: '1.18em', color: '#343794', marginBottom: 12 }}>{idea.hook || idea.text}</span>
-                            {idea.imageUrl && (
-                              <img src={getImageUrl(idea.imageUrl)} alt="Idea" style={{ width: 96, height: 96, borderRadius: 16, objectFit: 'cover', display: 'block', margin: '18px 0 0 0' }} />
-                            )}
-                          </div>
-                          <div className="ca-card-tags">
-                            {idea.type && (
-                              <button className="ca-card-tag" type="button" onClick={() => setFilterPostType(idea.type)}>{idea.type}</button>
-                            )}
-                            {idea.topic && (
-                              <button className="ca-card-tag" type="button" onClick={() => setFilterContentTopic(idea.topic)}>{idea.topic}</button>
-                            )}
-                            {idea.intent && (
-                              <button className="ca-card-tag" type="button" onClick={() => setFilterIntent(idea.intent)}>{idea.intent}</button>
-                            )}
-                          </div>
-                          <div className="ca-card-actions">
-                            {!idea.used && <button className="ca-card-btn" onClick={() => markUsed(idea.id)}>Mark as Used</button>}
-                            <button className="ca-card-btn delete" onClick={() => deleteIdea(idea.id)}>Delete</button>
-                          </div>
+                        <div className="google-keep-card" style={{ 
+                          background: '#fff', 
+                          borderRadius: '8px', 
+                          boxShadow: '0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15)', 
+                          padding: '16px', 
+                          margin: '8px', 
+                          width: '240px', 
+                          transition: 'box-shadow 0.2s ease', 
+                          cursor: 'pointer' 
+                        }}>
+                          <div style={{ fontSize: '16px', fontWeight: '500', marginBottom: '8px' }}>{idea.text}</div>
+                          {idea.type && <div style={{ fontSize: '14px', color: '#5f6368' }}>Type: {idea.type}</div>}
+                          {idea.topic && <div style={{ fontSize: '14px', color: '#5f6368' }}>Topic: {idea.topic}</div>}
+                          {idea.intent && <div style={{ fontSize: '14px', color: '#5f6368' }}>Intent: {idea.intent}</div>}
+                          {idea.status && <div style={{ fontSize: '14px', color: '#5f6368' }}>Status: {idea.status}</div>}
+                          {idea.audience && <div style={{ fontSize: '14px', color: '#5f6368' }}>Audience: {idea.audience}</div>}
                         </div>
                       </SwiperSlide>
                     ))}
@@ -758,213 +732,25 @@ export default function App() {
                       return (
                         <div
                           key={idea.id}
-                          className="ca-card ca-card-fade"
-                          tabIndex={0}
-                          style={{
-                            position: 'relative',
-                            outline: draggedCard === idea.id ? '2px solid #9147ff' : dragOverId === idea.id ? '2px solid #4caf50' : undefined,
-                            background: draggedCard === idea.id ? '#f3eeff' : dragOverId === idea.id ? '#eaffea' : undefined
+                          className="google-keep-card"
+                          style={{ 
+                            background: '#fff', 
+                            borderRadius: '8px', 
+                            boxShadow: '0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15)', 
+                            padding: '16px', 
+                            margin: '8px', 
+                            width: '240px', 
+                            transition: 'box-shadow 0.2s ease', 
+                            cursor: 'pointer' 
                           }}
-                          onDoubleClick={e => {
-                            if (editingTitleId !== idea.id) setDetailIdea(idea);
-                          }}
-                          onMouseEnter={e => {
-                            const btn = e.currentTarget.querySelector('.ca-card-edit-btn');
-                            if (btn) { btn.style.opacity = 1; btn.style.pointerEvents = 'auto'; }
-                          }}
-                          onMouseLeave={e => {
-                            const btn = e.currentTarget.querySelector('.ca-card-edit-btn');
-                            if (btn) { btn.style.opacity = 0; btn.style.pointerEvents = 'none'; }
-                          }}
-                          onFocus={e => {
-                            const btn = e.currentTarget.querySelector('.ca-card-edit-btn');
-                            if (btn) { btn.style.opacity = 1; btn.style.pointerEvents = 'auto'; }
-                          }}
-                          onBlur={e => {
-                            const btn = e.currentTarget.querySelector('.ca-card-edit-btn');
-                            if (btn) { btn.style.opacity = 0; btn.style.pointerEvents = 'none'; }
-                          }}
-                          onDragOver={e => {
-                            e.preventDefault();
-                            setDragOverId(idea.id);
-                          }}
-                          onDragLeave={e => {
-                            e.preventDefault();
-                            setDragOverId(null);
-                          }}
-                          onDrop={e => handleImageDrop(e, idea)}
+                          onClick={() => setDetailIdea(idea)}
                         >
-                          {idea._editingMeta ? (
-                            <div className="ca-card-meta ca-card-meta-active" style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                              <form
-                                style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 8, alignItems: 'flex-start', padding: '0 18px', marginTop: 32 }}
-                                onClick={e => e.stopPropagation()}
-                                onFocus={e => e.stopPropagation()}
-                              >
-                                {[
-                                  { label: 'Type', field: 'type', options: POST_TYPES },
-                                  { label: 'Topic', field: 'topic', options: CONTENT_TOPICS },
-                                  { label: 'Intent', field: 'intent', options: INTENTS },
-                                ].map(meta => (
-                                  <div key={meta.field} style={{ width: '100%', marginBottom: 4 }}>
-                                    <div className="gilbot-filter-label">{meta.label}</div>
-                                    <select
-                                      className="gilbot-filter-select"
-                                      style={{ width: '100%' }}
-                                      value={idea[meta.field] || ''}
-                                      onChange={async e => {
-                                        const newValue = e.target.value;
-                                        setIdeas(prev => prev.map(idObj => idObj.id === idea.id ? { ...idObj, [meta.field]: newValue } : idObj));
-                                        await fetch(getApiUrl(`/ideas/${idea.id}`), {
-                                          method: 'PATCH',
-                                          headers: { 'Content-Type': 'application/json' },
-                                          body: JSON.stringify({ [meta.field]: newValue })
-                                        });
-                                      }}
-                                    >
-                                      {meta.options.map(opt => {
-                                        if (!opt) return <option key="" value="">Select {meta.label}</option>;
-                                        return <option key={opt} value={opt}>{opt}</option>;
-                                      })}
-                                    </select>
-                                  </div>
-                                ))}
-                                <div className="ca-card-date" style={{ marginTop: 18, alignSelf: 'flex-start' }}>{formatDate(idea.createdAt)}{idea.used ? ' • Used' : ''}</div>
-                                <button
-                                  type="button"
-                                  className="ca-card-btn"
-                                  style={{ marginTop: 18, alignSelf: 'flex-end', background: '#343794', color: '#fff', fontWeight: 700, borderRadius: 16, padding: '8px 22px' }}
-                                  onClick={e => {
-                                    e.preventDefault();
-                                    setIdeas(prev => prev.map(idObj => idObj.id === idea.id ? { ...idObj, _editingMeta: false } : idObj));
-                                  }}
-                                >
-                                  Done
-                                </button>
-                              </form>
-                            </div>
-                          ) : (
-                            <>
-                              <div className="ca-card-text-overlay">
-                                {editingTitleId === idea.id ? (
-                                  <textarea
-                                    value={idea.hook || ''}
-                                    autoFocus
-                                    rows={1}
-                                    style={{
-                                      fontWeight: 700,
-                                      fontSize: '1.18em',
-                                      color: '#343794',
-                                      flex: 1,
-                                      minWidth: 0,
-                                      textOverflow: 'ellipsis',
-                                      overflow: 'hidden',
-                                      whiteSpace: 'pre-wrap',
-                                      border: 'none',
-                                      outline: 'none',
-                                      background: 'transparent',
-                                      borderRadius: 0,
-                                      padding: 0,
-                                      resize: 'none',
-                                      width: '100%',
-                                      boxSizing: 'border-box',
-                                      lineHeight: 1.3,
-                                      margin: 0,
-                                      display: 'block',
-                                      transition: 'none',
-                                    }}
-                                    onChange={e => {
-                                      const val = e.target.value;
-                                      setIdeas(prev => prev.map(idObj => idObj.id === idea.id ? { ...idObj, hook: val } : idObj));
-                                      // Auto-resize
-                                      e.target.style.height = 'auto';
-                                      e.target.style.height = e.target.scrollHeight + 'px';
-                                    }}
-                                    onBlur={async e => {
-                                      setEditingTitleId(null);
-                                      await fetch(getApiUrl(`/ideas/${idea.id}`), {
-                                        method: 'PATCH',
-                                        headers: { 'Content-Type': 'application/json' },
-                                        body: JSON.stringify({ hook: e.target.value })
-                                      });
-                                    }}
-                                    onKeyDown={async e => {
-                                      if (e.key === 'Enter' && !e.shiftKey) {
-                                        e.preventDefault();
-                                        setEditingTitleId(null);
-                                        await fetch(getApiUrl(`/ideas/${idea.id}`), {
-                                          method: 'PATCH',
-                                          headers: { 'Content-Type': 'application/json' },
-                                          body: JSON.stringify({ hook: e.target.value })
-                                        });
-                                      }
-                                    }}
-                                  />
-                                ) : (
-                                  <span
-                                    className="ca-card-hook editable-title"
-                                    style={{ cursor: 'pointer', textDecoration: 'underline dotted #343794 1.5px', textUnderlineOffset: 4 }}
-                                    onDoubleClick={e => {
-                                      e.stopPropagation();
-                                      setEditingTitleId(idea.id);
-                                    }}
-                                    title="Double-click to edit title"
-                                  >
-                                    {idea.hook || idea.text}
-                                  </span>
-                                )}
-                                {idea.imageUrl && (
-                                  <img src={getImageUrl(idea.imageUrl)} alt="Idea" style={{ width: 96, height: 96, borderRadius: 16, objectFit: 'cover', display: 'block', margin: '18px 0 0 0' }} />
-                                )}
-                              </div>
-                              <div className="ca-card-tags">
-                                {idea.type && (
-                                  <button
-                                    className="ca-card-tag"
-                                    type="button"
-                                    onClick={() => setFilterPostType(idea.type)}
-                                  >
-                                    {idea.type}
-                                  </button>
-                                )}
-                                {idea.topic && (
-                                  <button
-                                    className="ca-card-tag"
-                                    type="button"
-                                    onClick={() => setFilterContentTopic(idea.topic)}
-                                  >
-                                    {idea.topic}
-                                  </button>
-                                )}
-                                {idea.intent && (
-                                  <button
-                                    className="ca-card-tag"
-                                    type="button"
-                                    onClick={() => setFilterIntent(idea.intent)}
-                                  >
-                                    {idea.intent}
-                                  </button>
-                                )}
-                              </div>
-                              <div className="ca-card-actions">
-                                {!idea.used && <button className="ca-card-btn" onClick={() => markUsed(idea.id)}>Mark as Used</button>}
-                                <button className="ca-card-btn delete" onClick={() => deleteIdea(idea.id)}>Delete</button>
-                              </div>
-                              <button
-                                className="ca-card-edit-btn"
-                                type="button"
-                                onClick={e => {
-                                  e.stopPropagation();
-                                  setIdeas(prev => prev.map(idObj => idObj.id === idea.id ? { ...idObj, _editingMeta: true } : idObj));
-                                }}
-                                style={{ position: 'absolute', bottom: 16, right: 16, zIndex: 20, opacity: 0, pointerEvents: 'none', transition: 'opacity 0.18s', width: 40, height: 40, minWidth: 40, minHeight: 40, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-                                aria-label="Edit meta"
-                                tabIndex={-1}
-                              >
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
-                              </button>
-                            </>
-                          )}
+                          <div style={{ fontSize: '16px', fontWeight: '500', marginBottom: '8px' }}>{idea.text}</div>
+                          {idea.type && <div style={{ fontSize: '14px', color: '#5f6368' }}>Type: {idea.type}</div>}
+                          {idea.topic && <div style={{ fontSize: '14px', color: '#5f6368' }}>Topic: {idea.topic}</div>}
+                          {idea.intent && <div style={{ fontSize: '14px', color: '#5f6368' }}>Intent: {idea.intent}</div>}
+                          {idea.status && <div style={{ fontSize: '14px', color: '#5f6368' }}>Status: {idea.status}</div>}
+                          {idea.audience && <div style={{ fontSize: '14px', color: '#5f6368' }}>Audience: {idea.audience}</div>}
                         </div>
                       );
                     } else {
@@ -985,18 +771,7 @@ export default function App() {
                             position: 'relative',
                             cursor: 'pointer'
                           }}
-                          onDoubleClick={e => {
-                            if (editingTitleId !== idea.id) setDetailIdea(idea);
-                          }}
-                          onDragOver={e => {
-                            e.preventDefault();
-                            setDragOverId(idea.id);
-                          }}
-                          onDragLeave={e => {
-                            e.preventDefault();
-                            setDragOverId(null);
-                          }}
-                          onDrop={e => handleImageDrop(e, idea)}
+                          onClick={() => setDetailIdea(idea)}
                         >
                           {idea.imageUrl && (
                             <img src={getImageUrl(idea.imageUrl)} alt="Idea" style={{ width: 56, height: 56, borderRadius: 12, objectFit: 'cover', flexShrink: 0 }} />
