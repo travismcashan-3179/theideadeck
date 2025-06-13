@@ -690,11 +690,11 @@ export default function App() {
             <div className={ideasView === 'grid' ? 'gilbot-grid' : ideasView === 'carousel' ? 'gilbot-carousel' : 'gilbot-list'}>
               {tab === 'ideas' && ideasView === 'grid' && (
                 <Masonry
-                  breakpointCols={{default: 4, 1100: 3, 700: 2, 500: 1}}
+                  breakpointCols={{default: 5, 1400: 4, 1100: 3, 700: 2, 500: 1}}
                   className="google-keep-masonry"
                   columnClassName="google-keep-masonry-column"
                 >
-                  {filteredIdeas.map(idea => (
+                  {filteredIdeas.filter(idea => idea.hook || idea.text || idea.original).map(idea => (
                     <div className="google-keep-card" key={idea.id} onDoubleClick={() => setDetailIdea(idea)}>
                       <div className="google-keep-card-title">{idea.hook || idea.text || idea.original || '[No text]'}</div>
                     </div>

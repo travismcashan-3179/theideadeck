@@ -16,14 +16,27 @@
   transition: box-shadow 0.2s ease;
   cursor: pointer;
   word-break: break-word;
+  width: 240px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 .google-keep-card-title {
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 8px;
+  overflow-wrap: anywhere;
 }
 .google-keep-card-meta {
   font-size: 14px;
   color: #5f6368;
   margin-bottom: 4px;
+}
+@media (max-width: 1400px) {
+  .google-keep-card { width: 240px; }
+}
+@media (max-width: 1100px) {
+  .google-keep-card { width: 240px; }
+}
+@media (max-width: 700px) {
+  .google-keep-card { width: 100%; min-width: 0; }
 } 
