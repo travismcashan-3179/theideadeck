@@ -696,7 +696,7 @@ export default function App() {
                 >
                   {filteredIdeas.map(idea => (
                     <div className="google-keep-card" key={idea.id} onDoubleClick={() => setDetailIdea(idea)}>
-                      <div className="google-keep-card-title">{idea.text}</div>
+                      <div className="google-keep-card-title">{idea.hook || idea.text || idea.original || '[No text]'}</div>
                     </div>
                   ))}
                 </Masonry>
