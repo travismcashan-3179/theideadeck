@@ -1,7 +1,10 @@
 .google-keep-masonry {
   display: flex;
   margin-left: -16px;
-  width: auto;
+  width: 100%;
+  max-width: 1400px;
+  margin-right: auto;
+  margin-left: auto;
 }
 .google-keep-masonry-column {
   padding-left: 16px;
@@ -16,9 +19,9 @@
   transition: box-shadow 0.2s ease;
   cursor: pointer;
   word-break: break-word;
-  width: 240px;
-  max-width: 100%;
-  overflow-wrap: anywhere;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 40px;
 }
 .google-keep-card-title {
   font-size: 16px;

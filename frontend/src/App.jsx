@@ -694,11 +694,13 @@ export default function App() {
                   className="google-keep-masonry"
                   columnClassName="google-keep-masonry-column"
                 >
-                  {filteredIdeas.filter(idea => idea.hook || idea.text || idea.original).map(idea => (
-                    <div className="google-keep-card" key={idea.id} onDoubleClick={() => setDetailIdea(idea)}>
-                      <div className="google-keep-card-title">{idea.hook || idea.text || idea.original || '[No text]'}</div>
-                    </div>
-                  ))}
+                  {filteredIdeas
+                    .filter(idea => (idea.hook || idea.text || idea.original) && (idea.hook || idea.text || idea.original).trim())
+                    .map(idea => (
+                      <div className="google-keep-card" key={idea.id} onDoubleClick={() => setDetailIdea(idea)}>
+                        <div className="google-keep-card-title">{idea.hook || idea.text || idea.original}</div>
+                      </div>
+                    ))}
                 </Masonry>
               )}
               {ideasView === 'carousel' ? (
