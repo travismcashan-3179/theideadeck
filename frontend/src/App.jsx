@@ -4,6 +4,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import './ChatGilbot.css';
 import Settings from './Settings';
+import Masonry from 'react-masonry-css';
+import './GoogleKeepMasonry.css';
 
 const BOT_AVATAR = (
   <span className="gilbot-avatar" aria-label="Gilbot">🤖</span>
@@ -686,6 +688,19 @@ export default function App() {
               </div>
             </div>
             <div className={ideasView === 'grid' ? 'gilbot-grid' : ideasView === 'carousel' ? 'gilbot-carousel' : 'gilbot-list'}>
+              {tab === 'ideas' && ideasView === 'grid' && (
+                <Masonry
+                  breakpointCols={{default: 4, 1100: 3, 700: 2, 500: 1}}
+                  className="google-keep-masonry"
+                  columnClassName="google-keep-masonry-column"
+                >
+                  {filteredIdeas.map(idea => (
+                    <div className="google-keep-card" key={idea.id} onDoubleClick={() => setDetailIdea(idea)}>
+                      <div className="google-keep-card-title">{idea.text}</div>
+                    </div>
+                  ))}
+                </Masonry>
+              )}
               {ideasView === 'carousel' ? (
                 filteredIdeas.length === 0 ? (
                   <div style={{ color: '#888', textAlign: 'center', marginTop: 40 }}>No ideas yet. Add some in the chat!</div>
@@ -710,11 +725,6 @@ export default function App() {
                           cursor: 'pointer' 
                         }}>
                           <div style={{ fontSize: '16px', fontWeight: '500', marginBottom: '8px' }}>{idea.text}</div>
-                          {idea.type && <div style={{ fontSize: '14px', color: '#5f6368' }}>Type: {idea.type}</div>}
-                          {idea.topic && <div style={{ fontSize: '14px', color: '#5f6368' }}>Topic: {idea.topic}</div>}
-                          {idea.intent && <div style={{ fontSize: '14px', color: '#5f6368' }}>Intent: {idea.intent}</div>}
-                          {idea.status && <div style={{ fontSize: '14px', color: '#5f6368' }}>Status: {idea.status}</div>}
-                          {idea.audience && <div style={{ fontSize: '14px', color: '#5f6368' }}>Audience: {idea.audience}</div>}
                         </div>
                       </SwiperSlide>
                     ))}
@@ -746,11 +756,6 @@ export default function App() {
                           onClick={() => setDetailIdea(idea)}
                         >
                           <div style={{ fontSize: '16px', fontWeight: '500', marginBottom: '8px' }}>{idea.text}</div>
-                          {idea.type && <div style={{ fontSize: '14px', color: '#5f6368' }}>Type: {idea.type}</div>}
-                          {idea.topic && <div style={{ fontSize: '14px', color: '#5f6368' }}>Topic: {idea.topic}</div>}
-                          {idea.intent && <div style={{ fontSize: '14px', color: '#5f6368' }}>Intent: {idea.intent}</div>}
-                          {idea.status && <div style={{ fontSize: '14px', color: '#5f6368' }}>Status: {idea.status}</div>}
-                          {idea.audience && <div style={{ fontSize: '14px', color: '#5f6368' }}>Audience: {idea.audience}</div>}
                         </div>
                       );
                     } else {
